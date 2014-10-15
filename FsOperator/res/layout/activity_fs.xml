@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".FsActivity" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FsOperator" />
+
+    <EditText
+        android:id="@+id/writeET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/writeBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView"
+        android:layout_below="@+id/writeET"
+        android:layout_marginTop="38dp"
+        android:text="Write" />
+
+    <Button
+        android:id="@+id/readBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/writeBT"
+        android:layout_alignTop="@+id/writeBT"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@+id/writeBT"
+        android:text="Read" />
+
+    <Button
+        android:id="@+id/seekBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/readBT"
+        android:layout_alignBottom="@+id/readBT"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/readBT"
+        android:text="Seek" />
+
+    <TextView
+        android:id="@+id/readTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/writeET"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/writeBT"
+        android:layout_marginTop="102dp" />
+
+</RelativeLayout>
