@@ -1,0 +1,1553 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ABS	typedef.h	63;"	d
+ACP_PKT	cat6023.h	666;"	d
+ACP_PKT_LEN	typedef.h	230;"	d
+ACP_PKT_LEN	typedef.h	406;"	d
+ASTATE_AudioOff	typedef.h	/^    ASTATE_AudioOff = 0,$/;"	e	enum:_Audio_State_Type
+ASTATE_AudioOn	typedef.h	/^    ASTATE_AudioOn ,$/;"	e	enum:_Audio_State_Type
+ASTATE_RequestAudio	typedef.h	/^    ASTATE_RequestAudio ,		\/\/请求音频$/;"	e	enum:_Audio_State_Type
+ASTATE_Reserved	typedef.h	/^    ASTATE_Reserved$/;"	e	enum:_Audio_State_Type
+ASTATE_ResetAudio	typedef.h	/^    ASTATE_ResetAudio,$/;"	e	enum:_Audio_State_Type
+ASTATE_WaitForReady	typedef.h	/^    ASTATE_WaitForReady,$/;"	e	enum:_Audio_State_Type
+AState	cat6023.c	/^_IDATA Audio_State_Type AState = ASTATE_AudioOff ;	\/\/Dongzejun:$/;"	v
+AStateStr	cat6023.c	/^char _CODE *AStateStr[] = {$/;"	v
+AUDFS_176p4KHz	typedef.h	186;"	d
+AUDFS_192KHz	typedef.h	191;"	d
+AUDFS_22p05KHz	typedef.h	183;"	d
+AUDFS_24KHz	typedef.h	188;"	d
+AUDFS_32KHz	typedef.h	193;"	d
+AUDFS_44p1KHz	typedef.h	184;"	d
+AUDFS_48KHz	typedef.h	189;"	d
+AUDFS_88p2KHz	typedef.h	185;"	d
+AUDFS_96KHz	typedef.h	190;"	d
+AUDFS_OTHER	typedef.h	194;"	d
+AUDIO_CAPS	cat6023.h	/^} AUDIO_CAPS ;$/;"	t	typeref:struct:__anon1
+AUDIO_CLEARERROR_TIMEOUT	cat6023.c	120;"	d	file:
+AUDIO_INFOFRAME	cat6023.h	663;"	d
+AUDIO_INFOFRAME_LEN	typedef.h	227;"	d
+AUDIO_INFOFRAME_LEN	typedef.h	403;"	d
+AUDIO_INFOFRAME_TYPE	typedef.h	215;"	d
+AUDIO_INFOFRAME_TYPE	typedef.h	391;"	d
+AUDIO_INFOFRAME_VER	typedef.h	221;"	d
+AUDIO_INFOFRAME_VER	typedef.h	397;"	d
+AUDIO_READY_TIMEOUT	cat6023.c	119;"	d	file:
+AUDIO_SAMPLE_PKT	cat6023.h	668;"	d
+AUD_DB	typedef.h	/^        BYTE AUD_DB[AUDIO_INFOFRAME_LEN] ;$/;"	m	struct:_Audio_InfoFrame::__anon7
+AUD_HB	typedef.h	/^        BYTE AUD_HB[3] ;$/;"	m	struct:_Audio_InfoFrame::__anon7
+AUD_SWL_16	typedef.h	203;"	d
+AUD_SWL_16	typedef.h	379;"	d
+AUD_SWL_17	typedef.h	204;"	d
+AUD_SWL_17	typedef.h	380;"	d
+AUD_SWL_18	typedef.h	205;"	d
+AUD_SWL_18	typedef.h	381;"	d
+AUD_SWL_20	typedef.h	206;"	d
+AUD_SWL_20	typedef.h	382;"	d
+AUD_SWL_21	typedef.h	207;"	d
+AUD_SWL_21	typedef.h	383;"	d
+AUD_SWL_22	typedef.h	208;"	d
+AUD_SWL_22	typedef.h	384;"	d
+AUD_SWL_23	typedef.h	209;"	d
+AUD_SWL_23	typedef.h	385;"	d
+AUD_SWL_24	typedef.h	210;"	d
+AUD_SWL_24	typedef.h	386;"	d
+AUD_SWL_NOINDICATE	typedef.h	202;"	d
+AUD_SWL_NOINDICATE	typedef.h	378;"	d
+AVI_DB	typedef.h	/^        BYTE AVI_DB[AVI_INFOFRAME_LEN] ;$/;"	m	struct:_AVI_InfoFrame::__anon5
+AVI_HB	typedef.h	/^        BYTE AVI_HB[3] ;$/;"	m	struct:_AVI_InfoFrame::__anon5
+AVI_INFOFRAME	cat6023.h	662;"	d
+AVI_INFOFRAME_LEN	typedef.h	225;"	d
+AVI_INFOFRAME_LEN	typedef.h	401;"	d
+AVI_INFOFRAME_TYPE	typedef.h	213;"	d
+AVI_INFOFRAME_TYPE	typedef.h	389;"	d
+AVI_INFOFRAME_VER	typedef.h	219;"	d
+AVI_INFOFRAME_VER	typedef.h	395;"	d
+AVI_InfoFrame	typedef.h	/^} AVI_InfoFrame ;$/;"	t	typeref:union:_AVI_InfoFrame
+AcceptCDRReset	cat6023.c	/^static BOOL AcceptCDRReset = TRUE ;	\/\/Dongzejun: 初始设置为1$/;"	v	file:
+ActiveFmtInfoPresent	typedef.h	/^        BYTE ActiveFmtInfoPresent:1 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+ActiveFormatAspectRatio	typedef.h	/^        BYTE ActiveFormatAspectRatio:4 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+AssignAudioTimerTimeout	cat6023.c	/^AssignAudioTimerTimeout(USHORT TimeOut)$/;"	f
+AssignVideoTimerTimeout	cat6023.c	/^void AssignVideoTimerTimeout(USHORT TimeOut)$/;"	f
+AudSrcEnable	cat6023.h	/^    BYTE AudSrcEnable ;	\/\/Dongzejun:reg8a[3:0] Audio SCR$/;"	m	struct:__anon1
+AudioCaps	cat6023.c	/^static _XDATA AUDIO_CAPS AudioCaps ;$/;"	v	file:
+AudioChannelCount	typedef.h	/^        BYTE AudioChannelCount:3 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+AudioCodingType	typedef.h	/^        BYTE AudioCodingType:4 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+AudioCountingTimer	cat6023.c	/^static _IDATA USHORT AudioCountingTimer = 0 ;$/;"	v	file:
+AudioFlag	cat6023.h	/^    BYTE AudioFlag ;			\/\/Dongzejun:reg8a[7:4] $/;"	m	struct:__anon1
+AudioTimerHandler	cat6023.c	/^void AudioTimerHandler()$/;"	f
+Audio_InfoFrame	typedef.h	/^} Audio_InfoFrame ;$/;"	t	typeref:union:_Audio_InfoFrame
+Audio_State_Type	typedef.h	/^} Audio_State_Type ;$/;"	t	typeref:enum:_Audio_State_Type
+BOOL	typedef.h	/^typedef bit BOOL ;$/;"	t
+BOOL	typedef.h	/^typedef int BOOL ;$/;"	t
+BYTE	typedef.h	/^typedef unsigned char BYTE, *PBYTE ;$/;"	t
+B_1024FS	cat6023.h	518;"	d
+B_128FS	cat6023.h	515;"	d
+B_256FS	cat6023.h	516;"	d
+B_512FS	cat6023.h	517;"	d
+B_565FFRST	cat6023.h	276;"	d
+B_APLL_AUTOSW	cat6023.h	472;"	d
+B_APLL_EC1	cat6023.h	466;"	d
+B_APLL_ENI2A	cat6023.h	465;"	d
+B_APLL_ENIA	cat6023.h	467;"	d
+B_APLL_REFSW	cat6023.h	471;"	d
+B_AUDCK_BBEN	cat6023.h	494;"	d
+B_AUDFIFOERR	cat6023.h	233;"	d
+B_AUDIO_LAYOUT	cat6023.h	599;"	d
+B_AUDIO_ON	cat6023.h	596;"	d
+B_AUDIO_SRC_VALID_0	cat6023.h	604;"	d
+B_AUDIO_SRC_VALID_1	cat6023.h	603;"	d
+B_AUDIO_SRC_VALID_2	cat6023.h	602;"	d
+B_AUDIO_SRC_VALID_3	cat6023.h	601;"	d
+B_AUDRST	cat6023.h	126;"	d
+B_AUD_CHCNT_CH2	cat6023.h	795;"	d
+B_AUD_CHCNT_CH3	cat6023.h	796;"	d
+B_AUD_CHCNT_CH4	cat6023.h	797;"	d
+B_AUD_CHCNT_CH5	cat6023.h	798;"	d
+B_AUD_CHCNT_CH6	cat6023.h	799;"	d
+B_AUD_CHCNT_CH7	cat6023.h	800;"	d
+B_AUD_CHCNT_CH8	cat6023.h	801;"	d
+B_AUD_CHCNT_STREAMDEF	cat6023.h	794;"	d
+B_AUD_CODTYPE_AAC	cat6023.h	788;"	d
+B_AUD_CODTYPE_AC3	cat6023.h	784;"	d
+B_AUD_CODTYPE_ATRAC	cat6023.h	790;"	d
+B_AUD_CODTYPE_DTS	cat6023.h	789;"	d
+B_AUD_CODTYPE_IEC60958	cat6023.h	783;"	d
+B_AUD_CODTYPE_MP3	cat6023.h	786;"	d
+B_AUD_CODTYPE_MPEG1	cat6023.h	785;"	d
+B_AUD_CODTYPE_MPEG2	cat6023.h	787;"	d
+B_AUD_CODTYPE_STREAMDEF	cat6023.h	782;"	d
+B_AUD_INFO_FORCE	cat6023.h	498;"	d
+B_AUD_NLPCM	cat6023.h	638;"	d
+B_AUD_SMP_176K	cat6023.h	812;"	d
+B_AUD_SMP_192K	cat6023.h	813;"	d
+B_AUD_SMP_32K	cat6023.h	807;"	d
+B_AUD_SMP_44K	cat6023.h	808;"	d
+B_AUD_SMP_48K	cat6023.h	809;"	d
+B_AUD_SMP_88K	cat6023.h	810;"	d
+B_AUD_SMP_96K	cat6023.h	811;"	d
+B_AUD_SMP_FREQ_STREAMDEF	cat6023.h	806;"	d
+B_AUTOAUDMUTE	cat6023.h	232;"	d
+B_AVI_BAR_HINFO_VALID	cat6023.h	686;"	d
+B_AVI_BAR_NOT_VALID	cat6023.h	684;"	d
+B_AVI_BAR_VHINFO_VALID	cat6023.h	687;"	d
+B_AVI_BAR_VINFO_VALID	cat6023.h	685;"	d
+B_AVI_CLRMET_ITU601	cat6023.h	701;"	d
+B_AVI_CLRMET_ITU709	cat6023.h	702;"	d
+B_AVI_CLRMET_NODATA	cat6023.h	700;"	d
+B_AVI_COLOR_RGB24	cat6023.h	676;"	d
+B_AVI_COLOR_YUV422	cat6023.h	677;"	d
+B_AVI_COLOR_YUV444	cat6023.h	678;"	d
+B_AVI_NUNI_SCALE_HORZ	cat6023.h	722;"	d
+B_AVI_NUNI_SCALE_HORZVERT	cat6023.h	724;"	d
+B_AVI_NUNI_SCALE_NODATA	cat6023.h	721;"	d
+B_AVI_NUNI_SCALE_VERT	cat6023.h	723;"	d
+B_AVI_PIC_ASRATIO_16_9	cat6023.h	708;"	d
+B_AVI_PIC_ASRATIO_4_3	cat6023.h	707;"	d
+B_AVI_PIC_ASRATIO_NODATA	cat6023.h	706;"	d
+B_AVI_PRESENT	cat6023.h	680;"	d
+B_AVMUTE	cat6023.h	424;"	d
+B_AVMUTE_VALUE	cat6023.h	499;"	d
+B_CAP_AUDIO_ON	cat6023.h	1032;"	d
+B_CAP_DSD_AUDIO	cat6023.h	1034;"	d
+B_CAP_DVI_MODE	cat6023.h	940;"	d
+B_CAP_HBR_AUDIO	cat6023.h	1033;"	d
+B_CAP_HDMI_MODE	cat6023.h	939;"	d
+B_CAP_LPCM	cat6023.h	1039;"	d
+B_CCIR565	cat6023.h	275;"	d
+B_CDRRST	cat6023.h	121;"	d
+B_CD_DET	cat6023.h	218;"	d
+B_CLKRST_SEL	cat6023.h	632;"	d
+B_CLR_AUDIO_INT	cat6023.h	243;"	d
+B_CLR_ECC_INT	cat6023.h	242;"	d
+B_CLR_HDCP_INT	cat6023.h	227;"	d
+B_CLR_MODE_INT	cat6023.h	240;"	d
+B_CLR_MUTECLR_INT	cat6023.h	246;"	d
+B_CLR_MUTESET_INT	cat6023.h	247;"	d
+B_CLR_PKT_INT	cat6023.h	241;"	d
+B_CMD_DEGLITCH	cat6023.h	380;"	d
+B_CMD_FILTTAP	cat6023.h	378;"	d
+B_CMD_FILTTYPE	cat6023.h	379;"	d
+B_CSC_BYPASS	cat6023.h	303;"	d
+B_CSC_RGB2YUV	cat6023.h	304;"	d
+B_CSC_YUV2RGB	cat6023.h	305;"	d
+B_CTSINI_EN	cat6023.h	509;"	d
+B_DDR_OUTPUT	cat6023.h	274;"	d
+B_DEGLITCH	cat6023.h	377;"	d
+B_DE_POL	cat6023.h	255;"	d
+B_DIEN	cat6023.h	469;"	d
+B_DIS_AUD_MUTE	cat6023.h	502;"	d
+B_DIS_BCH	cat6023.h	451;"	d
+B_DIS_DEEP_MODE	cat6023.h	456;"	d
+B_DIS_FALSE_DE	cat6023.h	497;"	d
+B_DIS_SDM	cat6023.h	470;"	d
+B_DIS_VDO_MUTE	cat6023.h	501;"	d
+B_DOWNSTREAM_OVER	cat6023.h	944;"	d
+B_DSDAUDIO	cat6023.h	598;"	d
+B_ECCERR	cat6023.h	234;"	d
+B_ENABLE_FAST	cat6023.h	459;"	d
+B_ENABLE_FEATURE_1P1	cat6023.h	460;"	d
+B_ENABLE_REPEATER	cat6023.h	462;"	d
+B_EN_AUTOPWD	cat6023.h	143;"	d
+B_EN_AUTOVDORST	cat6023.h	123;"	d
+B_EN_AVMUTE_RST	cat6023.h	277;"	d
+B_EN_CDRAUTORST	cat6023.h	122;"	d
+B_EN_DEBUG	cat6023.h	254;"	d
+B_EN_DefPhase	cat6023.h	455;"	d
+B_EN_I2S_NLPCM	cat6023.h	492;"	d
+B_EXTROM	cat6023.h	171;"	d
+B_FASTHDCPMODE	cat6023.h	177;"	d
+B_FILT_TAP	cat6023.h	375;"	d
+B_FILT_TYPE	cat6023.h	376;"	d
+B_FORCE_AVMUTE	cat6023.h	500;"	d
+B_FORCE_COLOR_MODE	cat6023.h	292;"	d
+B_FORCE_CTS	cat6023.h	511;"	d
+B_FORCE_CTSMODE	cat6023.h	512;"	d
+B_FORCE_FS	cat6023.h	495;"	d
+B_Fs_176p4KHz	cat6023.h	543;"	d
+B_Fs_192KHz	cat6023.h	544;"	d
+B_Fs_32KHz	cat6023.h	540;"	d
+B_Fs_44p1KHz	cat6023.h	538;"	d
+B_Fs_48KHz	cat6023.h	539;"	d
+B_Fs_768KHz	cat6023.h	545;"	d
+B_Fs_88p2KHz	cat6023.h	541;"	d
+B_Fs_96KHz	cat6023.h	542;"	d
+B_Fs_HBR	cat6023.h	546;"	d
+B_GENPKT_DET	cat6023.h	219;"	d
+B_HBRAUDIO	cat6023.h	597;"	d
+B_HBR_BY_SPDIF	cat6023.h	1037;"	d
+B_HBR_SPDIF	cat6023.h	567;"	d
+B_HDCPRST	cat6023.h	125;"	d
+B_HDCP_A0	cat6023.h	176;"	d
+B_HDCP_EN	cat6023.h	178;"	d
+B_HDCP_NOAVMUTE	cat6023.h	633;"	d
+B_HDCP_OFF	cat6023.h	212;"	d
+B_HDCP_RDKSV	cat6023.h	174;"	d
+B_HDCP_ROMDISWR	cat6023.h	175;"	d
+B_HDCP_STABLECNT	cat6023.h	172;"	d
+B_HDMIMODE_CHG	cat6023.h	188;"	d
+B_HDMIRX_MODE	cat6023.h	162;"	d
+B_HSYNC_IN_POL	cat6023.h	426;"	d
+B_HSYNC_OUT_POL	cat6023.h	257;"	d
+B_HW_AUDMUTE_CLR_MODE	cat6023.h	559;"	d
+B_HW_FORCE_MUTE	cat6023.h	558;"	d
+B_HW_MUTE_CLR	cat6023.h	560;"	d
+B_HW_MUTE_EN	cat6023.h	561;"	d
+B_I2S_CHSEL0	cat6023.h	484;"	d
+B_I2S_CHSEL1	cat6023.h	485;"	d
+B_I2S_CHSEL2	cat6023.h	486;"	d
+B_I2S_CHSEL3	cat6023.h	487;"	d
+B_INPUT_RGB24	cat6023.h	295;"	d
+B_INPUT_YUV422	cat6023.h	296;"	d
+B_INPUT_YUV444	cat6023.h	297;"	d
+B_INTERLACE	cat6023.h	386;"	d
+B_INTPOL	cat6023.h	244;"	d
+B_INTROUTTYPE	cat6023.h	245;"	d
+B_INT_EVERYAVI	cat6023.h	284;"	d
+B_ISRC1_DET	cat6023.h	221;"	d
+B_ISRC2_DET	cat6023.h	220;"	d
+B_KSV_READY	cat6023.h	461;"	d
+B_LAYOUT	cat6023.h	1035;"	d
+B_MAX_CASCADE_EXCEEDED	cat6023.h	941;"	d
+B_MULTICH	cat6023.h	1036;"	d
+B_M_HDCP_OFF	cat6023.h	217;"	d
+B_M_RXCKON_DET	cat6023.h	216;"	d
+B_NEW_ACP_PKT	cat6023.h	200;"	d
+B_NEW_AUD_PKT	cat6023.h	199;"	d
+B_NEW_AVI_PKG	cat6023.h	203;"	d
+B_NEW_MPG_PKG	cat6023.h	202;"	d
+B_NEW_SPD_PKT	cat6023.h	201;"	d
+B_NO_AVI_RCV	cat6023.h	204;"	d
+B_OSCSEL	cat6023.h	507;"	d
+B_OSC_EN	cat6023.h	506;"	d
+B_OUTPUT_16BIT	cat6023.h	261;"	d
+B_OUTPUT_RGB24	cat6023.h	345;"	d
+B_OUTPUT_YUV422	cat6023.h	346;"	d
+B_OUTPUT_YUV444	cat6023.h	347;"	d
+B_PKT_1BERR	cat6023.h	550;"	d
+B_PKT_2BERR	cat6023.h	549;"	d
+B_PKT_CLR_MUTE	cat6023.h	198;"	d
+B_PKT_SET_MUTE	cat6023.h	205;"	d
+B_PORT_MASK	cat6023.h	139;"	d
+B_PORT_SEL_A	cat6023.h	137;"	d
+B_PORT_SEL_B	cat6023.h	136;"	d
+B_PROHIBITED	cat6023.h	827;"	d
+B_PWDC_ETC	cat6023.h	141;"	d
+B_PWDC_SRV	cat6023.h	142;"	d
+B_PWD_AFEALL	cat6023.h	140;"	d
+B_PWD_ALL	cat6023.h	132;"	d
+B_PWR5VOFF	cat6023.h	191;"	d
+B_PWR5VON	cat6023.h	192;"	d
+B_PWR5V_DET	cat6023.h	166;"	d
+B_PWR5V_DET_PORTA	cat6023.h	167;"	d
+B_PWR5V_DET_PORTB	cat6023.h	163;"	d
+B_PX_VIDEOSTABLE	cat6023.h	384;"	d
+B_R0_READY	cat6023.h	181;"	d
+B_REGRST	cat6023.h	124;"	d
+B_ROMIDLE	cat6023.h	626;"	d
+B_ROM_CLK_SEL_REG	cat6023.h	629;"	d
+B_ROM_CLK_VALUE	cat6023.h	630;"	d
+B_RSTCD	cat6023.h	458;"	d
+B_RSVED	cat6023.h	468;"	d
+B_RXCKON_DET	cat6023.h	211;"	d
+B_RXCK_CHG	cat6023.h	210;"	d
+B_RXCK_FILT	cat6023.h	252;"	d
+B_RXCK_SPEED	cat6023.h	160;"	d
+B_RXCK_VALID	cat6023.h	161;"	d
+B_RXPLL_LOCK	cat6023.h	159;"	d
+B_RX_DNFREE_GO	cat6023.h	270;"	d
+B_RX_EN_DITHER	cat6023.h	272;"	d
+B_RX_EN_UDFILTER	cat6023.h	273;"	d
+B_R_AUTH_DONE	cat6023.h	235;"	d
+B_R_AUTH_START	cat6023.h	236;"	d
+B_SCDT	cat6023.h	164;"	d
+B_SCDTOFF	cat6023.h	189;"	d
+B_SCDTON	cat6023.h	190;"	d
+B_SEL_CD_DEBUG	cat6023.h	457;"	d
+B_SPDIF	cat6023.h	1038;"	d
+B_SWAP_CH422	cat6023.h	262;"	d
+B_SWAP_ML	cat6023.h	264;"	d
+B_SWAP_OUTRB	cat6023.h	263;"	d
+B_SWAP_POL	cat6023.h	265;"	d
+B_SWAP_RB	cat6023.h	266;"	d
+B_SWRST	cat6023.h	128;"	d
+B_SW_COPYRIGHT_ASSERT	cat6023.h	639;"	d
+B_SYM_ERR	cat6023.h	223;"	d
+B_SYNC_EMBEDDED	cat6023.h	271;"	d
+B_TERC_CHECK	cat6023.h	450;"	d
+B_TERC_INV	cat6023.h	449;"	d
+B_TIMEOUT_EN	cat6023.h	253;"	d
+B_TRI_ALL	cat6023.h	589;"	d
+B_TRI_AUDIO	cat6023.h	590;"	d
+B_TRI_I2S0	cat6023.h	587;"	d
+B_TRI_I2S1	cat6023.h	586;"	d
+B_TRI_I2S2	cat6023.h	585;"	d
+B_TRI_I2S3	cat6023.h	584;"	d
+B_TRI_MASK	cat6023.h	591;"	d
+B_TRI_SPDIF	cat6023.h	583;"	d
+B_TRI_VIDEO	cat6023.h	582;"	d
+B_TRI_VIDEOIO	cat6023.h	581;"	d
+B_VCLK_DET	cat6023.h	165;"	d
+B_VDIO_DISABLE	cat6023.h	289;"	d
+B_VDIO_GATTING	cat6023.h	288;"	d
+B_VDORST	cat6023.h	127;"	d
+B_VDO_MUTE_DISABLE	cat6023.h	572;"	d
+B_VIDFIELD	cat6023.h	385;"	d
+B_VIDMODE_CHG	cat6023.h	187;"	d
+B_VIO_SEL	cat6023.h	290;"	d
+B_VSYNC_IN_POL	cat6023.h	425;"	d
+B_VSYNC_OUT_POL	cat6023.h	256;"	d
+BarInfo	typedef.h	/^        BYTE BarInfo:2 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+CAPS_MAX_INTERLACE_HFREQ	cat6023.h	982;"	d
+CAPS_MAX_INTERLACE_VFREQ	cat6023.h	980;"	d
+CAPS_MAX_PROGRESS_HFREQ	cat6023.h	978;"	d
+CAPS_MAX_PROGRESS_VFREQ	cat6023.h	976;"	d
+CAPS_MIN_INTERLACE_HFREQ	cat6023.h	981;"	d
+CAPS_MIN_INTERLACE_VFREQ	cat6023.h	979;"	d
+CAPS_MIN_PROGRESS_HFREQ	cat6023.h	977;"	d
+CAPS_MIN_PROGRESS_VFREQ	cat6023.h	975;"	d
+CAT6023AudioChannelNum	cat6023.c	/^BYTE    CAT6023AudioChannelNum()$/;"	f
+CAT6023FsGet	cat6023.c	/^BYTE    CAT6023FsGet()$/;"	f
+CAT6023HBRMclkSet	cat6023.c	/^void    CAT6023HBRMclkSet(BYTE cFs)$/;"	f
+CAT6023HDAudioGet	cat6023.c	/^BOOL    CAT6023HDAudioGet()$/;"	f
+CAT6023MultiPCM	cat6023.c	/^BOOL    CAT6023MultiPCM()$/;"	f
+CAT6023_MAX_KSV	cat6023.h	1052;"	d
+CAT_HDMI_PORTA	cat6023.h	1050;"	d
+CAT_HDMI_PORTB	cat6023.h	1051;"	d
+CDRRESET_TIMEOUT	cat6023.c	123;"	d	file:
+CDR_Reset	cat6023.c	/^static void CDR_Reset()$/;"	f	file:
+CEA_1280x720p50	typedef.h	/^	CEA_1280x720p50,$/;"	e	enum:tagMODE_ID
+CEA_1280x720p60	typedef.h	/^	CEA_1280x720p60,$/;"	e	enum:tagMODE_ID
+CEA_1440x240p60	typedef.h	/^	CEA_1440x240p60,$/;"	e	enum:tagMODE_ID
+CEA_1440x288p50	typedef.h	/^	CEA_1440x288p50,$/;"	e	enum:tagMODE_ID
+CEA_1440x480i60	typedef.h	/^	CEA_1440x480i60,$/;"	e	enum:tagMODE_ID
+CEA_1440x480p60	typedef.h	/^	CEA_1440x480p60,$/;"	e	enum:tagMODE_ID
+CEA_1440x576i50	typedef.h	/^	CEA_1440x576i50,$/;"	e	enum:tagMODE_ID
+CEA_1440x576p50	typedef.h	/^	CEA_1440x576p50,$/;"	e	enum:tagMODE_ID
+CEA_1920x1080i50	typedef.h	/^	CEA_1920x1080i50,$/;"	e	enum:tagMODE_ID
+CEA_1920x1080i60	typedef.h	/^	CEA_1920x1080i60,$/;"	e	enum:tagMODE_ID
+CEA_1920x1080p24	typedef.h	/^	CEA_1920x1080p24,$/;"	e	enum:tagMODE_ID
+CEA_1920x1080p25	typedef.h	/^	CEA_1920x1080p25,$/;"	e	enum:tagMODE_ID
+CEA_1920x1080p30	typedef.h	/^	CEA_1920x1080p30,$/;"	e	enum:tagMODE_ID
+CEA_1920x1080p50	typedef.h	/^	CEA_1920x1080p50,$/;"	e	enum:tagMODE_ID
+CEA_1920x1080p60	typedef.h	/^	CEA_1920x1080p60,$/;"	e	enum:tagMODE_ID
+CEA_2880x240p60	typedef.h	/^	CEA_2880x240p60,$/;"	e	enum:tagMODE_ID
+CEA_2880x288p50	typedef.h	/^	CEA_2880x288p50,$/;"	e	enum:tagMODE_ID
+CEA_2880x480i60	typedef.h	/^	CEA_2880x480i60,$/;"	e	enum:tagMODE_ID
+CEA_2880x576i50	typedef.h	/^	CEA_2880x576i50,$/;"	e	enum:tagMODE_ID
+CEA_640x480p60	typedef.h	/^	CEA_640x480p60,$/;"	e	enum:tagMODE_ID
+CEA_720x240p60	typedef.h	/^	CEA_720x240p60,$/;"	e	enum:tagMODE_ID
+CEA_720x288p50	typedef.h	/^	CEA_720x288p50,$/;"	e	enum:tagMODE_ID
+CEA_720x480i60	typedef.h	/^	CEA_720x480i60,$/;"	e	enum:tagMODE_ID
+CEA_720x480p60	typedef.h	/^	CEA_720x480p60,$/;"	e	enum:tagMODE_ID
+CEA_720x576i50	typedef.h	/^	CEA_720x576i50,$/;"	e	enum:tagMODE_ID
+CEA_720x576p50	typedef.h	/^	CEA_720x576p50,$/;"	e	enum:tagMODE_ID
+CHAR	typedef.h	/^typedef char CHAR, *PCHAR ;$/;"	t
+ChStat	cat6023.h	/^    BYTE ChStat[5] ;$/;"	m	struct:__anon1
+CheckHDMIRX	cat6023.c	/^BOOL CheckHDMIRX()$/;"	f
+CheckPlg5VPwr	cat6023.c	/^BOOL CheckPlg5VPwr()$/;"	f
+Check_HDMInterrupt	cat6023.c	/^void Check_HDMInterrupt()$/;"	f
+Check_RDROM	cat6023.c	/^void Check_RDROM()$/;"	f
+ClearForceHWMute	cat6023.c	379;"	d	file:
+ClearHDCPIntFlags	cat6023.c	/^static void ClearHDCPIntFlags()$/;"	f	file:
+ClearHWMuteClr	cat6023.c	381;"	d	file:
+ClearHWMuteClrMode	cat6023.c	380;"	d	file:
+ClearHWMuteEnable	cat6023.c	382;"	d	file:
+ClearIntFlags	cat6023.c	/^static void ClearIntFlags(BYTE flag)$/;"	f	file:
+ColorMode	typedef.h	/^        BYTE ColorMode:2 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Colorimetry	typedef.h	/^        BYTE Colorimetry:1 ;$/;"	m	struct:_VideoFormatCode::_VFC
+Colorimetry	typedef.h	/^        BYTE Colorimetry:2 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+DEBUG_PORT_ENABLE	cat6023.c	20;"	d	file:
+DEFAULT_START_FIXED_AUD_SAMPLEFREQ	cat6023.c	88;"	d	file:
+DELAY_TIME	cat6023.h	53;"	d
+DEVICE_NAME	hdmirx.c	32;"	d	file:
+DM_INH	typedef.h	/^        BYTE DM_INH:1 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+DSD_PKT	cat6023.h	661;"	d
+DWORD	typedef.h	/^typedef unsigned long DWORD, *PDWORD ;$/;"	t
+DisableMuteProcessTimer	cat6023.c	409;"	d	file:
+Dither	typedef.h	/^        BYTE Dither:1 ;$/;"	m	struct:_VideoFormatCode::_VFC
+DumpCat6023Reg	cat6023.c	/^DumpCat6023Reg()$/;"	f
+DumpCat6023Reg	cat6023.h	1149;"	d
+DumpSyncInfo	cat6023.c	/^DumpSyncInfo(VTiming *pVTiming)$/;"	f	file:
+EDID_ADR	cat6023.h	51;"	d
+EDID_READ_BYTE	io.c	/^BOOL EDID_READ_BYTE( BYTE address,BYTE offset,BYTE byteno,BYTE *p_data )$/;"	f
+EDID_WRITE_BYTE	io.c	/^BOOL EDID_WRITE_BYTE( BYTE address,BYTE offset,BYTE byteno,BYTE *p_data )$/;"	f
+ENABLE_I2S_SRC0	typedef.h	200;"	d
+ENABLE_I2S_SRC0	typedef.h	376;"	d
+ENABLE_I2S_SRC1	typedef.h	199;"	d
+ENABLE_I2S_SRC1	typedef.h	375;"	d
+ENABLE_I2S_SRC2	typedef.h	198;"	d
+ENABLE_I2S_SRC2	typedef.h	374;"	d
+ENABLE_I2S_SRC3	typedef.h	197;"	d
+ENABLE_I2S_SRC3	typedef.h	373;"	d
+ENABLE_SPDIF	typedef.h	196;"	d
+ENABLE_SPDIF	typedef.h	372;"	d
+ER_FAIL	typedef.h	/^    ER_FAIL,$/;"	e	enum:_SYS_STATUS
+ER_RESERVED	typedef.h	/^    ER_RESERVED$/;"	e	enum:_SYS_STATUS
+ER_SUCCESS	typedef.h	/^    ER_SUCCESS = 0,$/;"	e	enum:_SYS_STATUS
+EVENT_RXHDCP_AUTH_DONE	cat6023.h	1108;"	d
+EVENT_RXHDCP_AUTH_START	cat6023.h	1107;"	d
+EnaSWCDRRest	cat6023.c	/^static BOOL EnaSWCDRRest = FALSE ;	\/\/Dongzejun:此变量长为0，未使用$/;"	v	file:
+EnableAudio	cat6023.c	/^static void EnableAudio()$/;"	f	file:
+EnableMuteProcessTimer	cat6023.c	408;"	d	file:
+EndAutoMuteOffTimer	cat6023.c	415;"	d	file:
+FAIL	cat6023.h	35;"	d
+FAIL	typedef.h	52;"	d
+FALSE	cat6023.h	31;"	d
+FALSE	typedef.h	48;"	d
+FLAG_CLEAR_INT_ALL	cat6023.h	997;"	d
+FLAG_CLEAR_INT_AUDIO	cat6023.h	993;"	d
+FLAG_CLEAR_INT_ECC	cat6023.h	992;"	d
+FLAG_CLEAR_INT_HDCP	cat6023.h	1002;"	d
+FLAG_CLEAR_INT_MASK	cat6023.h	1000;"	d
+FLAG_CLEAR_INT_MODE	cat6023.h	990;"	d
+FLAG_CLEAR_INT_MUTECLR	cat6023.h	994;"	d
+FLAG_CLEAR_INT_MUTESET	cat6023.h	995;"	d
+FLAG_CLEAR_INT_PKG	cat6023.h	991;"	d
+FORCE_SWRESET_TIMEOUT	cat6023.c	125;"	d	file:
+FS_176K4	typedef.h	362;"	d
+FS_192K	typedef.h	367;"	d
+FS_22K05	typedef.h	359;"	d
+FS_24K	typedef.h	364;"	d
+FS_32K	typedef.h	369;"	d
+FS_44K1	typedef.h	360;"	d
+FS_48K	typedef.h	365;"	d
+FS_88K2	typedef.h	361;"	d
+FS_96K	typedef.h	366;"	d
+FS_OTHER	typedef.h	370;"	d
+FU1	typedef.h	/^        BYTE FU1:1 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+FU2	typedef.h	/^        BYTE FU2:6 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+FU3	typedef.h	/^        BYTE FU3:1 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+FU4	typedef.h	/^        BYTE FU4:4 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+F_AUDIO_DSD	cat6023.h	608;"	d
+F_AUDIO_HBR	cat6023.h	607;"	d
+F_AUDIO_LAYOUT_0	cat6023.h	611;"	d
+F_AUDIO_LAYOUT_1	cat6023.h	610;"	d
+F_AUDIO_NLPCM	cat6023.h	609;"	d
+F_AUDIO_ON	cat6023.h	606;"	d
+F_MODE_0_255	typedef.h	158;"	d
+F_MODE_16_235	typedef.h	159;"	d
+F_MODE_CLRMOD_MASK	typedef.h	151;"	d
+F_MODE_EN_DITHER	typedef.h	162;"	d
+F_MODE_EN_UDFILT	typedef.h	161;"	d
+F_MODE_INTERLACE	typedef.h	153;"	d
+F_MODE_ITU601	typedef.h	156;"	d
+F_MODE_ITU709	typedef.h	155;"	d
+F_MODE_RGB24	typedef.h	147;"	d
+F_MODE_RGB444	typedef.h	148;"	d
+F_MODE_YUV422	typedef.h	149;"	d
+F_MODE_YUV444	typedef.h	150;"	d
+F_VIDMODE_0_255	typedef.h	347;"	d
+F_VIDMODE_16_235	typedef.h	348;"	d
+F_VIDMODE_EN_DITHER	typedef.h	351;"	d
+F_VIDMODE_EN_UDFILT	typedef.h	350;"	d
+F_VIDMODE_ITU601	typedef.h	345;"	d
+F_VIDMODE_ITU709	typedef.h	344;"	d
+FieldRepeat	typedef.h	/^        BYTE FieldRepeat:1 ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+FmtCoding	typedef.h	/^        BYTE FmtCoding ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+GENERAL_CONTROL_PKT	cat6023.h	669;"	d
+GET_EDID_SDA	io.c	/^BOOL GET_EDID_SDA()$/;"	f
+GET_PACKAGE	cat6023.h	70;"	d
+GET_PACKAGE	cat6023.h	93;"	d
+GetACPPacket	cat6023.c	/^GetACPPacket(BYTE *pData)$/;"	f
+GetAVIInfoFrame	cat6023.c	/^GetAVIInfoFrame(BYTE *pData)$/;"	f
+GetAudioInfoFrame	cat6023.c	/^GetAudioInfoFrame(BYTE *pData)$/;"	f
+GetCurrentHDMIPort	cat6023.c	/^GetCurrentHDMIPort()$/;"	f
+GetMPEGInfoFrame	cat6023.c	/^GetMPEGInfoFrame(BYTE *pData)$/;"	f
+GetVENDORSPECInfoFrame	cat6023.c	/^GetVENDORSPECInfoFrame(BYTE *pData)$/;"	f
+GetswitchRx	io.c	/^BYTE GetswitchRx(){$/;"	f
+HAL_MODULE_INFO_SYM	hdmirx.c	/^struct hdmirx_module_t HAL_MODULE_INFO_SYM = {$/;"	v	typeref:struct:hdmirx_module_t
+HActive	typedef.h	/^    WORD HActive ;$/;"	m	struct:__anon2
+HBackPorch	typedef.h	/^    WORD HBackPorch ;$/;"	m	struct:__anon2
+HDCP_INVALID_V	cat6023.h	1103;"	d
+HDCP_OVER_CASCADE	cat6023.h	1105;"	d
+HDCP_OVER_DOWNSTREAM	cat6023.h	1104;"	d
+HDCP_RDY_TIMEOUT	cat6023.h	1102;"	d
+HDCP_RECEIVER	cat6023.h	1100;"	d
+HDCP_REPEATER	cat6023.h	1101;"	d
+HDCP_WAITING_TIMEOUT	cat6023.c	122;"	d	file:
+HDMIRX_AndReg_Byte	io.h	40;"	d
+HDMIRX_OUTPUT_COLORMODE	cat6023.c	60;"	d	file:
+HDMIRX_OUTPUT_COLORMODE	cat6023.c	65;"	d	file:
+HDMIRX_OUTPUT_COLORMODE	cat6023.c	70;"	d	file:
+HDMIRX_OUTPUT_COLORMODE	cat6023.c	75;"	d	file:
+HDMIRX_OUTPUT_COLORMODE	cat6023.c	80;"	d	file:
+HDMIRX_OUTPUT_COLORMODE	cat6023.c	85;"	d	file:
+HDMIRX_OUTPUT_MAPPING	cat6023.c	58;"	d	file:
+HDMIRX_OUTPUT_MAPPING	cat6023.c	63;"	d	file:
+HDMIRX_OUTPUT_MAPPING	cat6023.c	68;"	d	file:
+HDMIRX_OUTPUT_MAPPING	cat6023.c	73;"	d	file:
+HDMIRX_OUTPUT_MAPPING	cat6023.c	78;"	d	file:
+HDMIRX_OUTPUT_MAPPING	cat6023.c	83;"	d	file:
+HDMIRX_OUTPUT_TYPE	cat6023.c	59;"	d	file:
+HDMIRX_OUTPUT_TYPE	cat6023.c	64;"	d	file:
+HDMIRX_OUTPUT_TYPE	cat6023.c	69;"	d	file:
+HDMIRX_OUTPUT_TYPE	cat6023.c	74;"	d	file:
+HDMIRX_OUTPUT_TYPE	cat6023.c	79;"	d	file:
+HDMIRX_OUTPUT_TYPE	cat6023.c	84;"	d	file:
+HDMIRX_OrReg_Byte	io.h	39;"	d
+HDMIRX_PRINTF	debug.h	19;"	d
+HDMIRX_PRINTF1	debug.h	24;"	d
+HDMIRX_PRINTF2	debug.h	25;"	d
+HDMIRX_PRINTF3	debug.h	26;"	d
+HDMIRX_ReadI2C_Byte	io.c	/^BYTE HDMIRX_ReadI2C_Byte(BYTE RegAddr)$/;"	f
+HDMIRX_ReadI2C_ByteN	io.c	/^SYS_STATUS HDMIRX_ReadI2C_ByteN(BYTE RegAddr,BYTE *pData,int N)$/;"	f
+HDMIRX_SetReg_Byte	io.h	41;"	d
+HDMIRX_WriteI2C_Byte	io.c	/^SYS_STATUS HDMIRX_WriteI2C_Byte(BYTE RegAddr,BYTE d)$/;"	f
+HDMIRX_WriteI2C_ByteN	io.c	/^SYS_STATUS HDMIRX_WriteI2C_ByteN(BYTE RegAddr,BYTE *pData,int N)$/;"	f
+HDMITX_PRINTF	debug.h	18;"	d
+HDMITX_PRINTF1	debug.h	21;"	d
+HDMITX_PRINTF2	debug.h	22;"	d
+HDMITX_PRINTF3	debug.h	23;"	d
+HDMI_1080i50	typedef.h	/^    HDMI_1080i50,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1080i60	typedef.h	/^    HDMI_1080i60,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1080p24	typedef.h	/^    HDMI_1080p24,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1080p25	typedef.h	/^    HDMI_1080p25,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1080p30	typedef.h	/^    HDMI_1080p30,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1080p50	typedef.h	/^    HDMI_1080p50 = 31,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1080p60	typedef.h	/^    HDMI_1080p60 = 16,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1440x480p60	typedef.h	/^    HDMI_1440x480p60,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_1440x576p50	typedef.h	/^    HDMI_1440x576p50,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_16x9	typedef.h	/^    HDMI_16x9$/;"	e	enum:tagHDMI_Aspec
+HDMI_240p60	typedef.h	/^    HDMI_240p60,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_288p50	typedef.h	/^    HDMI_288p50,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_480i60	typedef.h	/^    HDMI_480i60,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_480i60_16x9	typedef.h	/^    HDMI_480i60_16x9,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_480p60	typedef.h	/^    HDMI_480p60,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_480p60_16x9	typedef.h	/^    HDMI_480p60_16x9,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_4x3	typedef.h	/^    HDMI_4x3 ,$/;"	e	enum:tagHDMI_Aspec
+HDMI_576i50	typedef.h	/^    HDMI_576i50,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_576i50_16x9	typedef.h	/^    HDMI_576i50_16x9,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_576p50	typedef.h	/^    HDMI_576p50,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_576p50_16x9	typedef.h	/^    HDMI_576p50_16x9,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_640x480p60	typedef.h	/^    HDMI_640x480p60 = 1 ,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_720p50	typedef.h	/^    HDMI_720p50,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_720p60	typedef.h	/^    HDMI_720p60,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_Aspec	typedef.h	/^} HDMI_Aspec;$/;"	t	typeref:enum:tagHDMI_Aspec
+HDMI_Colorimetry	typedef.h	/^} HDMI_Colorimetry ;$/;"	t	typeref:enum:tagHDMI_Colorimetry
+HDMI_ITU601	typedef.h	/^    HDMI_ITU601,$/;"	e	enum:tagHDMI_Colorimetry
+HDMI_ITU709	typedef.h	/^    HDMI_ITU709$/;"	e	enum:tagHDMI_Colorimetry
+HDMI_OutputColorMode	typedef.h	/^} HDMI_OutputColorMode ;$/;"	t	typeref:enum:tagHDMI_OutputColorMode
+HDMI_RGB444	typedef.h	/^    HDMI_RGB444,$/;"	e	enum:tagHDMI_OutputColorMode
+HDMI_RX_I2C_SLAVE_ADDR	cat6023.h	110;"	d
+HDMI_ReadEDID_Byte	io.c	/^BYTE HDMI_ReadEDID_Byte(BYTE RegAddr)$/;"	f
+HDMI_Unkown	typedef.h	/^    HDMI_Unkown = 0 ,$/;"	e	enum:tagHDMI_Video_Type
+HDMI_Video_Type	typedef.h	/^} HDMI_Video_Type ;$/;"	t	typeref:enum:tagHDMI_Video_Type
+HDMI_WriteEDID_Byte	io.c	/^SYS_STATUS HDMI_WriteEDID_Byte(BYTE RegAddr,BYTE d)$/;"	f
+HDMI_YUV422	typedef.h	/^    HDMI_YUV422$/;"	e	enum:tagHDMI_OutputColorMode
+HDMI_YUV444	typedef.h	/^    HDMI_YUV444,$/;"	e	enum:tagHDMI_OutputColorMode
+HFrontPorch	typedef.h	/^    WORD HFrontPorch ;$/;"	m	struct:__anon2
+HIGH	cat6023.h	47;"	d
+HI_ACTIVE	cat6023.h	41;"	d
+HPolarity	typedef.h	/^    BYTE HPolarity:1 ;$/;"	m	struct:__anon2
+HSyncWidth	typedef.h	/^    WORD HSyncWidth ;$/;"	m	struct:__anon2
+HTotal	typedef.h	/^    WORD HTotal ;$/;"	m	struct:__anon2
+HWReset_HDMIRX	cat6023.c	/^static void HWReset_HDMIRX()$/;"	f	file:
+Hneg	typedef.h	86;"	d
+Hpos	typedef.h	88;"	d
+I2C_EDID_END	io.c	/^void I2C_EDID_END( void )$/;"	f
+I2C_EDID_READ	io.c	/^BYTE I2C_EDID_READ( void )$/;"	f
+I2C_EDID_SEND_ACK	io.c	/^void I2C_EDID_SEND_ACK( BOOL bit_value )$/;"	f
+I2C_EDID_START	io.c	/^void I2C_EDID_START()$/;"	f
+I2C_EDID_WAIT_ACK	io.c	/^BOOL I2C_EDID_WAIT_ACK( void )$/;"	f
+I2C_EDID_WRITE	io.c	/^void I2C_EDID_WRITE( BYTE byte_data )$/;"	f
+I2C_FUNCS	i2c-dev.h	46;"	d
+I2C_PEC	i2c-dev.h	50;"	d
+I2C_RDRW_IOCTL_MAX_MSGS	i2c-dev.h	68;"	d
+I2C_RDWR	i2c-dev.h	48;"	d
+I2C_RETRIES	i2c-dev.h	34;"	d
+I2C_SLAVE	i2c-dev.h	41;"	d
+I2C_SLAVE_FORCE	i2c-dev.h	42;"	d
+I2C_SMBUS	i2c-dev.h	51;"	d
+I2C_TENBIT	i2c-dev.h	44;"	d
+I2C_TIMEOUT	i2c-dev.h	36;"	d
+IDLE_TIME	cat6023.h	54;"	d
+INTERLACE	typedef.h	84;"	d
+ISRC1_PKT	cat6023.h	659;"	d
+ISRC1_PKT_LEN	typedef.h	231;"	d
+ISRC1_PKT_LEN	typedef.h	407;"	d
+ISRC2_PKT	cat6023.h	660;"	d
+ISRC2_PKT_LEN	typedef.h	232;"	d
+ISRC2_PKT_LEN	typedef.h	408;"	d
+InitCAT6023	cat6023.c	/^void InitCAT6023()$/;"	f
+Interrupt_Handler	cat6023.c	/^void Interrupt_Handler()$/;"	f
+IsCAT6023HDMIMode	cat6023.c	/^BOOL IsCAT6023HDMIMode()$/;"	f
+IsCAT6023Interlace	cat6023.c	/^BOOL IsCAT6023Interlace()$/;"	f
+IsRxAuthDone	cat6023.h	1142;"	d
+IsRxAuthStart	cat6023.h	1141;"	d
+IsSCDT	cat6023.c	/^BOOL IsSCDT()$/;"	f
+JNI_OnLoad	onLoad.cpp	/^jint JNI_OnLoad(JavaVM* vm, void* reserved) {$/;"	f
+Java_com_it6604_hdmirx_HdmirxActivity_hdmirx_1native_1exit	mainmcu.c	/^void Java_com_it6604_hdmirx_HdmirxActivity_hdmirx_1native_1exit$/;"	f
+Java_com_it6604_hdmirx_HdmirxActivity_hdmirx_1native_1grun	mainmcu.c	/^void Java_com_it6604_hdmirx_HdmirxActivity_hdmirx_1native_1grun$/;"	f
+Java_com_it6604_hdmirx_HdmirxActivity_hdmirx_1native_1init	mainmcu.c	/^void Java_com_it6604_hdmirx_HdmirxActivity_hdmirx_1native_1init$/;"	f
+LOCAL_MODULE	Android.mk	/^LOCAL_MODULE := hdmirx$/;"	m
+LOCAL_PATH	Android.mk	/^LOCAL_PATH := $(call my-dir)$/;"	m
+LOCAL_SRC_FILES	Android.mk	/^LOCAL_SRC_FILES := cat6023.c io.c mainmcu.c onLoad.cpp$/;"	m
+LOGD	hdmirx.c	27;"	d	file:
+LOGD	mainmcu.c	26;"	d	file:
+LOGE	hdmirx.c	25;"	d	file:
+LOGE	mainmcu.c	24;"	d	file:
+LOGI	hdmirx.c	21;"	d	file:
+LOGI	mainmcu.c	20;"	d	file:
+LOGW	hdmirx.c	23;"	d	file:
+LOGW	mainmcu.c	22;"	d	file:
+LOG_TAG	hdmirx.c	15;"	d	file:
+LOG_TAG	mainmcu.c	19;"	d	file:
+LONG	typedef.h	/^typedef long LONG, *PLONG ;$/;"	t
+LOOP_MSEC	cat6023.c	114;"	d	file:
+LOW	cat6023.h	48;"	d
+LO_ACTIVE	cat6023.h	40;"	d
+Len	typedef.h	/^        BYTE Len ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Len	typedef.h	/^        BYTE Len ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+Len	typedef.h	/^        BYTE Len ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+Len	typedef.h	/^        BYTE Len ;$/;"	m	struct:_SPD_InfoFrame::__anon10
+LevelShiftValue	typedef.h	/^        BYTE LevelShiftValue:4 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+Ln_End_Top	typedef.h	/^        SHORT Ln_End_Top ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Ln_Start_Bottom	typedef.h	/^        SHORT Ln_Start_Bottom ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+LoadCustomizeDefaultSetting	cat6023.c	/^static void LoadCustomizeDefaultSetting()$/;"	f	file:
+MODE_ID	typedef.h	/^} MODE_ID;$/;"	t	typeref:enum:tagMODE_ID
+MODULE_AUTHOR	hdmirx.c	31;"	d	file:
+MODULE_NAME	hdmirx.c	30;"	d	file:
+MPEG_INFOFRAME	cat6023.h	664;"	d
+MPEG_INFOFRAME_LEN	typedef.h	228;"	d
+MPEG_INFOFRAME_LEN	typedef.h	404;"	d
+MPEG_INFOFRAME_TYPE	typedef.h	216;"	d
+MPEG_INFOFRAME_TYPE	typedef.h	392;"	d
+MPEG_INFOFRAME_VER	typedef.h	222;"	d
+MPEG_INFOFRAME_VER	typedef.h	398;"	d
+MPEG_InfoFrame	typedef.h	/^} MPEG_InfoFrame ;$/;"	t	typeref:union:_MPEG_InfoFrame
+MPG_DB	typedef.h	/^        BYTE MPG_DB[MPEG_INFOFRAME_LEN] ;$/;"	m	struct:_MPEG_InfoFrame::__anon9
+MPG_HB	typedef.h	/^        BYTE MPG_HB[3] ;$/;"	m	struct:_MPEG_InfoFrame::__anon9
+MS_TimeOut	cat6023.c	115;"	d	file:
+MUTE_RESUMING_TIMEOUT	cat6023.c	121;"	d	file:
+M_AUDIO_CH	cat6023.h	600;"	d
+M_AUD_CHCNT_MASK	cat6023.h	793;"	d
+M_AUD_CODTYPE_MASK	cat6023.h	781;"	d
+M_AUD_SMP_FREQ_MASK	cat6023.h	805;"	d
+M_AVI_BAR_INFO_MASK	cat6023.h	683;"	d
+M_AVI_CLRMET_MASK	cat6023.h	699;"	d
+M_AVI_COLOR_MASK	cat6023.h	675;"	d
+M_AVI_FMT_ASRATIO_14_9	cat6023.h	715;"	d
+M_AVI_FMT_ASRATIO_16_9	cat6023.h	714;"	d
+M_AVI_FMT_ASRATIO_4_3	cat6023.h	713;"	d
+M_AVI_FMT_ASRATIO_EQPIC	cat6023.h	712;"	d
+M_AVI_FMT_ASRATIO_MASK	cat6023.h	711;"	d
+M_AVI_NUNI_SCALE_MASK	cat6023.h	720;"	d
+M_AVI_PIC_ASRATIO_MASK	cat6023.h	705;"	d
+M_AVI_PIXREPT_MASK	cat6023.h	733;"	d
+M_AVI_SCAN_INFO_MASK	cat6023.h	690;"	d
+M_AVI_SCAN_NODATA	cat6023.h	691;"	d
+M_AVI_SCAN_OVER_SCAN	cat6023.h	692;"	d
+M_AVI_SCAN_UNDER_SCAN	cat6023.h	693;"	d
+M_BCH_THRSH	cat6023.h	447;"	d
+M_CH_NUM	cat6023.h	644;"	d
+M_CLK_ACCURANCE	cat6023.h	653;"	d
+M_CSC_SEL_MASK	cat6023.h	300;"	d
+M_DOWNSTREAM_COUNT	cat6023.h	945;"	d
+M_Fs	cat6023.h	537;"	d
+M_GCP_CD	cat6023.h	534;"	d
+M_HACT_H	cat6023.h	395;"	d
+M_HDCP_STABLECNT	cat6023.h	173;"	d
+M_HSYNC_WID_H	cat6023.h	403;"	d
+M_HTOTAL_H	cat6023.h	393;"	d
+M_HWAMP_CTRL_MASK	cat6023.h	568;"	d
+M_HWMUTE_RATE_MASK	cat6023.h	563;"	d
+M_H_FT_PORCH	cat6023.h	405;"	d
+M_I2S_CHSEL	cat6023.h	483;"	d
+M_INPUT_COLOR_MASK	cat6023.h	294;"	d
+M_MCLKSEL	cat6023.h	514;"	d
+M_OUTPUT_COLOR_MASK	cat6023.h	344;"	d
+M_PIXEL_REPEAT	cat6023.h	423;"	d
+M_REPEATER_DEPTH	cat6023.h	942;"	d
+M_SRC_NUM	cat6023.h	646;"	d
+M_SW_LEN	cat6023.h	654;"	d
+M_VACT_H	cat6023.h	413;"	d
+M_VTOTAL_H	cat6023.h	411;"	d
+MpegBitRate	typedef.h	/^        ULONG MpegBitRate ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+MpegFrame	typedef.h	/^        BYTE MpegFrame:2 ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+MuteAutoOff	cat6023.c	/^static BOOL MuteAutoOff = FALSE ;$/;"	v	file:
+MuteByPKG	cat6023.c	/^static BOOL MuteByPKG = OFF ;		\/\/Dongzejun:通过PKG设置静音（ 信息包 ） 0:打开音频；1:禁音$/;"	v	file:
+MuteProcessTimerHandler	cat6023.c	/^static void MuteProcessTimerHandler()$/;"	f	file:
+MuteResumingTimer	cat6023.c	/^static _IDATA USHORT MuteResumingTimer = 0 ;$/;"	v	file:
+NULL	cat6023.h	44;"	d
+NewAVIInfoFrameF	cat6023.c	/^static BOOL NewAVIInfoFrameF = FALSE ;	\/\/Dongzejun:接收一个新的AVI　帧=1$/;"	v	file:
+OFF	cat6023.h	38;"	d
+OFF	typedef.h	55;"	d
+ON	cat6023.h	37;"	d
+ON	typedef.h	54;"	d
+OUTPUT_24BIT_RGB444	cat6023.c	12;"	d	file:
+OUTPUT_RGB	cat6023.h	106;"	d
+OUTPUT_RGB	cat6023.h	86;"	d
+OUTPUT_RGB444	cat6023.h	82;"	d
+OUTPUT_RGB444	cat6023.h	96;"	d
+OUTPUT_SYNC_EMBEDDED	cat6023.c	55;"	d	file:
+OUTPUT_YUV	cat6023.h	100;"	d
+OUTPUT_YUV	cat6023.h	90;"	d
+OUTPUT_YUV422	cat6023.h	78;"	d
+OUTPUT_YUV422	cat6023.h	95;"	d
+OUTPUT_YUV444	cat6023.h	74;"	d
+OUTPUT_YUV444	cat6023.h	94;"	d
+O_ANALOG_BACKUP	cat6023.h	634;"	d
+O_AUD_CHCNT	cat6023.h	792;"	d
+O_AUD_CODTYPE	cat6023.h	780;"	d
+O_AUD_LEVEL_SHIFT_MASK	cat6023.h	830;"	d
+O_AUD_LEVEL_SHIFT_VALUE	cat6023.h	829;"	d
+O_AUD_SMP_16BIT	cat6023.h	818;"	d
+O_AUD_SMP_20BIT	cat6023.h	819;"	d
+O_AUD_SMP_24BIT	cat6023.h	820;"	d
+O_AUD_SMP_FREQ	cat6023.h	804;"	d
+O_AUD_SMP_SIZE	cat6023.h	815;"	d
+O_AUD_SMP_SIZE_MASK	cat6023.h	816;"	d
+O_AUD_SMP_SIZE_STREAMDEF	cat6023.h	817;"	d
+O_AVI_BAR_INFO	cat6023.h	682;"	d
+O_AVI_CLRMET	cat6023.h	698;"	d
+O_AVI_COLOR_MODE	cat6023.h	674;"	d
+O_AVI_FMT_ASRATIO	cat6023.h	710;"	d
+O_AVI_NUNI_SCALE	cat6023.h	719;"	d
+O_AVI_PIC_ASRATIO	cat6023.h	704;"	d
+O_AVI_PIXREPT	cat6023.h	732;"	d
+O_AVI_SCAN_INFO	cat6023.h	689;"	d
+O_AVI_VIDCODE	cat6023.h	728;"	d
+O_AVI_VIDCODE_MASK	cat6023.h	729;"	d
+O_BCH_THRSH	cat6023.h	446;"	d
+O_CH0_ERR	cat6023.h	553;"	d
+O_CH1_ERR	cat6023.h	552;"	d
+O_CH2_ERR	cat6023.h	551;"	d
+O_CH_NUM	cat6023.h	645;"	d
+O_CSC_SEL	cat6023.h	299;"	d
+O_DIGITAL_BACKUP	cat6023.h	635;"	d
+O_GCP_CD	cat6023.h	535;"	d
+O_HACT_H	cat6023.h	394;"	d
+O_HSYNC_WID_H	cat6023.h	402;"	d
+O_HTOTAL_H	cat6023.h	392;"	d
+O_H_FT_PORCH	cat6023.h	404;"	d
+O_I2S_CH0SEL	cat6023.h	481;"	d
+O_I2S_CH1SEL	cat6023.h	480;"	d
+O_I2S_CH2SEL	cat6023.h	479;"	d
+O_I2S_CH3SEL	cat6023.h	478;"	d
+O_INPUT_COLOR_MODE	cat6023.h	293;"	d
+O_MCLKSEL	cat6023.h	513;"	d
+O_OUTPUT_COLOR_MODE	cat6023.h	343;"	d
+O_PIXEL_REPEAT	cat6023.h	422;"	d
+O_REPEATER_DEPTH	cat6023.h	943;"	d
+O_SRC_NUM	cat6023.h	647;"	d
+O_SW_LEN	cat6023.h	655;"	d
+O_TRI_I2S0	cat6023.h	579;"	d
+O_TRI_I2S1	cat6023.h	578;"	d
+O_TRI_I2S2	cat6023.h	577;"	d
+O_TRI_I2S3	cat6023.h	576;"	d
+O_TRI_SPDIF	cat6023.h	575;"	d
+O_TRI_VIDEO	cat6023.h	574;"	d
+O_TRI_VIDEOIO	cat6023.h	573;"	d
+O_VACT_H	cat6023.h	412;"	d
+O_VTOTAL_H	cat6023.h	410;"	d
+PBYTE	typedef.h	/^typedef unsigned char BYTE, *PBYTE ;$/;"	t
+PCHAR	typedef.h	/^typedef char CHAR, *PCHAR ;$/;"	t
+PCLK	typedef.h	/^    LONG PCLK ;$/;"	m	struct:__anon2
+PCLK_HIGH	typedef.h	/^    PCLK_HIGH$/;"	e	enum:__anon3
+PCLK_LOW	typedef.h	/^    PCLK_LOW = 0 ,$/;"	e	enum:__anon3
+PCLK_MEDIUM	typedef.h	/^    PCLK_MEDIUM,$/;"	e	enum:__anon3
+PD	typedef.h	/^        char PD[16] ;$/;"	m	struct:_SPD_InfoFrame::__anon10
+PDWORD	typedef.h	/^typedef unsigned long DWORD, *PDWORD ;$/;"	t
+PLONG	typedef.h	/^typedef long LONG, *PLONG ;$/;"	t
+PORT_PRN_CTRL	cat6023.h	1022;"	d
+PORT_PRN_CTRL	cat6023.h	988;"	d
+PORT_PRN_DATA	cat6023.h	1020;"	d
+PORT_PRN_DATA	cat6023.h	986;"	d
+PORT_PRN_STAT	cat6023.h	1021;"	d
+PORT_PRN_STAT	cat6023.h	987;"	d
+POWER_KEY_PRESS	io.c	826;"	d	file:
+POWER_KEY_RELEASE	io.c	825;"	d	file:
+PROG	typedef.h	83;"	d
+PSHORT	typedef.h	/^typedef short SHORT, *PSHORT ;$/;"	t
+PUCHAR	typedef.h	/^typedef unsigned char UCHAR, *PUCHAR ;$/;"	t
+PULONG	typedef.h	/^typedef unsigned long ULONG, *PULONG ;$/;"	t
+PUSHORT	typedef.h	/^typedef unsigned short USHORT, *PUSHORT ;$/;"	t
+PWORD	typedef.h	/^typedef unsigned short WORD, *PWORD ;$/;"	t
+PictureAspectRatio	typedef.h	/^        BYTE PictureAspectRatio:2 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Pix_End_Left	typedef.h	/^        SHORT Pix_End_Left ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Pix_Start_Right	typedef.h	/^        SHORT Pix_Start_Right ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+PixelRepetition	typedef.h	/^        BYTE PixelRepetition:4 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+PowerDownHDMI	cat6023.c	/^void PowerDownHDMI()$/;"	f
+Quantization	typedef.h	/^        BYTE Quantization:1 ;$/;"	m	struct:_VideoFormatCode::_VFC
+RDROM_Reset	cat6023.c	/^void RDROM_Reset()$/;"	f
+REGPAIR	cat6023.c	/^} REGPAIR ;$/;"	t	typeref:struct:_REGPAIR	file:
+REG_RX_ACP_DB0	cat6023.h	851;"	d
+REG_RX_ACP_DB1	cat6023.h	852;"	d
+REG_RX_ACP_DB2	cat6023.h	853;"	d
+REG_RX_ACP_DB3	cat6023.h	854;"	d
+REG_RX_ACP_DB4	cat6023.h	855;"	d
+REG_RX_ACP_DB5	cat6023.h	856;"	d
+REG_RX_ACP_DB6	cat6023.h	857;"	d
+REG_RX_ACP_DB7	cat6023.h	858;"	d
+REG_RX_ACP_DB8	cat6023.h	859;"	d
+REG_RX_ACP_TYPE	cat6023.h	850;"	d
+REG_RX_AIO_CTRL	cat6023.h	147;"	d
+REG_RX_APLL_CTRL	cat6023.h	464;"	d
+REG_RX_AUDIO_CH_STAT	cat6023.h	595;"	d
+REG_RX_AUDIO_CTRL	cat6023.h	490;"	d
+REG_RX_AUDIO_DB0	cat6023.h	778;"	d
+REG_RX_AUDIO_DB1	cat6023.h	802;"	d
+REG_RX_AUDIO_DB2	cat6023.h	821;"	d
+REG_RX_AUDIO_DB3	cat6023.h	823;"	d
+REG_RX_AUDIO_DB4	cat6023.h	825;"	d
+REG_RX_AUDIO_DB5	cat6023.h	831;"	d
+REG_RX_AUDIO_VER	cat6023.h	777;"	d
+REG_RX_AUD_CHSTAT0	cat6023.h	637;"	d
+REG_RX_AUD_CHSTAT1	cat6023.h	641;"	d
+REG_RX_AUD_CHSTAT2	cat6023.h	643;"	d
+REG_RX_AUD_CHSTAT3	cat6023.h	652;"	d
+REG_RX_AUTO_EQ_CTRL	cat6023.h	334;"	d
+REG_RX_AVI_DB0	cat6023.h	672;"	d
+REG_RX_AVI_DB1	cat6023.h	696;"	d
+REG_RX_AVI_DB10	cat6023.h	740;"	d
+REG_RX_AVI_DB11	cat6023.h	741;"	d
+REG_RX_AVI_DB12	cat6023.h	742;"	d
+REG_RX_AVI_DB13	cat6023.h	743;"	d
+REG_RX_AVI_DB14	cat6023.h	744;"	d
+REG_RX_AVI_DB15	cat6023.h	745;"	d
+REG_RX_AVI_DB2	cat6023.h	718;"	d
+REG_RX_AVI_DB3	cat6023.h	726;"	d
+REG_RX_AVI_DB4	cat6023.h	730;"	d
+REG_RX_AVI_DB5	cat6023.h	735;"	d
+REG_RX_AVI_DB6	cat6023.h	736;"	d
+REG_RX_AVI_DB7	cat6023.h	737;"	d
+REG_RX_AVI_DB8	cat6023.h	738;"	d
+REG_RX_AVI_DB9	cat6023.h	739;"	d
+REG_RX_AVI_VER	cat6023.h	671;"	d
+REG_RX_BANK	cat6023.h	155;"	d
+REG_RX_BCH_MODE	cat6023.h	445;"	d
+REG_RX_BIST_CTRL	cat6023.h	150;"	d
+REG_RX_BIST_RESULT1	cat6023.h	151;"	d
+REG_RX_BIST_RESULT2	cat6023.h	152;"	d
+REG_RX_BLOCK_SEL	cat6023.h	153;"	d
+REG_RX_BSTATUSH	cat6023.h	938;"	d
+REG_RX_BSTATUSL	cat6023.h	937;"	d
+REG_RX_CDEPTH_CTRL	cat6023.h	454;"	d
+REG_RX_CHANNEL_ERR	cat6023.h	548;"	d
+REG_RX_CSC_COFF	cat6023.h	309;"	d
+REG_RX_CSC_CTRL	cat6023.h	287;"	d
+REG_RX_CSC_MTX11_H	cat6023.h	312;"	d
+REG_RX_CSC_MTX11_L	cat6023.h	311;"	d
+REG_RX_CSC_MTX12_H	cat6023.h	314;"	d
+REG_RX_CSC_MTX12_L	cat6023.h	313;"	d
+REG_RX_CSC_MTX13_H	cat6023.h	316;"	d
+REG_RX_CSC_MTX13_L	cat6023.h	315;"	d
+REG_RX_CSC_MTX21_H	cat6023.h	318;"	d
+REG_RX_CSC_MTX21_L	cat6023.h	317;"	d
+REG_RX_CSC_MTX22_H	cat6023.h	320;"	d
+REG_RX_CSC_MTX22_L	cat6023.h	319;"	d
+REG_RX_CSC_MTX23_H	cat6023.h	322;"	d
+REG_RX_CSC_MTX23_L	cat6023.h	321;"	d
+REG_RX_CSC_MTX31_H	cat6023.h	324;"	d
+REG_RX_CSC_MTX31_L	cat6023.h	323;"	d
+REG_RX_CSC_MTX32_H	cat6023.h	326;"	d
+REG_RX_CSC_MTX32_L	cat6023.h	325;"	d
+REG_RX_CSC_MTX33_H	cat6023.h	328;"	d
+REG_RX_CSC_MTX33_L	cat6023.h	327;"	d
+REG_RX_CSC_RGBOFF	cat6023.h	310;"	d
+REG_RX_CSC_YOFF	cat6023.h	308;"	d
+REG_RX_CTS_RCV2	cat6023.h	529;"	d
+REG_RX_CTS_RCV3	cat6023.h	530;"	d
+REG_RX_CTS_SET2	cat6023.h	523;"	d
+REG_RX_CTS_SET3	cat6023.h	524;"	d
+REG_RX_DEBUG_CTRL	cat6023.h	428;"	d
+REG_RX_DESKEW_CTRL	cat6023.h	337;"	d
+REG_RX_DES_CTRL1	cat6023.h	440;"	d
+REG_RX_DES_CTRL2	cat6023.h	441;"	d
+REG_RX_DES_PHASE_B	cat6023.h	442;"	d
+REG_RX_DES_PHASE_G	cat6023.h	443;"	d
+REG_RX_DES_PHASE_R	cat6023.h	444;"	d
+REG_RX_DEVID_H	cat6023.h	115;"	d
+REG_RX_DEVID_L	cat6023.h	114;"	d
+REG_RX_DEVREV	cat6023.h	117;"	d
+REG_RX_EQUAL_CTRL1	cat6023.h	436;"	d
+REG_RX_EQUAL_CTRL2	cat6023.h	439;"	d
+REG_RX_FRAMEPKT_ERR	cat6023.h	330;"	d
+REG_RX_FS	cat6023.h	533;"	d
+REG_RX_FS_SET	cat6023.h	525;"	d
+REG_RX_GENPKT_DB0	cat6023.h	749;"	d
+REG_RX_GENPKT_DB1	cat6023.h	750;"	d
+REG_RX_GENPKT_DB10	cat6023.h	759;"	d
+REG_RX_GENPKT_DB11	cat6023.h	760;"	d
+REG_RX_GENPKT_DB12	cat6023.h	761;"	d
+REG_RX_GENPKT_DB13	cat6023.h	762;"	d
+REG_RX_GENPKT_DB14	cat6023.h	763;"	d
+REG_RX_GENPKT_DB15	cat6023.h	764;"	d
+REG_RX_GENPKT_DB16	cat6023.h	765;"	d
+REG_RX_GENPKT_DB17	cat6023.h	766;"	d
+REG_RX_GENPKT_DB18	cat6023.h	767;"	d
+REG_RX_GENPKT_DB19	cat6023.h	768;"	d
+REG_RX_GENPKT_DB2	cat6023.h	751;"	d
+REG_RX_GENPKT_DB20	cat6023.h	769;"	d
+REG_RX_GENPKT_DB21	cat6023.h	770;"	d
+REG_RX_GENPKT_DB22	cat6023.h	771;"	d
+REG_RX_GENPKT_DB23	cat6023.h	772;"	d
+REG_RX_GENPKT_DB24	cat6023.h	773;"	d
+REG_RX_GENPKT_DB25	cat6023.h	774;"	d
+REG_RX_GENPKT_DB26	cat6023.h	775;"	d
+REG_RX_GENPKT_DB27	cat6023.h	776;"	d
+REG_RX_GENPKT_DB3	cat6023.h	752;"	d
+REG_RX_GENPKT_DB4	cat6023.h	753;"	d
+REG_RX_GENPKT_DB5	cat6023.h	754;"	d
+REG_RX_GENPKT_DB6	cat6023.h	755;"	d
+REG_RX_GENPKT_DB7	cat6023.h	756;"	d
+REG_RX_GENPKT_DB8	cat6023.h	757;"	d
+REG_RX_GENPKT_DB9	cat6023.h	758;"	d
+REG_RX_GENPKT_HB0	cat6023.h	746;"	d
+REG_RX_GENPKT_HB1	cat6023.h	747;"	d
+REG_RX_GENPKT_HB2	cat6023.h	748;"	d
+REG_RX_GEN_PKT_TYPE	cat6023.h	650;"	d
+REG_RX_HDCP_CTRL	cat6023.h	170;"	d
+REG_RX_HDCP_STATUS	cat6023.h	180;"	d
+REG_RX_HWAMP_CTRL	cat6023.h	566;"	d
+REG_RX_HWMUTE_CTRL	cat6023.h	557;"	d
+REG_RX_HWMUTE_RATE	cat6023.h	554;"	d
+REG_RX_I2CIO_CTRL	cat6023.h	282;"	d
+REG_RX_I2C_CTRL	cat6023.h	374;"	d
+REG_RX_I2S_CTRL	cat6023.h	475;"	d
+REG_RX_I2S_MAP	cat6023.h	477;"	d
+REG_RX_INTERRUPT1	cat6023.h	184;"	d
+REG_RX_INTERRUPT2	cat6023.h	195;"	d
+REG_RX_INTERRUPT3	cat6023.h	230;"	d
+REG_RX_INTERRUPT4	cat6023.h	209;"	d
+REG_RX_INTERRUPT_CTRL	cat6023.h	239;"	d
+REG_RX_INTERRUPT_CTRL1	cat6023.h	226;"	d
+REG_RX_INTERRUPT_MASK1	cat6023.h	186;"	d
+REG_RX_INTERRUPT_MASK2	cat6023.h	197;"	d
+REG_RX_INTERRUPT_MASK3	cat6023.h	231;"	d
+REG_RX_INTERRUPT_MASK4	cat6023.h	215;"	d
+REG_RX_ISRC1_DB0	cat6023.h	866;"	d
+REG_RX_ISRC1_DB1	cat6023.h	867;"	d
+REG_RX_ISRC1_DB10	cat6023.h	876;"	d
+REG_RX_ISRC1_DB11	cat6023.h	877;"	d
+REG_RX_ISRC1_DB12	cat6023.h	878;"	d
+REG_RX_ISRC1_DB13	cat6023.h	879;"	d
+REG_RX_ISRC1_DB14	cat6023.h	880;"	d
+REG_RX_ISRC1_DB15	cat6023.h	881;"	d
+REG_RX_ISRC1_DB2	cat6023.h	868;"	d
+REG_RX_ISRC1_DB3	cat6023.h	869;"	d
+REG_RX_ISRC1_DB4	cat6023.h	870;"	d
+REG_RX_ISRC1_DB5	cat6023.h	871;"	d
+REG_RX_ISRC1_DB6	cat6023.h	872;"	d
+REG_RX_ISRC1_DB7	cat6023.h	873;"	d
+REG_RX_ISRC1_DB8	cat6023.h	874;"	d
+REG_RX_ISRC1_DB9	cat6023.h	875;"	d
+REG_RX_ISRC1_HB0	cat6023.h	863;"	d
+REG_RX_ISRC1_HB1	cat6023.h	864;"	d
+REG_RX_ISRC1_HB2	cat6023.h	865;"	d
+REG_RX_ISRC1_REC_TYPE	cat6023.h	882;"	d
+REG_RX_ISRC2_DB0	cat6023.h	886;"	d
+REG_RX_ISRC2_DB1	cat6023.h	887;"	d
+REG_RX_ISRC2_DB2	cat6023.h	888;"	d
+REG_RX_ISRC2_DB3	cat6023.h	889;"	d
+REG_RX_ISRC2_DB4	cat6023.h	890;"	d
+REG_RX_ISRC2_DB5	cat6023.h	891;"	d
+REG_RX_ISRC2_DB6	cat6023.h	892;"	d
+REG_RX_ISRC2_DB7	cat6023.h	893;"	d
+REG_RX_ISRC2_DB8	cat6023.h	894;"	d
+REG_RX_ISRC2_HB0	cat6023.h	883;"	d
+REG_RX_ISRC2_HB1	cat6023.h	884;"	d
+REG_RX_ISRC2_HB2	cat6023.h	885;"	d
+REG_RX_ISRC2_REC_TYPE	cat6023.h	895;"	d
+REG_RX_KSV_FIFO00	cat6023.h	896;"	d
+REG_RX_KSV_FIFO01	cat6023.h	897;"	d
+REG_RX_KSV_FIFO02	cat6023.h	898;"	d
+REG_RX_KSV_FIFO03	cat6023.h	899;"	d
+REG_RX_KSV_FIFO04	cat6023.h	900;"	d
+REG_RX_KSV_FIFO10	cat6023.h	901;"	d
+REG_RX_KSV_FIFO11	cat6023.h	902;"	d
+REG_RX_KSV_FIFO12	cat6023.h	903;"	d
+REG_RX_KSV_FIFO13	cat6023.h	904;"	d
+REG_RX_KSV_FIFO14	cat6023.h	905;"	d
+REG_RX_KSV_FIFO20	cat6023.h	906;"	d
+REG_RX_KSV_FIFO21	cat6023.h	907;"	d
+REG_RX_KSV_FIFO22	cat6023.h	908;"	d
+REG_RX_KSV_FIFO23	cat6023.h	909;"	d
+REG_RX_KSV_FIFO24	cat6023.h	910;"	d
+REG_RX_KSV_FIFO30	cat6023.h	911;"	d
+REG_RX_KSV_FIFO31	cat6023.h	912;"	d
+REG_RX_KSV_FIFO32	cat6023.h	913;"	d
+REG_RX_KSV_FIFO33	cat6023.h	914;"	d
+REG_RX_KSV_FIFO34	cat6023.h	915;"	d
+REG_RX_KSV_FIFO40	cat6023.h	916;"	d
+REG_RX_KSV_FIFO41	cat6023.h	917;"	d
+REG_RX_KSV_FIFO42	cat6023.h	918;"	d
+REG_RX_KSV_FIFO43	cat6023.h	919;"	d
+REG_RX_KSV_FIFO44	cat6023.h	920;"	d
+REG_RX_KSV_FIFO50	cat6023.h	921;"	d
+REG_RX_KSV_FIFO51	cat6023.h	922;"	d
+REG_RX_KSV_FIFO52	cat6023.h	923;"	d
+REG_RX_KSV_FIFO53	cat6023.h	924;"	d
+REG_RX_KSV_FIFO54	cat6023.h	925;"	d
+REG_RX_KSV_FIFO60	cat6023.h	926;"	d
+REG_RX_KSV_FIFO61	cat6023.h	927;"	d
+REG_RX_KSV_FIFO62	cat6023.h	928;"	d
+REG_RX_KSV_FIFO63	cat6023.h	929;"	d
+REG_RX_KSV_FIFO64	cat6023.h	930;"	d
+REG_RX_KSV_FIFO70	cat6023.h	931;"	d
+REG_RX_KSV_FIFO71	cat6023.h	932;"	d
+REG_RX_KSV_FIFO72	cat6023.h	933;"	d
+REG_RX_KSV_FIFO73	cat6023.h	934;"	d
+REG_RX_KSV_FIFO74	cat6023.h	935;"	d
+REG_RX_M0_B0	cat6023.h	966;"	d
+REG_RX_M0_B1	cat6023.h	967;"	d
+REG_RX_M0_B2	cat6023.h	968;"	d
+REG_RX_M0_B3	cat6023.h	969;"	d
+REG_RX_M0_B4	cat6023.h	970;"	d
+REG_RX_M0_B5	cat6023.h	971;"	d
+REG_RX_M0_B6	cat6023.h	972;"	d
+REG_RX_M0_B7	cat6023.h	973;"	d
+REG_RX_MCLK_CTRL	cat6023.h	505;"	d
+REG_RX_MISC_CTRL	cat6023.h	250;"	d
+REG_RX_MPEG_DB0	cat6023.h	833;"	d
+REG_RX_MPEG_DB1	cat6023.h	834;"	d
+REG_RX_MPEG_DB2	cat6023.h	835;"	d
+REG_RX_MPEG_DB3	cat6023.h	836;"	d
+REG_RX_MPEG_DB4	cat6023.h	837;"	d
+REG_RX_MPEG_DB5	cat6023.h	838;"	d
+REG_RX_MPEG_VER	cat6023.h	832;"	d
+REG_RX_N_RCV1	cat6023.h	526;"	d
+REG_RX_N_RCV2	cat6023.h	527;"	d
+REG_RX_N_RCV3	cat6023.h	528;"	d
+REG_RX_N_SET1	cat6023.h	520;"	d
+REG_RX_N_SET2	cat6023.h	521;"	d
+REG_RX_N_SET3	cat6023.h	522;"	d
+REG_RX_OTP_CTRL	cat6023.h	148;"	d
+REG_RX_OTP_XOR	cat6023.h	149;"	d
+REG_RX_OUTBIT	cat6023.h	333;"	d
+REG_RX_PG_CHINC	cat6023.h	371;"	d
+REG_RX_PG_COLB	cat6023.h	351;"	d
+REG_RX_PG_COLBLANK	cat6023.h	352;"	d
+REG_RX_PG_COLBLANKY	cat6023.h	353;"	d
+REG_RX_PG_COLG	cat6023.h	350;"	d
+REG_RX_PG_COLR	cat6023.h	349;"	d
+REG_RX_PG_CTRL1	cat6023.h	339;"	d
+REG_RX_PG_CTRL2	cat6023.h	342;"	d
+REG_RX_PG_CVINC	cat6023.h	372;"	d
+REG_RX_PG_HACTED_H	cat6023.h	356;"	d
+REG_RX_PG_HACTST_H	cat6023.h	355;"	d
+REG_RX_PG_HACTST_L	cat6023.h	354;"	d
+REG_RX_PG_HSYNCED_L	cat6023.h	366;"	d
+REG_RX_PG_HSYNCST_H	cat6023.h	365;"	d
+REG_RX_PG_HTOTAL_H	cat6023.h	364;"	d
+REG_RX_PG_HTOTAL_L	cat6023.h	363;"	d
+REG_RX_PG_VACTED2ND_H	cat6023.h	362;"	d
+REG_RX_PG_VACTED_H	cat6023.h	359;"	d
+REG_RX_PG_VACTST2ND_H	cat6023.h	361;"	d
+REG_RX_PG_VACTST2ND_L	cat6023.h	360;"	d
+REG_RX_PG_VACTST_H	cat6023.h	358;"	d
+REG_RX_PG_VACTST_L	cat6023.h	357;"	d
+REG_RX_PG_VSYNCED	cat6023.h	370;"	d
+REG_RX_PG_VSYNCST_H	cat6023.h	369;"	d
+REG_RX_PG_VTOTAL_H	cat6023.h	368;"	d
+REG_RX_PG_VTOTAL_L	cat6023.h	367;"	d
+REG_RX_PKT_REC_TYPE	cat6023.h	656;"	d
+REG_RX_PLL_CTRL	cat6023.h	431;"	d
+REG_RX_PWD_CTRL0	cat6023.h	131;"	d
+REG_RX_PWD_CTRL1	cat6023.h	135;"	d
+REG_RX_RDROM_CLKCTRL	cat6023.h	628;"	d
+REG_RX_RDROM_CTRL	cat6023.h	622;"	d
+REG_RX_RDROM_OFFSET	cat6023.h	620;"	d
+REG_RX_RDROM_REQBYTE	cat6023.h	621;"	d
+REG_RX_RDROM_STATUS	cat6023.h	625;"	d
+REG_RX_REGPKTFLAG_CTRL	cat6023.h	283;"	d
+REG_RX_RST_CTRL	cat6023.h	120;"	d
+REG_RX_RXPLL2_LOCK	cat6023.h	332;"	d
+REG_RX_SHA1_H00	cat6023.h	946;"	d
+REG_RX_SHA1_H01	cat6023.h	947;"	d
+REG_RX_SHA1_H02	cat6023.h	948;"	d
+REG_RX_SHA1_H03	cat6023.h	949;"	d
+REG_RX_SHA1_H10	cat6023.h	950;"	d
+REG_RX_SHA1_H11	cat6023.h	951;"	d
+REG_RX_SHA1_H12	cat6023.h	952;"	d
+REG_RX_SHA1_H13	cat6023.h	953;"	d
+REG_RX_SHA1_H20	cat6023.h	954;"	d
+REG_RX_SHA1_H21	cat6023.h	955;"	d
+REG_RX_SHA1_H22	cat6023.h	956;"	d
+REG_RX_SHA1_H23	cat6023.h	957;"	d
+REG_RX_SHA1_H30	cat6023.h	958;"	d
+REG_RX_SHA1_H31	cat6023.h	959;"	d
+REG_RX_SHA1_H32	cat6023.h	960;"	d
+REG_RX_SHA1_H33	cat6023.h	961;"	d
+REG_RX_SHA1_H40	cat6023.h	962;"	d
+REG_RX_SHA1_H41	cat6023.h	963;"	d
+REG_RX_SHA1_H42	cat6023.h	964;"	d
+REG_RX_SHA1_H43	cat6023.h	965;"	d
+REG_RX_SKNDLY	cat6023.h	331;"	d
+REG_RX_SRC_PB25	cat6023.h	861;"	d
+REG_RX_SRC_VER	cat6023.h	860;"	d
+REG_RX_SYS_STATE	cat6023.h	158;"	d
+REG_RX_TERM_CTRL1	cat6023.h	432;"	d
+REG_RX_TERM_CTRL2	cat6023.h	433;"	d
+REG_RX_TRISTATE_CTRL	cat6023.h	571;"	d
+REG_RX_VCLK_CTRL	cat6023.h	280;"	d
+REG_RX_VIDEO_CTRL1	cat6023.h	269;"	d
+REG_RX_VIDEO_MAP	cat6023.h	260;"	d
+REG_RX_VID_H	cat6023.h	113;"	d
+REG_RX_VID_HACT_L	cat6023.h	397;"	d
+REG_RX_VID_HSYNC_WID_H	cat6023.h	400;"	d
+REG_RX_VID_HSYNC_WID_L	cat6023.h	399;"	d
+REG_RX_VID_HTOTAL_H	cat6023.h	390;"	d
+REG_RX_VID_HTOTAL_L	cat6023.h	389;"	d
+REG_RX_VID_H_FT_PORCH_L	cat6023.h	407;"	d
+REG_RX_VID_INPUT_ST	cat6023.h	421;"	d
+REG_RX_VID_L	cat6023.h	112;"	d
+REG_RX_VID_MODE	cat6023.h	383;"	d
+REG_RX_VID_VACT_L	cat6023.h	415;"	d
+REG_RX_VID_VSYNC2DE	cat6023.h	416;"	d
+REG_RX_VID_VTOTAL_H	cat6023.h	409;"	d
+REG_RX_VID_VTOTAL_L	cat6023.h	408;"	d
+REG_RX_VID_V_FT_PORCH	cat6023.h	417;"	d
+REG_RX_VID_XTALCNT_128PEL	cat6023.h	418;"	d
+REG_RX_VIO_CTRL	cat6023.h	146;"	d
+REG_RX_VS_DB0	cat6023.h	841;"	d
+REG_RX_VS_DB1	cat6023.h	842;"	d
+REG_RX_VS_DB2	cat6023.h	843;"	d
+REG_RX_VS_DB3	cat6023.h	844;"	d
+REG_RX_VS_DB4	cat6023.h	845;"	d
+REG_RX_VS_DB5	cat6023.h	846;"	d
+REG_RX_VS_DB6	cat6023.h	847;"	d
+REG_RX_VS_DB7	cat6023.h	848;"	d
+REG_RX_VS_DB8	cat6023.h	849;"	d
+REG_RX_VS_VER	cat6023.h	839;"	d
+RSVD1	typedef.h	/^        BYTE RSVD1:1 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+RXADR	cat6023.h	50;"	d
+RXDEV	cat6023.h	59;"	d
+RXHDCP_AuthDone	typedef.h	/^    RXHDCP_AuthDone,$/;"	e	enum:_RXHDCP_State_Type
+RXHDCP_AuthStart	typedef.h	/^    RXHDCP_AuthStart,$/;"	e	enum:_RXHDCP_State_Type
+RXHDCP_FailReady	typedef.h	/^    RXHDCP_FailReady,$/;"	e	enum:_RXHDCP_State_Type
+RXHDCP_Ready	typedef.h	/^    RXHDCP_Ready,$/;"	e	enum:_RXHDCP_State_Type
+RXHDCP_Reserved	typedef.h	/^    RXHDCP_Reserved$/;"	e	enum:_RXHDCP_State_Type
+RXHDCP_Reset	typedef.h	/^    RXHDCP_Reset = 0,$/;"	e	enum:_RXHDCP_State_Type
+RXHDCP_State_Type	typedef.h	/^} RXHDCP_State_Type ;$/;"	t	typeref:enum:_RXHDCP_State_Type
+RXHDCP_UpdateKSVList	typedef.h	/^    RXHDCP_UpdateKSVList,$/;"	e	enum:_RXHDCP_State_Type
+RXINT_5V_PwrOff	cat6023.c	/^void RXINT_5V_PwrOff()$/;"	f
+RXINT_5V_PwrOn	cat6023.c	/^void RXINT_5V_PwrOn()$/;"	f
+RXINT_AVMute_Clear	cat6023.c	/^void RXINT_AVMute_Clear()$/;"	f
+RXINT_AVMute_Set	cat6023.c	/^void RXINT_AVMute_Set()$/;"	f
+RXINT_HDMIMode_Chg	cat6023.c	/^void RXINT_HDMIMode_Chg()$/;"	f
+RXINT_RXCKON	cat6023.c	/^void RXINT_RXCKON()$/;"	f
+RXINT_ResetAudio	cat6023.c	/^void RXINT_ResetAudio()$/;"	f
+RXINT_ResetHDCP	cat6023.c	/^void RXINT_ResetHDCP()$/;"	f
+RXINT_SCDT_Off	cat6023.c	/^void RXINT_SCDT_Off()$/;"	f
+RXINT_SCDT_On	cat6023.c	/^void RXINT_SCDT_On()$/;"	f
+RXINT_SetNewAVIInfo	cat6023.c	/^void RXINT_SetNewAVIInfo()$/;"	f
+RXINT_VideoMode_Chg	cat6023.c	/^void RXINT_VideoMode_Chg()$/;"	f
+ResetAudio	cat6023.c	/^void ResetAudio()$/;"	f
+Rsvd2	typedef.h	/^        BYTE Rsvd2:3 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+Rsvd3	typedef.h	/^        BYTE Rsvd3:3 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+Rvsd1	typedef.h	/^        BYTE Rvsd1:2 ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+Rvsd2	typedef.h	/^        BYTE Rvsd2:3 ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+SCDTErrorCnt	cat6023.c	/^BYTE SCDTErrorCnt = 0;	\/\/Dongzejun:Reg0x13[3]中断中计数 在软件复位函数"SWReset_HDMIRX()"中清0$/;"	v
+SCDT_LOST_TIMEOUT	cat6023.c	128;"	d	file:
+SET_EDID_SCL	io.c	/^void SET_EDID_SCL( BOOL bit_value )$/;"	f
+SET_EDID_SDA	io.c	/^void SET_EDID_SDA( BOOL bit_value)$/;"	f
+SHORT	typedef.h	/^typedef short SHORT, *PSHORT ;$/;"	t
+SIZE_OF_CSCGAIN	cat6023.c	2829;"	d	file:
+SIZE_OF_CSCMTX	cat6023.c	2828;"	d	file:
+SIZE_OF_CSCOFFSET	cat6023.c	2827;"	d	file:
+SPD_DB	typedef.h	/^        BYTE SPD_DB[SPD_INFOFRAME_LEN] ;$/;"	m	struct:_SPD_InfoFrame::__anon11
+SPD_HB	typedef.h	/^        BYTE SPD_HB[3] ;$/;"	m	struct:_SPD_InfoFrame::__anon11
+SPD_INFOFRAME	cat6023.h	658;"	d
+SPD_INFOFRAME_LEN	typedef.h	226;"	d
+SPD_INFOFRAME_LEN	typedef.h	402;"	d
+SPD_INFOFRAME_TYPE	typedef.h	214;"	d
+SPD_INFOFRAME_TYPE	typedef.h	390;"	d
+SPD_INFOFRAME_VER	typedef.h	220;"	d
+SPD_INFOFRAME_VER	typedef.h	396;"	d
+SPD_InfoFrame	typedef.h	/^} SPD_InfoFrame ;$/;"	t	typeref:union:_SPD_InfoFrame
+SUCCESS	cat6023.h	34;"	d
+SUCCESS	typedef.h	51;"	d
+SWResetTimeOut	cat6023.c	/^static _XDATA USHORT SWResetTimeOut = FORCE_SWRESET_TIMEOUT;	\/\/Dongzejun:复位计数$/;"	v	file:
+SWReset_HDMIRX	cat6023.c	/^static void SWReset_HDMIRX()$/;"	f	file:
+SYS_STATUS	typedef.h	/^} SYS_STATUS ;$/;"	t	typeref:enum:_SYS_STATUS
+SampleFreq	cat6023.h	/^    BYTE SampleFreq ;		\/\/Dongzejun:reg84[3:0] HDMI输入采样频率值$/;"	m	struct:__anon1
+SampleFreq	typedef.h	/^        BYTE SampleFreq:3 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+SampleSize	typedef.h	/^        BYTE SampleSize:2 ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+Scaling	typedef.h	/^        BYTE Scaling:2 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Scan	typedef.h	/^        BYTE Scan:2 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+ScanMode	typedef.h	/^    BYTE ScanMode:1 ;	\/\/Dongzejun:指示是否是隔行\/g逐行?$/;"	m	struct:__anon2
+SelectHDMIPort	cat6023.c	/^SelectHDMIPort(BYTE ucPort)$/;"	f
+SetALLMute	cat6023.c	31;"	d	file:
+SetAudioMute	cat6023.c	/^void SetAudioMute(BOOL bMute)$/;"	f
+SetCAT6023VideoOutputFormat	cat6023.c	/^SetCAT6023VideoOutputFormat(BYTE bOutputMapping, BYTE bOutputType, BYTE bOutputColorMode)$/;"	f
+SetColorSpaceConvert	cat6023.c	/^void SetColorSpaceConvert()$/;"	f
+SetColorimetryByInfoFrame	cat6023.c	/^BOOL SetColorimetryByInfoFrame()$/;"	f
+SetColorimetryByMode	cat6023.c	/^static void SetColorimetryByMode(\/*PSYNC_INFO pSyncInfo*\/)$/;"	f	file:
+SetDVIVideoOutput	cat6023.c	/^SetDVIVideoOutput()$/;"	f
+SetDefaultRegisterValue	cat6023.c	/^void SetDefaultRegisterValue()$/;"	f
+SetForceHWMute	cat6023.c	373;"	d	file:
+SetHWMuteCTRL	cat6023.c	/^void SetHWMuteCTRL(BYTE AndMask, BYTE OrMask)$/;"	f
+SetHWMuteClr	cat6023.c	377;"	d	file:
+SetHWMuteClrMode	cat6023.c	374;"	d	file:
+SetHWMuteEnable	cat6023.c	378;"	d	file:
+SetI2S0MUTE	cat6023.c	29;"	d	file:
+SetI2S1MUTE	cat6023.c	28;"	d	file:
+SetI2S2MUTE	cat6023.c	27;"	d	file:
+SetI2S3MUTE	cat6023.c	26;"	d	file:
+SetIntMask1	cat6023.c	/^void SetIntMask1(BYTE AndMask,BYTE OrMask)$/;"	f
+SetIntMask2	cat6023.c	/^void SetIntMask2(BYTE AndMask,BYTE OrMask)$/;"	f
+SetIntMask3	cat6023.c	/^void SetIntMask3(BYTE AndMask,BYTE OrMask)$/;"	f
+SetIntMask4	cat6023.c	/^void SetIntMask4(BYTE AndMask,BYTE OrMask)$/;"	f
+SetMUTE	cat6023.c	/^void SetMUTE(BYTE AndMask, BYTE OrMask)$/;"	f
+SetNewInfoVideoOutput	cat6023.c	/^void SetNewInfoVideoOutput()$/;"	f
+SetSPDIFMUTE	cat6023.c	25;"	d	file:
+SetVideoInputFormatWithInfoFrame	cat6023.c	/^void SetVideoInputFormatWithInfoFrame()$/;"	f
+SetVideoInputFormatWithoutInfoFrame	cat6023.c	/^static void SetVideoInputFormatWithoutInfoFrame(BYTE bInMode)$/;"	f	file:
+SetVideoMute	cat6023.c	/^void SetVideoMute(BOOL bMute)$/;"	f
+SetupAudio	cat6023.c	/^static void SetupAudio()$/;"	f	file:
+SizeofVMTable	cat6023.c	255;"	d	file:
+SizeofVMTable	cat6023.c	257;"	d	file:
+SourceDeviceInfomation	typedef.h	/^        BYTE SourceDeviceInfomation ;$/;"	m	struct:_SPD_InfoFrame::__anon10
+SpeakerPlacement	typedef.h	/^        BYTE SpeakerPlacement ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+StartAutoMuteOffTimer	cat6023.c	414;"	d	file:
+SwitchAudioState	cat6023.c	/^void SwitchAudioState(Audio_State_Type state)$/;"	f
+SwitchHDMIRXBank	cat6023.c	33;"	d	file:
+SwitchVideoState	cat6023.c	/^void SwitchVideoState(Video_State_Type state)$/;"	f
+Switch_HDMIRX_Bank	cat6023.h	1048;"	d
+TAG	onLoad.cpp	2;"	d	file:
+TRUE	cat6023.h	32;"	d
+TRUE	typedef.h	49;"	d
+TXASTATE_AudioFIFOFail	typedef.h	/^    TXASTATE_AudioFIFOFail,$/;"	e	enum:_TXAudio_State_Type
+TXASTATE_AudioOff	typedef.h	/^    TXASTATE_AudioOff = 0,$/;"	e	enum:_TXAudio_State_Type
+TXASTATE_AudioOn	typedef.h	/^    TXASTATE_AudioOn,$/;"	e	enum:_TXAudio_State_Type
+TXASTATE_AudioPrepare	typedef.h	/^    TXASTATE_AudioPrepare,$/;"	e	enum:_TXAudio_State_Type
+TXASTATE_Reserved	typedef.h	/^    TXASTATE_Reserved$/;"	e	enum:_TXAudio_State_Type
+TXAudio_State_Type	typedef.h	/^} TXAudio_State_Type ;$/;"	t	typeref:enum:_TXAudio_State_Type
+TXVSTATE_HPD	typedef.h	/^    TXVSTATE_HPD,$/;"	e	enum:_TXVideo_State_Type
+TXVSTATE_Reserved	typedef.h	/^    TXVSTATE_Reserved$/;"	e	enum:_TXVideo_State_Type
+TXVSTATE_Unplug	typedef.h	/^    TXVSTATE_Unplug = 0,$/;"	e	enum:_TXVideo_State_Type
+TXVSTATE_VideoInit	typedef.h	/^    TXVSTATE_VideoInit,$/;"	e	enum:_TXVideo_State_Type
+TXVSTATE_VideoOn	typedef.h	/^    TXVSTATE_VideoOn,$/;"	e	enum:_TXVideo_State_Type
+TXVSTATE_VideoSetup	typedef.h	/^    TXVSTATE_VideoSetup,$/;"	e	enum:_TXVideo_State_Type
+TXVSTATE_WaitForMode	typedef.h	/^    TXVSTATE_WaitForMode,$/;"	e	enum:_TXVideo_State_Type
+TXVSTATE_WaitForVStable	typedef.h	/^    TXVSTATE_WaitForVStable,$/;"	e	enum:_TXVideo_State_Type
+TXVideo_State_Type	typedef.h	/^} TXVideo_State_Type ;$/;"	t	typeref:enum:_TXVideo_State_Type
+T_AUDIO_DSD	cat6023.h	616;"	d
+T_AUDIO_HBR	cat6023.h	615;"	d
+T_AUDIO_LPCM	cat6023.h	618;"	d
+T_AUDIO_MASK	cat6023.h	613;"	d
+T_AUDIO_NLPCM	cat6023.h	617;"	d
+T_AUDIO_OFF	cat6023.h	614;"	d
+T_MODE_CCIR656	typedef.h	178;"	d
+T_MODE_CCIR656	typedef.h	353;"	d
+T_MODE_DEGEN	typedef.h	356;"	d
+T_MODE_INDDR	typedef.h	180;"	d
+T_MODE_INDDR	typedef.h	355;"	d
+T_MODE_PCLKDIV2	typedef.h	181;"	d
+T_MODE_SYNCEMB	typedef.h	179;"	d
+T_MODE_SYNCEMB	typedef.h	354;"	d
+T_MODE_SYNCGEN	typedef.h	357;"	d
+Terminator_Off	cat6023.c	/^static void Terminator_Off()$/;"	f	file:
+Terminator_On	cat6023.c	/^static void Terminator_On()$/;"	f	file:
+Terminator_Reset	cat6023.c	/^static void Terminator_Reset()$/;"	f	file:
+Timer_Handler	cat6023.c	/^void Timer_Handler()$/;"	f
+Type	typedef.h	/^        BYTE Type ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Type	typedef.h	/^        BYTE Type ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+Type	typedef.h	/^        BYTE Type ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+Type	typedef.h	/^        BYTE Type ;$/;"	m	struct:_SPD_InfoFrame::__anon10
+UCHAR	typedef.h	/^typedef unsigned char UCHAR, *PUCHAR ;$/;"	t
+ULONG	typedef.h	/^typedef unsigned long ULONG, *PULONG ;$/;"	t
+UNKNOWN_MODE	typedef.h	/^	UNKNOWN_MODE$/;"	e	enum:tagMODE_ID
+UNRECOGNIZED_PKT	cat6023.h	667;"	d
+USHORT	typedef.h	/^typedef unsigned short USHORT, *PUSHORT ;$/;"	t
+UpDownFilter	typedef.h	/^        BYTE UpDownFilter:1 ;$/;"	m	struct:_VideoFormatCode::_VFC
+VActive	typedef.h	/^    WORD VActive ;$/;"	m	struct:__anon2
+VBackPorch	typedef.h	/^    BYTE VBackPorch ;$/;"	m	struct:__anon2
+VENDORSPEC_INFOFRAME	cat6023.h	665;"	d
+VENDORSPEC_INFOFRAME_LEN	typedef.h	224;"	d
+VENDORSPEC_INFOFRAME_LEN	typedef.h	400;"	d
+VENDORSPEC_INFOFRAME_TYPE	typedef.h	212;"	d
+VENDORSPEC_INFOFRAME_TYPE	typedef.h	388;"	d
+VENDORSPEC_INFOFRAME_VER	typedef.h	218;"	d
+VENDORSPEC_INFOFRAME_VER	typedef.h	394;"	d
+VERSION_STRING	version.h	14;"	d
+VESA_1024x768p60	typedef.h	/^	VESA_1024x768p60,$/;"	e	enum:tagMODE_ID
+VESA_1024x768p70	typedef.h	/^	VESA_1024x768p70,$/;"	e	enum:tagMODE_ID
+VESA_1024x768p75	typedef.h	/^	VESA_1024x768p75,$/;"	e	enum:tagMODE_ID
+VESA_1024x768p85	typedef.h	/^	VESA_1024x768p85,$/;"	e	enum:tagMODE_ID
+VESA_1152x864p75	typedef.h	/^	VESA_1152x864p75,$/;"	e	enum:tagMODE_ID
+VESA_1280X1024p85	typedef.h	/^	VESA_1280X1024p85,$/;"	e	enum:tagMODE_ID
+VESA_1280x1024p60	typedef.h	/^	VESA_1280x1024p60,$/;"	e	enum:tagMODE_ID
+VESA_1280x1024p75	typedef.h	/^	VESA_1280x1024p75,$/;"	e	enum:tagMODE_ID
+VESA_1280x768p60	typedef.h	/^	VESA_1280x768p60,$/;"	e	enum:tagMODE_ID
+VESA_1280x768p60R	typedef.h	/^	VESA_1280x768p60R,$/;"	e	enum:tagMODE_ID
+VESA_1280x768p75	typedef.h	/^	VESA_1280x768p75,$/;"	e	enum:tagMODE_ID
+VESA_1280x768p85	typedef.h	/^	VESA_1280x768p85,$/;"	e	enum:tagMODE_ID
+VESA_1280x960p60	typedef.h	/^	VESA_1280x960p60,$/;"	e	enum:tagMODE_ID
+VESA_1280x960p85	typedef.h	/^	VESA_1280x960p85,$/;"	e	enum:tagMODE_ID
+VESA_1360X768p60	typedef.h	/^	VESA_1360X768p60,$/;"	e	enum:tagMODE_ID
+VESA_1400x1050p75	typedef.h	/^	VESA_1400x1050p75,$/;"	e	enum:tagMODE_ID
+VESA_1400x1050p85	typedef.h	/^	VESA_1400x1050p85,$/;"	e	enum:tagMODE_ID
+VESA_1400x768p60	typedef.h	/^	VESA_1400x768p60,$/;"	e	enum:tagMODE_ID
+VESA_1400x768p60R	typedef.h	/^	VESA_1400x768p60R,$/;"	e	enum:tagMODE_ID
+VESA_1440x900p60	typedef.h	/^	VESA_1440x900p60,$/;"	e	enum:tagMODE_ID
+VESA_1440x900p60R	typedef.h	/^	VESA_1440x900p60R,$/;"	e	enum:tagMODE_ID
+VESA_1440x900p75	typedef.h	/^	VESA_1440x900p75,$/;"	e	enum:tagMODE_ID
+VESA_1440x900p85	typedef.h	/^	VESA_1440x900p85,$/;"	e	enum:tagMODE_ID
+VESA_1600x1200p60	typedef.h	/^	VESA_1600x1200p60,$/;"	e	enum:tagMODE_ID
+VESA_1600x1200p65	typedef.h	/^	VESA_1600x1200p65,$/;"	e	enum:tagMODE_ID
+VESA_1600x1200p70	typedef.h	/^	VESA_1600x1200p70,$/;"	e	enum:tagMODE_ID
+VESA_1600x1200p75	typedef.h	/^	VESA_1600x1200p75,$/;"	e	enum:tagMODE_ID
+VESA_1600x1200p85	typedef.h	/^	VESA_1600x1200p85,$/;"	e	enum:tagMODE_ID
+VESA_1680x1050p60	typedef.h	/^	VESA_1680x1050p60,$/;"	e	enum:tagMODE_ID
+VESA_1680x1050p60R	typedef.h	/^	VESA_1680x1050p60R,$/;"	e	enum:tagMODE_ID
+VESA_1680x1050p75	typedef.h	/^	VESA_1680x1050p75,$/;"	e	enum:tagMODE_ID
+VESA_1680x1050p85	typedef.h	/^	VESA_1680x1050p85,$/;"	e	enum:tagMODE_ID
+VESA_1792x1344p60	typedef.h	/^	VESA_1792x1344p60,$/;"	e	enum:tagMODE_ID
+VESA_1792x1344p75	typedef.h	/^	VESA_1792x1344p75,$/;"	e	enum:tagMODE_ID
+VESA_1856x1392p60	typedef.h	/^	VESA_1856x1392p60,$/;"	e	enum:tagMODE_ID
+VESA_1856x1392p75	typedef.h	/^	VESA_1856x1392p75,$/;"	e	enum:tagMODE_ID
+VESA_1920x1200p60	typedef.h	/^	VESA_1920x1200p60,$/;"	e	enum:tagMODE_ID
+VESA_1920x1200p60R	typedef.h	/^	VESA_1920x1200p60R,$/;"	e	enum:tagMODE_ID
+VESA_1920x1200p75	typedef.h	/^	VESA_1920x1200p75,$/;"	e	enum:tagMODE_ID
+VESA_1920x1200p85	typedef.h	/^	VESA_1920x1200p85,$/;"	e	enum:tagMODE_ID
+VESA_1920x1440p60	typedef.h	/^	VESA_1920x1440p60,$/;"	e	enum:tagMODE_ID
+VESA_1920x1440p75	typedef.h	/^	VESA_1920x1440p75,$/;"	e	enum:tagMODE_ID
+VESA_640x350p85	typedef.h	/^	VESA_640x350p85,$/;"	e	enum:tagMODE_ID
+VESA_640x400p85	typedef.h	/^	VESA_640x400p85,$/;"	e	enum:tagMODE_ID
+VESA_640x480p60	typedef.h	/^	VESA_640x480p60,$/;"	e	enum:tagMODE_ID
+VESA_640x480p72	typedef.h	/^	VESA_640x480p72,$/;"	e	enum:tagMODE_ID
+VESA_640x480p75	typedef.h	/^	VESA_640x480p75,$/;"	e	enum:tagMODE_ID
+VESA_640x480p85	typedef.h	/^	VESA_640x480p85,$/;"	e	enum:tagMODE_ID
+VESA_720x400p85	typedef.h	/^	VESA_720x400p85,$/;"	e	enum:tagMODE_ID
+VESA_800X600p85	typedef.h	/^	VESA_800X600p85,$/;"	e	enum:tagMODE_ID
+VESA_800x600p56	typedef.h	/^	VESA_800x600p56,$/;"	e	enum:tagMODE_ID
+VESA_800x600p60	typedef.h	/^	VESA_800x600p60,$/;"	e	enum:tagMODE_ID
+VESA_800x600p72	typedef.h	/^	VESA_800x600p72,$/;"	e	enum:tagMODE_ID
+VESA_800x600p75	typedef.h	/^	VESA_800x600p75,$/;"	e	enum:tagMODE_ID
+VESA_840X480p60	typedef.h	/^	VESA_840X480p60,$/;"	e	enum:tagMODE_ID
+VFCByte	typedef.h	/^    unsigned char VFCByte ;$/;"	m	union:_VideoFormatCode
+VFCCode	typedef.h	/^    } VFCCode ;$/;"	m	union:_VideoFormatCode	typeref:struct:_VideoFormatCode::_VFC
+VFrontPorch	typedef.h	/^    BYTE VFrontPorch ;$/;"	m	struct:__anon2
+VIC	typedef.h	/^        BYTE VIC:7 ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+VIC	typedef.h	/^    BYTE VIC ;$/;"	m	struct:VideoTiming
+VIDEOPCLKLEVEL	typedef.h	/^} VIDEOPCLKLEVEL ;$/;"	t	typeref:enum:__anon3
+VIDEO_TIMER_CHECK_COUNT	cat6023.c	126;"	d	file:
+VN	typedef.h	/^        char VN[8] ;$/;"	m	struct:_SPD_InfoFrame::__anon10
+VPolarity	typedef.h	/^    BYTE VPolarity:1 ;$/;"	m	struct:__anon2
+VSATE_CONFIRM_SCDT_COUNT	cat6023.c	118;"	d	file:
+VSTATE_HDCPSet	typedef.h	/^    VSTATE_HDCPSet,$/;"	e	enum:_Video_State_Type
+VSTATE_HDCP_Reset	typedef.h	/^    VSTATE_HDCP_Reset,$/;"	e	enum:_Video_State_Type
+VSTATE_MISS_SYNC_COUNT	cat6023.c	117;"	d	file:
+VSTATE_ModeDetecting	typedef.h	/^    VSTATE_ModeDetecting, \/\/=6$/;"	e	enum:_Video_State_Type
+VSTATE_PwrOff	typedef.h	/^    VSTATE_PwrOff = 0,	\/\/Dongzejun:可以认为是Unplug状态$/;"	e	enum:_Video_State_Type
+VSTATE_Reserved	typedef.h	/^    VSTATE_Reserved$/;"	e	enum:_Video_State_Type
+VSTATE_SWRESET_COUNT	cat6023.c	124;"	d	file:
+VSTATE_SWReset	typedef.h	/^    VSTATE_SWReset,		\/\/=2		HDMI口未连接Unplug，则要进行复位状态切换.$/;"	e	enum:_Video_State_Type
+VSTATE_SyncChecking	typedef.h	/^    VSTATE_SyncChecking,	\/\/=3 检测SCDT同步$/;"	e	enum:_Video_State_Type
+VSTATE_SyncWait	typedef.h	/^    VSTATE_SyncWait ,		\/\/=1$/;"	e	enum:_Video_State_Type
+VSTATE_VideoOn	typedef.h	/^    VSTATE_VideoOn,$/;"	e	enum:_Video_State_Type
+VState	cat6023.c	/^_IDATA Video_State_Type VState = VSTATE_PwrOff ;$/;"	v
+VStateStr	cat6023.c	/^char _CODE * VStateStr[] = {$/;"	v
+VSyncWidth	typedef.h	/^    BYTE VSyncWidth ;$/;"	m	struct:__anon2
+VTiming	typedef.h	/^} VTiming ;$/;"	t	typeref:struct:__anon2
+VTotal	typedef.h	/^    WORD VTotal ;$/;"	m	struct:__anon2
+Ver	typedef.h	/^        BYTE Ver ;$/;"	m	struct:_AVI_InfoFrame::__anon4
+Ver	typedef.h	/^        BYTE Ver ;$/;"	m	struct:_Audio_InfoFrame::__anon6
+Ver	typedef.h	/^        BYTE Ver ;$/;"	m	struct:_MPEG_InfoFrame::__anon8
+Ver	typedef.h	/^        BYTE Ver ;$/;"	m	struct:_SPD_InfoFrame::__anon10
+VideoCountingTimer	cat6023.c	/^static _IDATA USHORT VideoCountingTimer = 0 ;	\/\/Dongzejun:Video状态计数器$/;"	v	file:
+VideoFormatCode	typedef.h	/^} VideoFormatCode ;$/;"	t	typeref:union:_VideoFormatCode
+VideoPixelClock	typedef.h	/^    ULONG VideoPixelClock ;$/;"	m	struct:VideoTiming
+VideoTimerHandler	cat6023.c	/^static void VideoTimerHandler()$/;"	f	file:
+VideoTiming	typedef.h	/^struct VideoTiming {$/;"	s
+Video_Handler	cat6023.c	/^void Video_Handler()$/;"	f
+Video_State_Type	typedef.h	/^} Video_State_Type ;$/;"	t	typeref:enum:_Video_State_Type
+Vneg	typedef.h	85;"	d
+Vpos	typedef.h	87;"	d
+WORD	typedef.h	/^typedef unsigned short WORD, *PWORD ;$/;"	t
+_1PORT_	cat6023.h	60;"	d
+_AVI_InfoFrame	typedef.h	/^typedef union _AVI_InfoFrame$/;"	u
+_Audio_InfoFrame	typedef.h	/^typedef union _Audio_InfoFrame {$/;"	u
+_Audio_State_Type	typedef.h	/^typedef enum _Audio_State_Type {$/;"	g
+_CAT6023_H_	cat6023.h	13;"	d
+_CODE	typedef.h	17;"	d
+_CODE	typedef.h	23;"	d
+_DEBUG_H_	debug.h	13;"	d
+_Demo_2RX_TX_	cat6023.h	56;"	d
+_HBR_I2S_	cat6023.h	97;"	d
+_Hold_sys_	cat6023.h	57;"	d
+_IDATA	typedef.h	18;"	d
+_IDATA	typedef.h	24;"	d
+_IO_h_	io.h	13;"	d
+_Included_com_it6604_hdmirx_HdmirxActivity	jniUtils.h	6;"	d
+_LINUX_I2C_DEV_H	i2c-dev.h	23;"	d
+_MPEG_InfoFrame	typedef.h	/^typedef union _MPEG_InfoFrame {$/;"	u
+_REGPAIR	cat6023.c	/^typedef struct _REGPAIR {$/;"	s	file:
+_RXHDCP_State_Type	typedef.h	/^typedef enum _RXHDCP_State_Type {$/;"	g
+_SPD_InfoFrame	typedef.h	/^typedef union _SPD_InfoFrame {$/;"	u
+_SYS_STATUS	typedef.h	/^typedef enum _SYS_STATUS {$/;"	g
+_TXAudio_State_Type	typedef.h	/^typedef enum _TXAudio_State_Type {$/;"	g
+_TXVideo_State_Type	typedef.h	/^typedef enum _TXVideo_State_Type {$/;"	g
+_TYPEDEF_H_	typedef.h	13;"	d
+_VERSION_H_	version.h	13;"	d
+_VFC	typedef.h	/^    struct _VFC$/;"	s	union:_VideoFormatCode
+_VideoFormatCode	typedef.h	/^typedef union _VideoFormatCode$/;"	u
+_Video_State_Type	typedef.h	/^typedef enum _Video_State_Type {$/;"	g
+_XDATA	typedef.h	19;"	d
+_XDATA	typedef.h	25;"	d
+acCustomizeValue	cat6023.c	/^static REGPAIR _CODE acCustomizeValue[] =$/;"	v	file:
+acDefaultValue	cat6023.c	/^static REGPAIR _CODE acDefaultValue[] =$/;"	v	file:
+bCSCMtx_RGB2YUV_ITU601_0_255	cat6023.c	/^    _CODE BYTE bCSCMtx_RGB2YUV_ITU601_0_255[] =$/;"	v
+bCSCMtx_RGB2YUV_ITU601_16_235	cat6023.c	/^    _CODE BYTE bCSCMtx_RGB2YUV_ITU601_16_235[] =$/;"	v
+bCSCMtx_RGB2YUV_ITU709_0_255	cat6023.c	/^    _CODE BYTE bCSCMtx_RGB2YUV_ITU709_0_255[] =$/;"	v
+bCSCMtx_RGB2YUV_ITU709_16_235	cat6023.c	/^    _CODE BYTE bCSCMtx_RGB2YUV_ITU709_16_235[] =$/;"	v
+bCSCMtx_YUV2RGB_ITU601_0_255	cat6023.c	/^    _CODE BYTE bCSCMtx_YUV2RGB_ITU601_0_255[] =$/;"	v
+bCSCMtx_YUV2RGB_ITU601_16_235	cat6023.c	/^    _CODE BYTE bCSCMtx_YUV2RGB_ITU601_16_235[] =$/;"	v
+bCSCMtx_YUV2RGB_ITU709_0_255	cat6023.c	/^    _CODE BYTE bCSCMtx_YUV2RGB_ITU709_0_255[] =$/;"	v
+bCSCMtx_YUV2RGB_ITU709_16_235	cat6023.c	/^    _CODE BYTE bCSCMtx_YUV2RGB_ITU709_16_235[] =$/;"	v
+bCSCOffset_0_255	cat6023.c	/^static BYTE _CODE bCSCOffset_0_255[] =$/;"	v	file:
+bCSCOffset_16_235	cat6023.c	/^static BYTE _CODE bCSCOffset_16_235[] =$/;"	v	file:
+bDisableAutoAVMute	cat6023.c	/^BYTE _XDATA bDisableAutoAVMute = 0 ;	\/\/Dongzejun:此全局变量未用$/;"	v
+bGetSyncFailCount	cat6023.c	/^static _IDATA BYTE bGetSyncFailCount = 0 ;$/;"	v	file:
+bGetSyncInfo	cat6023.c	/^static BOOL bGetSyncInfo()$/;"	f	file:
+bHDCPMode	cat6023.c	/^BYTE _XDATA bHDCPMode = 0 ;$/;"	v
+bInputVideoMode	cat6023.c	/^static _XDATA BYTE bInputVideoMode ;	\/\/Dongzejun:注意此变量定义$/;"	v	file:
+bIntPOL	cat6023.c	/^BOOL bIntPOL = FALSE ;	\/\/Dongzejun:中断极性设置$/;"	v
+bOutputVideoMode	cat6023.c	/^static BYTE _IDATA bOutputVideoMode = F_MODE_EN_UDFILT | F_MODE_YUV422  ;	$/;"	v	file:
+byte	typedef.h	/^typedef unsigned char byte, *pbyte ;$/;"	t
+cBYTE	typedef.h	/^typedef	code	unsigned char	cBYTE;$/;"	t
+cBYTE	typedef.h	/^typedef	unsigned char	cBYTE;$/;"	t
+colorfmt	typedef.h	/^        BYTE colorfmt:2 ;$/;"	m	struct:_VideoFormatCode::_VFC
+command	i2c-dev.h	/^	__u8 command;$/;"	m	struct:i2c_smbus_ioctl_data
+currHTotal	cat6023.c	/^static _XDATA USHORT currHTotal ;$/;"	v	file:
+currScanMode	cat6023.c	/^static BOOL currScanMode ;$/;"	v	file:
+currXcnt	cat6023.c	/^static _XDATA BYTE currXcnt ;$/;"	v	file:
+data	i2c-dev.h	/^	union i2c_smbus_data *data;$/;"	m	struct:i2c_smbus_ioctl_data	typeref:union:i2c_smbus_ioctl_data::i2c_smbus_data
+delay1ms	io.c	/^void delay1ms(USHORT ms)$/;"	f
+dword	typedef.h	/^typedef unsigned long dword, *pdword ;$/;"	t
+exit_hdmirx	mainmcu.c	/^void exit_hdmirx()$/;"	f
+gMethods	mainmcu.c	/^static JNINativeMethod gMethods[] = {$/;"	v	file:
+g_jvm	mainmcu.c	/^static JavaVM *g_jvm;$/;"	v	file:
+g_obj	mainmcu.c	/^static jclass g_obj;$/;"	v	file:
+getCAT6023AudioChannelStatus	cat6023.c	/^getCAT6023AudioChannelStatus(BYTE ucIEC60958ChStat[])$/;"	f
+getCAT6023AudioInfo	cat6023.c	/^BOOL getCAT6023AudioInfo(BYTE *pbAudioSampleFreq, BYTE *pbValidCh)$/;"	f
+getCAT6023AudioStatus	cat6023.c	/^getCAT6023AudioStatus()$/;"	f
+getCAT6023HorzActive	cat6023.c	/^WORD getCAT6023HorzActive()$/;"	f
+getCAT6023HorzBackPorch	cat6023.c	/^WORD getCAT6023HorzBackPorch()$/;"	f
+getCAT6023HorzFrontPorch	cat6023.c	/^WORD getCAT6023HorzFrontPorch()$/;"	f
+getCAT6023HorzSyncWidth	cat6023.c	/^WORD getCAT6023HorzSyncWidth()$/;"	f
+getCAT6023HorzTotal	cat6023.c	/^WORD getCAT6023HorzTotal()$/;"	f
+getCAT6023InputAudio	cat6023.c	/^void getCAT6023InputAudio(AUDIO_CAPS *pAudioCaps)$/;"	f
+getCAT6023InputChStat	cat6023.c	/^void getCAT6023InputChStat(AUDIO_CAPS *pAudioCaps)$/;"	f
+getCAT6023OutputColorDepth	cat6023.c	/^getCAT6023OutputColorDepth()$/;"	f
+getCAT6023OutputColorMode	cat6023.c	/^getCAT6023OutputColorMode()$/;"	f
+getCAT6023Regs	cat6023.c	/^getCAT6023Regs(BYTE *pData)$/;"	f
+getCAT6023VertActive	cat6023.c	/^WORD getCAT6023VertActive()$/;"	f
+getCAT6023VertFrontPorch	cat6023.c	/^WORD getCAT6023VertFrontPorch()$/;"	f
+getCAT6023VertSyncBackPorch	cat6023.c	/^WORD getCAT6023VertSyncBackPorch()$/;"	f
+getCAT6023VertSyncToDE	cat6023.c	/^WORD getCAT6023VertSyncToDE()$/;"	f
+getCAT6023VertSyncWidth	cat6023.c	/^WORD getCAT6023VertSyncWidth()$/;"	f
+getCAT6023VertTotal	cat6023.c	/^WORD getCAT6023VertTotal()$/;"	f
+getCAT6023xCnt	cat6023.c	/^BYTE getCAT6023xCnt()$/;"	f
+getJNIEnv	onLoad.cpp	/^JNIEnv* getJNIEnv() {$/;"	f
+hdmirx_device_close	hdmirx.c	/^static int hdmirx_device_close(struct hw_device_t* device){$/;"	f	file:
+hdmirx_device_init	hdmirx.c	/^static int hdmirx_device_init(struct hdmirx_device_t* dev){$/;"	f	file:
+hdmirx_device_open	hdmirx.c	/^static int hdmirx_device_open(const struct hw_module_t* module, const char* name, struct hw_device_t** device) {$/;"	f	file:
+hdmirx_device_run	hdmirx.c	/^static int hdmirx_device_run(struct hdmirx_device_t* dev){$/;"	f	file:
+hdmirx_device_running_fun	hdmirx.c	/^void * hdmirx_device_running_fun(void* arg)$/;"	f
+hdmirx_device_running_fun	mainmcu.c	/^void * hdmirx_device_running_fun(void* arg)$/;"	f
+hdmirx_device_stop	hdmirx.c	/^static int hdmirx_device_stop(struct hdmirx_device_t* dev){$/;"	f	file:
+hdmirx_module_methods	hdmirx.c	/^static struct hw_module_methods_t hdmirx_module_methods = {$/;"	v	typeref:struct:hw_module_methods_t	file:
+i2c_rdwr_ioctl_data	i2c-dev.h	/^struct i2c_rdwr_ioctl_data {$/;"	s
+i2c_smbus_ioctl_data	i2c-dev.h	/^struct i2c_smbus_ioctl_data {$/;"	s
+i2cbus_fd	io.h	/^int i2cbus_fd;$/;"	v
+info	typedef.h	/^    } info ;$/;"	m	union:_AVI_InfoFrame	typeref:struct:_AVI_InfoFrame::__anon4
+info	typedef.h	/^    } info ;$/;"	m	union:_Audio_InfoFrame	typeref:struct:_Audio_InfoFrame::__anon6
+info	typedef.h	/^    } info ;$/;"	m	union:_MPEG_InfoFrame	typeref:struct:_MPEG_InfoFrame::__anon8
+info	typedef.h	/^    } info ;$/;"	m	union:_SPD_InfoFrame	typeref:struct:_SPD_InfoFrame::__anon10
+init_hdmirx	mainmcu.c	/^int init_hdmirx()$/;"	f
+interlace	typedef.h	/^        BYTE interlace:1 ;$/;"	m	struct:_VideoFormatCode::_VFC
+jniRegisterNativeMethods	onLoad.cpp	/^int jniRegisterNativeMethods(JNIEnv* env,$/;"	f
+jniThrowException	onLoad.cpp	/^int jniThrowException(JNIEnv* env, const char* className, const char* msg) {$/;"	f
+kClassPathName	mainmcu.c	29;"	d	file:
+msgs	i2c-dev.h	/^	struct i2c_msg *msgs;	\/* pointers to i2c_msgs *\/$/;"	m	struct:i2c_rdwr_ioctl_data	typeref:struct:i2c_rdwr_ioctl_data::i2c_msg
+nmsgs	i2c-dev.h	/^	__u32 nmsgs;			\/* number of i2c_msgs *\/$/;"	m	struct:i2c_rdwr_ioctl_data
+outputVideoMode	typedef.h	/^	BYTE outputVideoMode ;$/;"	m	struct:VideoTiming
+pbyte	typedef.h	/^typedef unsigned char byte, *pbyte ;$/;"	t
+pdword	typedef.h	/^typedef unsigned long dword, *pdword ;$/;"	t
+pid	hdmirx.c	/^pthread_t pid = 0;$/;"	v
+pid	mainmcu.c	/^pthread_t pid = 0;$/;"	v
+pixelrep	typedef.h	/^    BYTE pixelrep ;$/;"	m	struct:VideoTiming
+pktbyte	typedef.h	/^    } pktbyte ;$/;"	m	union:_AVI_InfoFrame	typeref:struct:_AVI_InfoFrame::__anon5
+pktbyte	typedef.h	/^    } pktbyte ;$/;"	m	union:_Audio_InfoFrame	typeref:struct:_Audio_InfoFrame::__anon7
+pktbyte	typedef.h	/^    } pktbyte ;$/;"	m	union:_MPEG_InfoFrame	typeref:struct:_MPEG_InfoFrame::__anon9
+pktbyte	typedef.h	/^    } pktbyte ;$/;"	m	union:_SPD_InfoFrame	typeref:struct:_SPD_InfoFrame::__anon11
+prevAVIDB1	cat6023.c	/^static _XDATA BYTE prevAVIDB1 = 0 ;$/;"	v	file:
+prevAVIDB2	cat6023.c	/^static _XDATA BYTE prevAVIDB2 = 0 ;$/;"	v	file:
+pstatus	hdmirx.c	/^int pstatus = 0;$/;"	v
+pstatus	mainmcu.c	/^int pstatus = 0;$/;"	v
+puchar	typedef.h	/^typedef unsigned char uchar, *puchar ;$/;"	t
+pulong	typedef.h	/^typedef unsigned long ulong, *pulong ;$/;"	t
+pushort	typedef.h	/^typedef unsigned short ushort, *pushort ;$/;"	t
+pword	typedef.h	/^typedef unsigned short word, *pword ;$/;"	t
+read_write	i2c-dev.h	/^	__u8 read_write;$/;"	m	struct:i2c_smbus_ioctl_data
+register_com_it6604_hdmirx_HdmirxActivity	mainmcu.c	/^int register_com_it6604_hdmirx_HdmirxActivity(JNIEnv *env) {$/;"	f
+sVm	onLoad.cpp	/^static JavaVM *sVm;$/;"	v	file:
+s_CurrentVM	cat6023.c	/^_XDATA VTiming s_CurrentVM ;$/;"	v
+s_VMTable	cat6023.c	/^static VTiming _CODE s_VMTable[] = {$/;"	v	file:
+setCAT6023_HBROutput	cat6023.c	/^setCAT6023_HBROutput(BOOL HBR_SPDIF)$/;"	f
+setCAT6023_I2SOutput	cat6023.c	/^setCAT6023_I2SOutput(BYTE src_enable)$/;"	f
+setCAT6023_SPDIFOutput	cat6023.c	/^setCAT6023_SPDIFOutput()$/;"	f
+size	i2c-dev.h	/^	__u32 size;$/;"	m	struct:i2c_smbus_ioctl_data
+tagHDMI_Aspec	typedef.h	/^typedef enum tagHDMI_Aspec {$/;"	g
+tagHDMI_Colorimetry	typedef.h	/^typedef enum tagHDMI_Colorimetry {$/;"	g
+tagHDMI_OutputColorMode	typedef.h	/^typedef enum tagHDMI_OutputColorMode {$/;"	g
+tagHDMI_Video_Type	typedef.h	/^typedef enum tagHDMI_Video_Type {$/;"	g
+tagMODE_ID	typedef.h	/^typedef enum tagMODE_ID{$/;"	g
+ucAddr	cat6023.c	/^    BYTE ucAddr ;$/;"	m	struct:_REGPAIR	file:
+ucAudioSampleClock	cat6023.c	/^static _XDATA BYTE ucAudioSampleClock = DEFAULT_START_FIXED_AUD_SAMPLEFREQ ;$/;"	v	file:
+ucCurrentHDMIPort	cat6023.c	/^static BYTE ucCurrentHDMIPort = 0 ;	\/\/Dongzejun:设置使用的HDMI端口A还是B$/;"	v	file:
+ucDVISCDToffCNT	cat6023.c	/^BYTE	ucDVISCDToffCNT=0;	\/\/Dongzejun:DVI模式下SCDT延时计数检测$/;"	v
+ucHDMIAudioErrorCount	cat6023.c	/^static _XDATA BYTE ucHDMIAudioErrorCount = 0 ;$/;"	v	file:
+ucValue	cat6023.c	/^    BYTE ucValue ;$/;"	m	struct:_REGPAIR	file:
+uchar	typedef.h	/^typedef unsigned char uchar, *puchar ;$/;"	t
+ulong	typedef.h	/^typedef unsigned long ulong, *pulong ;$/;"	t
+ushort	typedef.h	/^typedef unsigned short ushort, *pushort ;$/;"	t
+word	typedef.h	/^typedef unsigned short word, *pword ;$/;"	t
+xCnt	typedef.h	/^    BYTE xCnt ;$/;"	m	struct:__anon2
