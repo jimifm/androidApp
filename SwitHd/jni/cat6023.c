@@ -27,7 +27,7 @@
 #define SetI2S2MUTE(x) SetMUTE(~(1<<O_TRI_I2S2),  (x)?(1<<O_TRI_I2S2):0)
 #define SetI2S1MUTE(x) SetMUTE(~(1<<O_TRI_I2S1),  (x)?(1<<O_TRI_I2S1):0)
 #define SetI2S0MUTE(x) SetMUTE(~(1<<O_TRI_I2S0),  (x)?(1<<O_TRI_I2S0):0)
-//Dongzejun:¾²Òô²Ù×÷
+//Dongzejun:é™éŸ³æ“ä½œ
 #define SetALLMute() SetMUTE(B_VDO_MUTE_DISABLE,(B_VDO_MUTE_DISABLE|B_TRI_ALL))
 
 #define SwitchHDMIRXBank(x) HDMIRX_WriteI2C_Byte(REG_RX_BANK, (x)&1)
@@ -85,37 +85,37 @@ char _CODE *AStateStr[] = {
     #define HDMIRX_OUTPUT_COLORMODE (B_OUTPUT_RGB24<<O_OUTPUT_COLOR_MODE)		//Dongzejun:"OUTPUT_24BIT_RGB444 defined"
 #endif
 
-#define DEFAULT_START_FIXED_AUD_SAMPLEFREQ AUDFS_192KHz		//Dongzejun:²ÉÑùÆµÂÊ³õÊ¼»¯ÉèÖÃ£¬Òª¸ü¸ÄµÄ
+#define DEFAULT_START_FIXED_AUD_SAMPLEFREQ AUDFS_192KHz		//Dongzejun:é‡‡æ ·é¢‘ç‡åˆå§‹åŒ–è®¾ç½®ï¼Œè¦æ›´æ”¹çš„
 
-BYTE	ucDVISCDToffCNT=0;	//Dongzejun:DVIÄ£Ê½ÏÂSCDTÑÓÊ±¼ÆÊı¼ì²â
+BYTE	ucDVISCDToffCNT=0;	//Dongzejun:DVIæ¨¡å¼ä¸‹SCDTå»¶æ—¶è®¡æ•°æ£€æµ‹
 _IDATA Video_State_Type VState = VSTATE_PwrOff ;
 _IDATA Audio_State_Type AState = ASTATE_AudioOff ;	//Dongzejun:
 
-static _IDATA USHORT VideoCountingTimer = 0 ;	//Dongzejun:Video×´Ì¬¼ÆÊıÆ÷
+static _IDATA USHORT VideoCountingTimer = 0 ;	//Dongzejun:VideoçŠ¶æ€è®¡æ•°å™¨
 static _IDATA USHORT AudioCountingTimer = 0 ;
 static _IDATA USHORT MuteResumingTimer = 0 ;
 static BOOL MuteAutoOff = FALSE ;
 static _IDATA BYTE bGetSyncFailCount = 0 ;
 
-//Dongzejun:Êä³öÊÓÆµ¸ñÊ½ÉèÖÃ
+//Dongzejun:è¾“å‡ºè§†é¢‘æ ¼å¼è®¾ç½®
 static BYTE _IDATA bOutputVideoMode = F_MODE_EN_UDFILT | F_MODE_YUV422  ;	
-//bit1:0 ->Êä³öÉ«²Ê¿Õ¼ä
+//bit1:0 ->è¾“å‡ºè‰²å½©ç©ºé—´
 //bit6:	-> UP /Down 444<-->422
 
 
 
-static BOOL EnaSWCDRRest = FALSE ;	//Dongzejun:´Ë±äÁ¿³¤Îª0£¬Î´Ê¹ÓÃ
+static BOOL EnaSWCDRRest = FALSE ;	//Dongzejun:æ­¤å˜é‡é•¿ä¸º0ï¼Œæœªä½¿ç”¨
 
 //Dongzejun:
-BYTE _XDATA bDisableAutoAVMute = 0 ;	//Dongzejun:´ËÈ«¾Ö±äÁ¿Î´ÓÃ
+BYTE _XDATA bDisableAutoAVMute = 0 ;	//Dongzejun:æ­¤å…¨å±€å˜é‡æœªç”¨
 
 BYTE _XDATA bHDCPMode = 0 ;
 
 #define LOOP_MSEC 32
 #define MS_TimeOut(x) (((x)+LOOP_MSEC-1)/LOOP_MSEC)
 
-#define VSTATE_MISS_SYNC_COUNT MS_TimeOut(8000)	// 8Ãë
-#define VSATE_CONFIRM_SCDT_COUNT MS_TimeOut(150)	//È·ÈÏSCDT×î´ó¼ÆÊıÆ÷
+#define VSTATE_MISS_SYNC_COUNT MS_TimeOut(8000)	// 8ç§’
+#define VSATE_CONFIRM_SCDT_COUNT MS_TimeOut(150)	//ç¡®è®¤SCDTæœ€å¤§è®¡æ•°å™¨
 #define AUDIO_READY_TIMEOUT MS_TimeOut(200)
 #define AUDIO_CLEARERROR_TIMEOUT MS_TimeOut(1000)
 #define MUTE_RESUMING_TIMEOUT MS_TimeOut(2500)
@@ -126,21 +126,21 @@ BYTE _XDATA bHDCPMode = 0 ;
 #define VIDEO_TIMER_CHECK_COUNT MS_TimeOut(250)
 
 #define SCDT_LOST_TIMEOUT  15
-static _XDATA USHORT SWResetTimeOut = FORCE_SWRESET_TIMEOUT;	//Dongzejun:¸´Î»¼ÆÊı
+static _XDATA USHORT SWResetTimeOut = FORCE_SWRESET_TIMEOUT;	//Dongzejun:å¤ä½è®¡æ•°
 
 static _XDATA BYTE ucHDMIAudioErrorCount = 0 ;
 
-	//Dongzejun:²ÉÑùÆµÂÊ³õÊ¼»¯ÉèÖÃ£¬Òª¸ü¸ÄµÄ
+	//Dongzejun:é‡‡æ ·é¢‘ç‡åˆå§‹åŒ–è®¾ç½®ï¼Œè¦æ›´æ”¹çš„
 static _XDATA BYTE ucAudioSampleClock = DEFAULT_START_FIXED_AUD_SAMPLEFREQ ;
 
 
-BOOL bIntPOL = FALSE ;	//Dongzejun:ÖĞ¶Ï¼«ĞÔÉèÖÃ
-static BOOL NewAVIInfoFrameF = FALSE ;	//Dongzejun:½ÓÊÕÒ»¸öĞÂµÄAVI¡¡Ö¡=1
-static BOOL MuteByPKG = OFF ;		//Dongzejun:Í¨¹ıPKGÉèÖÃ¾²Òô£¨ ĞÅÏ¢°ü £© 0:´ò¿ªÒôÆµ£»1:½ûÒô
+BOOL bIntPOL = FALSE ;	//Dongzejun:ä¸­æ–­ææ€§è®¾ç½®
+static BOOL NewAVIInfoFrameF = FALSE ;	//Dongzejun:æ¥æ”¶ä¸€ä¸ªæ–°çš„AVIã€€å¸§=1
+static BOOL MuteByPKG = OFF ;		//Dongzejun:é€šè¿‡PKGè®¾ç½®é™éŸ³ï¼ˆ ä¿¡æ¯åŒ… ï¼‰ 0:æ‰“å¼€éŸ³é¢‘ï¼›1:ç¦éŸ³
 
 //Dongzejun:
-static _XDATA BYTE bInputVideoMode ;	//Dongzejun:×¢Òâ´Ë±äÁ¿¶¨Òå
-// bit1 /bit0  :Êä³öÉ«²Ê¿Õ¼ä
+static _XDATA BYTE bInputVideoMode ;	//Dongzejun:æ³¨æ„æ­¤å˜é‡å®šä¹‰
+// bit1 /bit0  :è¾“å‡ºè‰²å½©ç©ºé—´
 // bit4: 1->F_MODE_ITU709 0->F_MODE_ITU601
 // bit5:F_MODE_16_235  1->16-235    0->0-255
 
@@ -156,7 +156,7 @@ static _XDATA AUDIO_CAPS AudioCaps ;
 
 _XDATA VTiming s_CurrentVM ;
 
-BYTE SCDTErrorCnt = 0;	//Dongzejun:Reg0x13[3]ÖĞ¶ÏÖĞ¼ÆÊı ÔÚÈí¼ş¸´Î»º¯Êı"SWReset_HDMIRX()"ÖĞÇå0
+BYTE SCDTErrorCnt = 0;	//Dongzejun:Reg0x13[3]ä¸­æ–­ä¸­è®¡æ•° åœ¨è½¯ä»¶å¤ä½å‡½æ•°"SWReset_HDMIRX()"ä¸­æ¸…0
 
 #ifdef USE_MODE_TABLE
 static VTiming _CODE s_VMTable[] = {
@@ -328,8 +328,8 @@ static BYTE _CODE bCSCOffset_0_255[] =
     } ;
 #endif
 
-static BYTE ucCurrentHDMIPort = 0 ;	//Dongzejun:ÉèÖÃÊ¹ÓÃµÄHDMI¶Ë¿ÚA»¹ÊÇB
-static BOOL AcceptCDRReset = TRUE ;	//Dongzejun: ³õÊ¼ÉèÖÃÎª1
+static BYTE ucCurrentHDMIPort = 0 ;	//Dongzejun:è®¾ç½®ä½¿ç”¨çš„HDMIç«¯å£Aè¿˜æ˜¯B
+static BOOL AcceptCDRReset = TRUE ;	//Dongzejun: åˆå§‹è®¾ç½®ä¸º1
 
 BOOL CheckHDMIRX() ;
 
@@ -410,7 +410,7 @@ void SwitchAudioState(Audio_State_Type state) ;
 
 static void DumpSyncInfo(VTiming *pVTiming) ;
 
-//Dongzejun:MuteAutoOff±äÁ¿Öµ£¬ÊÜµ½Reg0x14[7]/[0]Á½¸ö±êÖ¾Î»Ó°Ïì
+//Dongzejun:MuteAutoOffå˜é‡å€¼ï¼Œå—åˆ°Reg0x14[7]/[0]ä¸¤ä¸ªæ ‡å¿—ä½å½±å“
 #define StartAutoMuteOffTimer() { MuteAutoOff = ON ; }	//Dongzejun:=1
 #define EndAutoMuteOffTimer() { MuteAutoOff = OFF ; }	//Dongzejun:=0
 static void CDR_Reset() ;
@@ -436,7 +436,7 @@ void delay1ms(USHORT ms) ;
 #endif
 
 void Check_HDMInterrupt()
-//Dongzejun:ÖĞ¶ÏÒı½Å±ä»¯£¬½«¼ì²éÖĞ¶Ï
+//Dongzejun:ä¸­æ–­å¼•è„šå˜åŒ–ï¼Œå°†æ£€æŸ¥ä¸­æ–­
 {
 	Interrupt_Handler() ;
 }
@@ -484,7 +484,7 @@ void InitCAT6023()
 {
     BYTE uc ;
 
-    HWReset_HDMIRX() ;		//Dongzejun:Ó²¼ş¸´Î»º¯Êı£¬¿ÉÒÔÌí¼Ó
+    HWReset_HDMIRX() ;		//Dongzejun:ç¡¬ä»¶å¤ä½å‡½æ•°ï¼Œå¯ä»¥æ·»åŠ 
 
 
     HDMIRX_WriteI2C_Byte(REG_RX_PWD_CTRL0, 0) ;	//Dongzejun:to power on all modules
@@ -508,10 +508,10 @@ void InitCAT6023()
 		uc = B_PORT_SEL_B|B_PWD_AFEALL|B_PWDC_ETC ;
 	}
 	
-	HDMIRX_WriteI2C_Byte(REG_RX_PWD_CTRL1, uc);		//Dongzejun:Ñ¡ÔñHDMI¡¡A
+	HDMIRX_WriteI2C_Byte(REG_RX_PWD_CTRL1, uc);		//Dongzejun:é€‰æ‹©HDMIã€€A
     HDMIRX_PRINTF(("InitCAT6023(): reg07 = %02X, ucCurrentHDMIPort = %d\n", (int)HDMIRX_ReadI2C_Byte(07), (int)ucCurrentHDMIPort));
 
-    SetIntMask1(0,B_PWR5VON|B_SCDTON|B_PWR5VOFF|B_SCDTOFF) ;		//Dongzejun:Reg0x16 Ê¹ÄÜÕâĞ©ÖĞ¶Ï
+    SetIntMask1(0,B_PWR5VON|B_SCDTON|B_PWR5VOFF|B_SCDTOFF) ;		//Dongzejun:Reg0x16 ä½¿èƒ½è¿™äº›ä¸­æ–­
     SetIntMask2(0,B_NEW_AVI_PKG|B_PKT_SET_MUTE|B_PKT_CLR_MUTE) ;	//Dongzejun:Reg0x17
     SetIntMask3(0,B_ECCERR|B_R_AUTH_DONE|B_R_AUTH_START) ;				//Dongzejun:Reg0x18
     SetIntMask4(0,B_M_RXCKON_DET) ;
@@ -519,17 +519,17 @@ void InitCAT6023()
     SetDefaultRegisterValue() ;	//Dongzejun:Load the default value
     LoadCustomizeDefaultSetting() ;
 
-    SetALLMute() ;		//Dongzejun:¾²Òô²Ù×÷
+    //SetALLMute() ;		//Dongzejun:é™éŸ³æ“ä½œ
 
     HDMIRX_WriteI2C_Byte(REG_RX_RST_CTRL, 0) ;	//Dongzejun:Reg0x05 normal operation
     bDisableAutoAVMute = FALSE ;
 
 		
     uc = HDMIRX_ReadI2C_Byte(REG_RX_DEVREV) ;
-	//HDCP Enable/Disable   ¿ÉÒÔ½ûÖ¹ÁË¡£
+	//HDCP Enable/Disable   å¯ä»¥ç¦æ­¢äº†ã€‚
     if( uc == 0xA2 )
     {
-        HDMIRX_WriteI2C_Byte(REG_RX_HDCP_CTRL, 0x09) ;	//Dongzejun:Reg0x11 ²»½â????
+        HDMIRX_WriteI2C_Byte(REG_RX_HDCP_CTRL, 0x09) ;	//Dongzejun:Reg0x11 ä¸è§£????
         HDMIRX_WriteI2C_Byte(REG_RX_HDCP_CTRL, 0x19) ;
     }
     else
@@ -543,13 +543,13 @@ void InitCAT6023()
 
     HDMIRX_WriteI2C_Byte(REG_RX_RST_CTRL, B_SWRST) ; //sw reset
     delay1ms(1) ;
-    SetALLMute() ;
+    //SetALLMute() ;
     HDMIRX_WriteI2C_Byte(REG_RX_RST_CTRL, 0) ;
 
     Terminator_Reset() ;
 
-    SwitchVideoState(VSTATE_PwrOff) ;	//Dongzejun:³õÊ¼ÉèÖÃVState=VSTATE_PwrOff;
-
+    //SwitchVideoState(VSTATE_PwrOff) ;	//Dongzejun:åˆå§‹è®¾ç½®VState=VSTATE_PwrOff;
+    SwitchVideoState(VSTATE_VideoOn) ;
 #ifdef SUPPORT_REPEATER
 	RxHDCPRepeaterCapabilityClear(B_ENABLE_FEATURE_1P1|B_ENABLE_FAST);
     if( bHDCPMode & HDCP_REPEATER )
@@ -936,7 +936,7 @@ getCAT6023OutputColorDepth()
 }
 
 static void HWReset_HDMIRX()
-//Dongzejun:Ó²¼ş¸´Î»º¯Êı£¬¿ÉÒÔÌí¼Ó
+//Dongzejun:ç¡¬ä»¶å¤ä½å‡½æ•°ï¼Œå¯ä»¥æ·»åŠ 
 {
 
 #ifdef _MCU_
@@ -945,7 +945,7 @@ static void HWReset_HDMIRX()
 }
 
 static void Terminator_Off()
-//Dongzejun:  Reg0x07ÉèÖÃ=0x0c
+//Dongzejun:  Reg0x07è®¾ç½®=0x0c
 //Reg0x07:Bit2=1  bit3=1
 
 {
@@ -967,15 +967,15 @@ static void Terminator_On()
 }
 
 static void Terminator_Reset()
-//Dongzejun:¿ÉÒÔ²ÎÕÕIT6603µÄ×ö·¨
+//Dongzejun:å¯ä»¥å‚ç…§IT6603çš„åšæ³•
 {
     Terminator_Off() ;
-    delay1ms(500) ;		//Dongzejun:´Ë²¿·Ö³ÌĞòÑÓÊ±Ì«³¤£¬Òª¿¼ÂÇÈí¼şÑÓÊ±£¬»òÕß³õÊ¼»¯·ÖÁ½²¿·ÖÖ´ĞĞ
+    delay1ms(500) ;		//Dongzejun:æ­¤éƒ¨åˆ†ç¨‹åºå»¶æ—¶å¤ªé•¿ï¼Œè¦è€ƒè™‘è½¯ä»¶å»¶æ—¶ï¼Œæˆ–è€…åˆå§‹åŒ–åˆ†ä¸¤éƒ¨åˆ†æ‰§è¡Œ
     Terminator_On() ;
 }
 
 void RDROM_Reset()
-//Dongzejun:HDCP Rom reset¶ÔReg0x9B²Ù×÷¡£
+//Dongzejun:HDCP Rom resetå¯¹Reg0x9Bæ“ä½œã€‚
 {
     BYTE i ;
     BYTE uc ;
@@ -994,7 +994,7 @@ void RDROM_Reset()
 }
 
 void Check_RDROM()
-//Dongzejun:¶ÔROM¡¡HDCP¸´Î»
+//Dongzejun:å¯¹ROMã€€HDCPå¤ä½
 {
     BYTE uc ;
     HDMIRX_PRINTF(("Check_HDCP_RDROM()\n"));
@@ -1007,7 +1007,7 @@ void Check_RDROM()
 
         {
             uc = HDMIRX_ReadI2C_Byte(REG_RX_RDROM_STATUS) ;	//Dognzejun:Reg0x92
-            if( (uc & 0xF) != 0x9 )		//Dongzejun:ROM¡¡¿ÕÏĞÊ±¾Í²»ÓÃ¸´Î»ÁË
+            if( (uc & 0xF) != 0x9 )		//Dongzejun:ROMã€€ç©ºé—²æ—¶å°±ä¸ç”¨å¤ä½äº†
             {
                 RDROM_Reset() ;
             }
@@ -1018,7 +1018,7 @@ void Check_RDROM()
 }
 
 static void SWReset_HDMIRX()
-//Dongzejun:ÇĞ»»Reset×´Ì¬VSTATE_SWReset
+//Dongzejun:åˆ‡æ¢ResetçŠ¶æ€VSTATE_SWReset
 {
     Check_RDROM() ;
     HDMIRX_WriteI2C_Byte(REG_RX_RST_CTRL, B_SWRST) ;
@@ -1038,15 +1038,15 @@ typedef struct _REGPAIR {
     BYTE ucValue ;
 } REGPAIR ;
 
-//Dongzejun:ÉèÖÃÊÓÆµ¡¢ÒôÆµ¸ñÊ½
+//Dongzejun:è®¾ç½®è§†é¢‘ã€éŸ³é¢‘æ ¼å¼
 static REGPAIR _CODE acCustomizeValue[] =
 {
 
     {REG_RX_VCLK_CTRL, 0x30},	//Reg0x1d
 
-    {REG_RX_I2S_CTRL,0x61},			//Reg0x75 I2S¿ØÖÆÆ÷ ÎÒÃÇÉèÖÃÖµÎª0x60
+    {REG_RX_I2S_CTRL,0x61},			//Reg0x75 I2Sæ§åˆ¶å™¨ æˆ‘ä»¬è®¾ç½®å€¼ä¸º0x60
 
-    {REG_RX_PG_CTRL2,HDMIRX_OUTPUT_COLORMODE},	//Reg0x3d:Êä³öÉ«²Ê¿Õ¼ä¶¨Òå
+    {REG_RX_PG_CTRL2,HDMIRX_OUTPUT_COLORMODE},	//Reg0x3d:è¾“å‡ºè‰²å½©ç©ºé—´å®šä¹‰
     {REG_RX_VIDEO_MAP,HDMIRX_OUTPUT_MAPPING},			//Dongzejun:Reg0x1B
     {REG_RX_VIDEO_CTRL1,HDMIRX_OUTPUT_TYPE},			//Dongzejun:Reg0x1C
     {REG_RX_MCLK_CTRL, 0xC1},							//Dongzejun:Reg0x78
@@ -1054,7 +1054,7 @@ static REGPAIR _CODE acCustomizeValue[] =
 } ;
 
 static void LoadCustomizeDefaultSetting()
-//Dongzejun:ÓÃ»§ÉèÖÃµÄÒ»Ğ©±äÁ¿
+//Dongzejun:ç”¨æˆ·è®¾ç½®çš„ä¸€äº›å˜é‡
 {
     BYTE i, uc ;
     for( i = 0 ; acCustomizeValue[i].ucAddr != 0xFF ; i++ )
@@ -1093,7 +1093,7 @@ static void LoadCustomizeDefaultSetting()
 			bOutputVideoMode|=F_MODE_RGB444; 
 			break ;
     }
-    bIntPOL = (HDMIRX_ReadI2C_Byte(REG_RX_INTERRUPT_CTRL) & B_INTPOL)?LO_ACTIVE:HI_ACTIVE ;	//Dongzejun:ÖĞ¶Ï¼«ĞÔÉèÖÃ
+    bIntPOL = (HDMIRX_ReadI2C_Byte(REG_RX_INTERRUPT_CTRL) & B_INTPOL)?LO_ACTIVE:HI_ACTIVE ;	//Dongzejun:ä¸­æ–­ææ€§è®¾ç½®
 }
 
 static REGPAIR _CODE acDefaultValue[] =
@@ -1131,22 +1131,22 @@ void SetDefaultRegisterValue()
 }
 
 static void ClearIntFlags(BYTE flag)
-//Dongzejun:Çå³ıÖĞ¶Ï Ğ´Reg0x19 1->0
+//Dongzejun:æ¸…é™¤ä¸­æ–­ å†™Reg0x19 1->0
 {
     BYTE uc ;
     uc = HDMIRX_ReadI2C_Byte(REG_RX_INTERRUPT_CTRL) ;
     uc &= FLAG_CLEAR_INT_MASK ;
     uc |= flag ;
-    HDMIRX_WriteI2C_Byte(REG_RX_INTERRUPT_CTRL,uc) ;  //Dongzejun: Ğ´1
+    HDMIRX_WriteI2C_Byte(REG_RX_INTERRUPT_CTRL,uc) ;  //Dongzejun: å†™1
     delay1ms(1);
     uc &= FLAG_CLEAR_INT_MASK ;
-    HDMIRX_WriteI2C_Byte(REG_RX_INTERRUPT_CTRL,uc) ;	//Dongzejun:Ğ´0
+    HDMIRX_WriteI2C_Byte(REG_RX_INTERRUPT_CTRL,uc) ;	//Dongzejun:å†™0
     delay1ms(1);
 
 }
 
 static void ClearHDCPIntFlags()
-//Dongzejun:Reg0x18		1->0 HDCPÈÏÖ¤ÖĞ¶ÏÇå³ı
+//Dongzejun:Reg0x18		1->0 HDCPè®¤è¯ä¸­æ–­æ¸…é™¤
 {
     BYTE uc ;
 
@@ -1157,8 +1157,8 @@ static void ClearHDCPIntFlags()
 }
 
 BOOL IsSCDT()
-//Dongzejun: SCDTÒÑ¼ì²âµ½·µ»Ø1
-//Ö÷ÒªÅĞ¶ÏReg0x10[2/1]SCDT/VCLK
+//Dongzejun: SCDTå·²æ£€æµ‹åˆ°è¿”å›1
+//ä¸»è¦åˆ¤æ–­Reg0x10[2/1]SCDT/VCLK
 {
     BYTE uc ;
 
@@ -1168,8 +1168,8 @@ BOOL IsSCDT()
 
 
 BOOL CheckPlg5VPwr()
-//Dongzejun:Èç¹ûHDMI¡¡PORTAÓĞ5VµçÔ´£¬Ôò·µ»Ø1
-//ÅĞ¶ÏReg0x10[0]=1,PORTAÓĞµçÔ´
+//Dongzejun:å¦‚æœHDMIã€€PORTAæœ‰5Vç”µæºï¼Œåˆ™è¿”å›1
+//åˆ¤æ–­Reg0x10[0]=1,PORTAæœ‰ç”µæº
 {
     BYTE uc ;
 
@@ -1208,10 +1208,10 @@ void SetMUTE(BYTE AndMask, BYTE OrMask)
 }
 
 /*///////////////////////////////////////////////////////////////
-//¶ÔÕâ¸öº¯ÊıµÄÒ»Ğ©Àí½â¡£
-1¡¢µ±AndMask£½0Ê±£¬Ê¹ÓÃOrMask±äÁ¿¶ÔÏàÓ¦µÄ¼Ä´æÆ÷Î»½øĞĞ£¬ÖÃÎ»²Ù×÷¡£
+//å¯¹è¿™ä¸ªå‡½æ•°çš„ä¸€äº›ç†è§£ã€‚
+1ã€å½“AndMaskï¼0æ—¶ï¼Œä½¿ç”¨OrMaskå˜é‡å¯¹ç›¸åº”çš„å¯„å­˜å™¨ä½è¿›è¡Œï¼Œç½®ä½æ“ä½œã€‚
 
-2¡¢µ±AndMask!=0Ê±£¬OrMask¡¡Ö¸¶¨Î»Çå0»òÖÃÎ»¡£
+2ã€å½“AndMask!=0æ—¶ï¼ŒOrMaskã€€æŒ‡å®šä½æ¸…0æˆ–ç½®ä½ã€‚
 //
 ///////////////////////////////////////////////////////////////////////*/
 void SetIntMask1(BYTE AndMask,BYTE OrMask)
@@ -1275,7 +1275,7 @@ SetGeneralPktType(BYTE type)
 #endif
 
 BOOL IsCAT6023HDMIMode()
-//Dongzejun:·µ»Ø1£­HDMI;0£­DVI
+//Dongzejun:è¿”å›1ï¼HDMI;0ï¼DVI
 {
     BYTE uc ;
     uc = HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE) ;
@@ -1284,13 +1284,13 @@ BOOL IsCAT6023HDMIMode()
 }
 
 void Interrupt_Handler()
-//Dongzejun:ÖĞ¶Ï´¦Àí¡£
+//Dongzejun:ä¸­æ–­å¤„ç†ã€‚
 {
-	BYTE int1data = 0 ;	//Dongzejun:Reg0x13 ÖĞ¶Ï1
+	BYTE int1data = 0 ;	//Dongzejun:Reg0x13 ä¸­æ–­1
 	BYTE int2data = 0 ;	//Dongzejun:Reg0x14 Interrupt2
 	BYTE int3data = 0 ;	//Reg0x15
-	BYTE int4data = 0 ;	//Dongzejun:Reg0x8B ÖĞ¶Ï4
-	BYTE sys_state ;		//Dongzejun:Reg0x10 ÏµÍ³×´Ì¬
+	BYTE int4data = 0 ;	//Dongzejun:Reg0x8B ä¸­æ–­4
+	BYTE sys_state ;		//Dongzejun:Reg0x10 ç³»ç»ŸçŠ¶æ€
 	BYTE flag = FLAG_CLEAR_INT_ALL;
 
     if( VState == VSTATE_SWReset )
@@ -1298,7 +1298,7 @@ void Interrupt_Handler()
     	return ;
     }
 
-    sys_state = HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE) ;	//Dongzejun:ÏµÍ³×´Ì¬
+    sys_state = HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE) ;	//Dongzejun:ç³»ç»ŸçŠ¶æ€
 
 //==========================================================================
 //Dongzejun:Interrupt 1/Interrupt 4
@@ -1310,41 +1310,41 @@ void Interrupt_Handler()
         HDMIRX_PRINTF3(("system state = %02X\n",(int)sys_state));
         HDMIRX_PRINTF3(("Interrupt 1 = %02X\n",(int)int1data));
         HDMIRX_PRINTF3(("Interrupt 4 = %02X\n",(int)int4data));
-        ClearIntFlags(B_CLR_MODE_INT) ;	//Dongzejun:Çå³ıÖĞ¶Ï1
+        ClearIntFlags(B_CLR_MODE_INT) ;	//Dongzejun:æ¸…é™¤ä¸­æ–­1
 
-		if(!CheckPlg5VPwr())	//Dongzejun:HDMP¡¡PROTAÃ»ÓĞµçÔ´
+		if(!CheckPlg5VPwr())	//Dongzejun:HDMPã€€PROTAæ²¡æœ‰ç”µæº
 		{
 			if( VState != VSTATE_SWReset && VState != VSTATE_PwrOff )
 			{
-				SWReset_HDMIRX() ;		//Dongzejun:Ö»Òª5VµçÔ´Ò»¶ªÊ§£¬ÔòVState£½VSTATE_SWReset
+				SWReset_HDMIRX() ;		//Dongzejun:åªè¦5Vç”µæºä¸€ä¸¢å¤±ï¼Œåˆ™VStateï¼VSTATE_SWReset
 				return ;
 			}
 		}
 
-        if( int1data & B_PWR5VOFF )	//PORTA:¶Ë¿Ú5VµçÔ´¹Ø±Õ
+        if( int1data & B_PWR5VOFF )	//PORTA:ç«¯å£5Vç”µæºå…³é—­
         {
             HDMIRX_PRINTF(("5V Power Off interrupt\n"));
             RXINT_5V_PwrOff() ;	//Dongzejun:
         }
 
-        if( VState == VSTATE_SWReset )  	//Dongzejun:PORTAµôµç½«±ä³É´Ë×´Ì¬
+        if( VState == VSTATE_SWReset )  	//Dongzejun:PORTAæ‰ç”µå°†å˜æˆæ­¤çŠ¶æ€
         {
         	return ;
         }
 
-        if( int1data & B_SCDTOFF )		//Dongzejun:Î´¼ì²âµ½SCDT¡¡£¬Èç¹û³¬¹ı¼ÆÊ±»¹ÊÇSCDT¡¡OFF£¬½«ÒªÈ¥¸´Î»²Ù×÷
+        if( int1data & B_SCDTOFF )		//Dongzejun:æœªæ£€æµ‹åˆ°SCDTã€€ï¼Œå¦‚æœè¶…è¿‡è®¡æ—¶è¿˜æ˜¯SCDTã€€OFFï¼Œå°†è¦å»å¤ä½æ“ä½œ
         {
             HDMIRX_PRINTF(("SCDT Off interrupt\n"));
             RXINT_SCDT_Off() ;	// ==>VSTATE_SyncWait
         }
 
-        if( int1data & B_PWR5VON )	//Dongzejun:ÓĞ5VµçÑ¹
+        if( int1data & B_PWR5VON )	//Dongzejun:æœ‰5Vç”µå‹
         {
             HDMIRX_PRINTF(("5V Power On interrupt\n"));
             RXINT_5V_PwrOn() ;
         }
 
-        if( int1data & B_VIDMODE_CHG )	//Dongzejun:Video Mode¸ü¸Ä
+        if( int1data & B_VIDMODE_CHG )	//Dongzejun:Video Modeæ›´æ”¹
         {
             HDMIRX_PRINTF(("Video mode change interrupt.\n:"));
             RXINT_VideoMode_Chg() ;
@@ -1354,13 +1354,13 @@ void Interrupt_Handler()
             }
         }
 
-        if( int1data & B_HDMIMODE_CHG )	// 1:HDMI¡¢DVIÄ£Ê½ÇĞ»»
+        if( int1data & B_HDMIMODE_CHG )	// 1:HDMIã€DVIæ¨¡å¼åˆ‡æ¢
         {
             HDMIRX_PRINTF(("HDMI Mode change interrupt.\n"));
             RXINT_HDMIMode_Chg() ;
         }
 
-        if( int1data & B_SCDTON )		//Dongzejun:SCDTÓĞĞ§
+        if( int1data & B_SCDTON )		//Dongzejun:SCDTæœ‰æ•ˆ
         {
             HDMIRX_PRINTF(("SCDT On interrupt\n"));
             RXINT_SCDT_On() ;
@@ -1388,7 +1388,7 @@ void Interrupt_Handler()
             RXINT_AVMute_Set() ;
         }
 
-        if( int2data & B_NEW_AVI_PKG )	//Dongzejun:ĞÂµÄAVI°üÃ÷Ìì´Ó´Ë¿ªÊ¼2011/03/02
+        if( int2data & B_NEW_AVI_PKG )	//Dongzejun:æ–°çš„AVIåŒ…æ˜å¤©ä»æ­¤å¼€å§‹2011/03/02
         {
             HDMIRX_PRINTF(("New AVI Info Frame Change interrupt\n"));
             RXINT_SetNewAVIInfo() ;
@@ -1466,7 +1466,7 @@ void Interrupt_Handler()
 }
 
 void RXINT_5V_PwrOn()
-//Dongzejun:Reg0x13[0] =1¡¡5VµçÔ´Õı³£
+//Dongzejun:Reg0x13[0] =1ã€€5Vç”µæºæ­£å¸¸
 {
 
     if( VState == VSTATE_PwrOff )	//Dongzejun:VSTATE_PwrOff==>VSTATE_SyncWait
@@ -1502,13 +1502,13 @@ void RXINT_SCDT_On()
 }
 
 static void CDR_Reset()
-//Dongzejun:¼ì²âµ½VCLKÊ±ÖÓÓĞĞ§£¬½«¶ÔÆä¸´Î»²Ù×÷¡£
+//Dongzejun:æ£€æµ‹åˆ°VCLKæ—¶é’Ÿæœ‰æ•ˆï¼Œå°†å¯¹å…¶å¤ä½æ“ä½œã€‚
 {
 
     BYTE uc;
 	HDMIRX_PRINTF(("CDR_Reset()\n"));
 
-//Dongzejun:¹Ø±ÕÖĞ¶Ï
+//Dongzejun:å…³é—­ä¸­æ–­
     SetIntMask4(0,0) ;
     SetIntMask1(0,0) ;
 		
@@ -1518,7 +1518,7 @@ static void CDR_Reset()
 
 
 // 2. Reg05[7][1] = '1' '1'			Dongzejun
-    if( EnaSWCDRRest )		//´ËEnaSWCDRRest£½0
+    if( EnaSWCDRRest )		//æ­¤EnaSWCDRRestï¼0
     {
         HDMIRX_WriteI2C_Byte(REG_RX_RST_CTRL,B_CDRRST| B_SWRST  ) ;
     }
@@ -1546,7 +1546,7 @@ static void CDR_Reset()
     RxHDCPRepeaterCapabilityClear(B_KSV_READY);
 #endif
 
-//Dongzejun:¿ªÆôÖĞ¶Ï
+//Dongzejun:å¼€å¯ä¸­æ–­
     SetIntMask4(0,B_M_RXCKON_DET) ;
     SetIntMask1(0,B_PWR5VON|B_SCDTON|B_PWR5VOFF) ;
     ClearIntFlags(B_CLR_MODE_INT) ;
@@ -1556,21 +1556,21 @@ static void CDR_Reset()
 }
 
 void RXINT_SCDT_Off()
-//Dongzejun:Reg0X13[3]Î´¼ì²âµ½SCDT
-//VStateÇĞ»»µ½"VSTATE_SyncWait"
+//Dongzejun:Reg0X13[3]æœªæ£€æµ‹åˆ°SCDT
+//VStateåˆ‡æ¢åˆ°"VSTATE_SyncWait"
 {
 
     if( VState != VSTATE_PwrOff )
     {
         HDMIRX_PRINTF(("GetSCDT OFF\n"));
-        SwitchVideoState(VSTATE_SyncWait) ;	//Dongzejun:µÈ´ıÍ¬²½
+        SwitchVideoState(VSTATE_SyncWait) ;	//Dongzejun:ç­‰å¾…åŒæ­¥
 
         SCDTErrorCnt++;
     }
 }
 
 void RXINT_VideoMode_Chg()
-//Dongzejun:Reg0x13[5]=1 VideoÄ£Ê½¸ü¸Ä
+//Dongzejun:Reg0x13[5]=1 Videoæ¨¡å¼æ›´æ”¹
 {
     BYTE sys_state ;
 
@@ -1578,22 +1578,22 @@ void RXINT_VideoMode_Chg()
 
     sys_state = HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE) ;
 
-    if(CheckPlg5VPwr())		//Dongzejun:5VÓĞµçÔ´  ==>VSTATE_SyncWait
+    if(CheckPlg5VPwr())		//Dongzejun:5Væœ‰ç”µæº  ==>VSTATE_SyncWait
     {
         SwitchVideoState(VSTATE_SyncWait) ;
     }
-    else				//Dongzejun:ÎŞ5VµçÔ´==>VSTATE_SWReset
+    else				//Dongzejun:æ— 5Vç”µæº==>VSTATE_SWReset
     {
         SWReset_HDMIRX() ;
     }
 }
 
 void RXINT_HDMIMode_Chg()
-//Dongzejun:HDMI/DVIÏà»¥ÇĞ»»£¬Èç¹ûVState == VSTATE_VideoOn£¬ÔòÒª×öÈçÏÂ´¦Àí.
+//Dongzejun:HDMI/DVIç›¸äº’åˆ‡æ¢ï¼Œå¦‚æœVState == VSTATE_VideoOnï¼Œåˆ™è¦åšå¦‚ä¸‹å¤„ç†.
 {
     if(VState == VSTATE_VideoOn )
     {
-        if( IsCAT6023HDMIMode() )		//Dongzejun:HDMIÄ£Ê½
+        if( IsCAT6023HDMIMode() )		//Dongzejun:HDMIæ¨¡å¼
         {
             HDMIRX_PRINTF(("HDMI Mode.\n"));
             SwitchAudioState(ASTATE_RequestAudio) ;
@@ -1612,11 +1612,11 @@ void RXINT_HDMIMode_Chg()
 }
 
 void RXINT_RXCKON()
-//Dongzejun:CLK¡¡ON×´Ì¬
+//Dongzejun:CLKã€€ONçŠ¶æ€
 {
     if( AcceptCDRReset == TRUE )
     {
-        if((HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE)&(B_VCLK_DET|B_RXCK_VALID)) == (B_VCLK_DET|B_RXCK_VALID))  //Dongzejun:CLKÓĞĞ§
+        if((HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE)&(B_VCLK_DET|B_RXCK_VALID)) == (B_VCLK_DET|B_RXCK_VALID))  //Dongzejun:CLKæœ‰æ•ˆ
         {
             CDR_Reset() ;
         }
@@ -1624,7 +1624,7 @@ void RXINT_RXCKON()
 }
 
 void RXINT_AVMute_Set()
-//Dongzejun:Reg0x14 bit0 PktSetMuteÉèÖÃ¾²Òô¡£
+//Dongzejun:Reg0x14 bit0 PktSetMuteè®¾ç½®é™éŸ³ã€‚
 {
     BYTE uc ;
     MuteByPKG = ON ;
@@ -1647,11 +1647,11 @@ void RXINT_AVMute_Clear()
     BYTE uc ;
     MuteByPKG = OFF ;
     bDisableAutoAVMute = 0 ;
-    uc =  HDMIRX_ReadI2C_Byte(REG_RX_TRISTATE_CTRL) ;  //Dongzejun:ºÍº¯ÊıRXINT_AVMute_Set()ÉèÖÃÒ»Ö±
+    uc =  HDMIRX_ReadI2C_Byte(REG_RX_TRISTATE_CTRL) ;  //Dongzejun:å’Œå‡½æ•°RXINT_AVMute_Set()è®¾ç½®ä¸€ç›´
     uc &= ~B_VDO_MUTE_DISABLE ;
     HDMIRX_WriteI2C_Byte(REG_RX_TRISTATE_CTRL, uc) ;
 
-    EndAutoMuteOffTimer() ;		//Dongzejun:Reg0x14[7]=1Ê±£¬ÉèÖÃ
+    EndAutoMuteOffTimer() ;		//Dongzejun:Reg0x14[7]=1æ—¶ï¼Œè®¾ç½®
 
     if(VState == VSTATE_VideoOn )
     {
@@ -1670,7 +1670,7 @@ void RXINT_AVMute_Clear()
 }
 
 void RXINT_SetNewAVIInfo()
-//Dongzejun:ĞÂµÄAVI°ü
+//Dongzejun:æ–°çš„AVIåŒ…
 {
     NewAVIInfoFrameF = TRUE ;
 
@@ -1685,14 +1685,14 @@ void RXINT_SetNewAVIInfo()
 }
 
 void RXINT_ResetAudio()
-//Dongzejun:ÒôÆµ¸´Î»²Ù×÷
+//Dongzejun:éŸ³é¢‘å¤ä½æ“ä½œ
 
 {
 
     if(AState != ASTATE_AudioOff)
     {
         SetAudioMute(ON) ;
-        SwitchAudioState(ASTATE_RequestAudio) ; //Dongzejun:ÇëÇóÒôÆµ´ò¿ª
+        SwitchAudioState(ASTATE_RequestAudio) ; //Dongzejun:è¯·æ±‚éŸ³é¢‘æ‰“å¼€
     }
 }
 
@@ -1731,11 +1731,11 @@ void Timer_Handler()
 }
 
 static void VideoTimerHandler()
-//Dongzejun:¶¨Ê±Æ÷VIDEO´¦Àí
+//Dongzejun:å®šæ—¶å™¨VIDEOå¤„ç†
 {
 	UCHAR uc ;
 
-//Dongzejun µÈ´ıVSTATE_SyncWaitÊÇ·ñ³¬Ê±
+//Dongzejun ç­‰å¾…VSTATE_SyncWaitæ˜¯å¦è¶…æ—¶
 	if (SCDTErrorCnt>= SCDT_LOST_TIMEOUT)	
     {
 		SWReset_HDMIRX() ;
@@ -1757,7 +1757,7 @@ static void VideoTimerHandler()
 	}
 	
 	//==========================================2->VSTATE_PwrOff========================================================
-	//Dongzejun:VSTATE_PwrOff HDMIÉÏµç£¬Ôò=>VSTATE_SyncWait
+	//Dongzejun:VSTATE_PwrOff HDMIä¸Šç”µï¼Œåˆ™=>VSTATE_SyncWait
 	if( VState == VSTATE_PwrOff )
 	{
 	    if(CheckPlg5VPwr())
@@ -1773,10 +1773,10 @@ static void VideoTimerHandler()
 	{
         if( AcceptCDRReset == TRUE )
         {
-        	//Dongzejun;µ±ÔÚ×´Ì¬VSTATE_SyncWaitÏÂ¼ì²âµ½ÓĞĞ§µÄVCLKÊ±ÖÓĞÅºÅ£¬½«È¥¸´Î»
+        	//Dongzejun;å½“åœ¨çŠ¶æ€VSTATE_SyncWaitä¸‹æ£€æµ‹åˆ°æœ‰æ•ˆçš„VCLKæ—¶é’Ÿä¿¡å·ï¼Œå°†å»å¤ä½
             if((HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE)&(B_VCLK_DET|B_RXCK_VALID)) == (B_VCLK_DET|B_RXCK_VALID))
             {
-            	//AcceptCDRReset = FALSE;		//Dongzejun:´ËÓï¾äÎŞÓÃ
+            	//AcceptCDRReset = FALSE;		//Dongzejun:æ­¤è¯­å¥æ— ç”¨
             	EnaSWCDRRest = FALSE;
             	CDR_Reset() ;
             }
@@ -1784,11 +1784,11 @@ static void VideoTimerHandler()
 	}
 
 	
-//ÔÚ´ËÌõ¼şÏÂÓĞµÄ×´Ì¬:    VSTATE_SyncChecking / VSTATE_HDCPSet/ VSTATE_HDCP_Reset/ VSTATE_ModeDetecting/VSTATE_VideoOn,
+//åœ¨æ­¤æ¡ä»¶ä¸‹æœ‰çš„çŠ¶æ€:    VSTATE_SyncChecking / VSTATE_HDCPSet/ VSTATE_HDCP_Reset/ VSTATE_ModeDetecting/VSTATE_VideoOn,
 
 	if((VState != VSTATE_PwrOff)&&(VState != VSTATE_SyncWait)&&(VState != VSTATE_SWReset))
 	{
-	    if(!IsSCDT())		//Dongzejun:SCDTÎ´¼ì²âµ½£¬ÔòÒªÇĞ»»µ½==>VSTATE_SyncWait
+	    if(!IsSCDT())		//Dongzejun:SCDTæœªæ£€æµ‹åˆ°ï¼Œåˆ™è¦åˆ‡æ¢åˆ°==>VSTATE_SyncWait
 	    {
             SwitchVideoState(VSTATE_SyncWait) ;
             return ;
@@ -1796,7 +1796,7 @@ static void VideoTimerHandler()
 	}
 	else if ((VState != VSTATE_PwrOff)&&(VState != VSTATE_SWReset))
 	{
-	    if(!CheckPlg5VPwr())	//Dongzejun:´ËHDMIÏß5VµçÔ´¶ªÊ§£¬Ôò¸´Î»HDMI
+	    if(!CheckPlg5VPwr())	//Dongzejun:æ­¤HDMIçº¿5Vç”µæºä¸¢å¤±ï¼Œåˆ™å¤ä½HDMI
 	    {
 
             SWReset_HDMIRX() ;
@@ -1833,7 +1833,7 @@ static void VideoTimerHandler()
         	HDMIRX_PRINTF(("REG_RX_SYS_STATE = %X\r",(int)uc));
 			uc &= (B_RXPLL_LOCK|B_RXCK_VALID|B_SCDT|B_VCLK_DET);
 
-			//Dongzejun:ÒÑ»ñµÃÕıÈ·µÄVIDEO¡¡SIGNAL
+			//Dongzejun:å·²è·å¾—æ­£ç¡®çš„VIDEOã€€SIGNAL
 			if(uc == (B_RXPLL_LOCK|B_RXCK_VALID|B_SCDT|B_VCLK_DET)	)
         	{
             	SwitchVideoState(VSTATE_SyncChecking) ;	//Dongzejun:VSTATE_SyncWait==>VSTATE_SyncChecking
@@ -1843,8 +1843,8 @@ static void VideoTimerHandler()
 			{
 				uc=HDMIRX_ReadI2C_Byte(REG_RX_SYS_STATE);
 				uc &= (B_RXCK_VALID|B_VCLK_DET|B_HDMIRX_MODE);
-				#if 1     //´Ë¶Î³ÌĞò£¬²¢ÎŞÊµ¼ÊµÄÒâË¼
-				if(uc == (B_RXCK_VALID|B_VCLK_DET))	//Dongzejun: DVIÄ£Ê½
+				#if 1     //æ­¤æ®µç¨‹åºï¼Œå¹¶æ— å®é™…çš„æ„æ€
+				if(uc == (B_RXCK_VALID|B_VCLK_DET))	//Dongzejun: DVIæ¨¡å¼
 				{
 					if(ucDVISCDToffCNT++>100)
 					{
@@ -1874,7 +1874,7 @@ static void VideoTimerHandler()
 
         if( VideoCountingTimer == 0)
         {
-            SwitchVideoState(VSTATE_ModeDetecting) ;		//Dongzejun:Í£ÁôÔÚVSTATE_SyncChecking³¬¹ı150ms£¬½«ÇĞ»»µ½VSTATE_ModeDetecting×´Ì¬
+            SwitchVideoState(VSTATE_ModeDetecting) ;		//Dongzejun:åœç•™åœ¨VSTATE_SyncCheckingè¶…è¿‡150msï¼Œå°†åˆ‡æ¢åˆ°VSTATE_ModeDetectingçŠ¶æ€
             return ;
         }
         else
@@ -1932,7 +1932,7 @@ static void VideoTimerHandler()
 		HTotal |= (unsigned short)(HDMIRX_ReadI2C_Byte(REG_RX_VID_HTOTAL_H)&M_HTOTAL_H) << 8 ;
 		if(ABS((int)HTotal -(int)currHTotal)>4)
 		{
-			bVidModeChange = TRUE ;		//Dongzejun:ÊÓÆµĞÅºÅÒÑ¸Ä±ä
+			bVidModeChange = TRUE ;		//Dongzejun:è§†é¢‘ä¿¡å·å·²æ”¹å˜
 			HDMIRX_PRINTF(("HTotal changed.\n"));
 		}
 
@@ -2028,13 +2028,13 @@ static void VideoTimerHandler()
 }
 
 static void SetupAudio()
-//Dongzejun:ÓĞµãÒÉÎÊ
+//Dongzejun:æœ‰ç‚¹ç–‘é—®
 {
     BYTE uc ;
     BYTE RxAudioCtrl ;
     getCAT6023InputAudio(&AudioCaps) ;
 
-    if(AudioCaps.AudioFlag & B_CAP_AUDIO_ON)  //Dongzejun:ÒôÆµÊÇ´ò¿ªµÄreg8a[7]:audio on
+    if(AudioCaps.AudioFlag & B_CAP_AUDIO_ON)  //Dongzejun:éŸ³é¢‘æ˜¯æ‰“å¼€çš„reg8a[7]:audio on
     {
 
         uc=HDMIRX_ReadI2C_Byte(REG_RX_MCLK_CTRL) & 0xF8;
@@ -2099,7 +2099,7 @@ static void SetupAudio()
                     // force sequence : 48KHz -> 44.1KHz -> 32KHz -> 96KHz ->  192KHz ->
                     // (88.2KHz -> 176.4KHz )
                     // -> 48KHz
-                    //Dongzejun:ÉèÖÃ²ÉÑùÆµÂÊµÄ²½Öè£¬µ÷ÊÔÊ±¿ÉÒÔ×¢ÒâÒ»ÏÂ£¬´Ë³ÌĞò¶Î¡£
+                    //Dongzejun:è®¾ç½®é‡‡æ ·é¢‘ç‡çš„æ­¥éª¤ï¼Œè°ƒè¯•æ—¶å¯ä»¥æ³¨æ„ä¸€ä¸‹ï¼Œæ­¤ç¨‹åºæ®µã€‚
                     switch(ucAudioSampleClock)
                     {
                     case AUDFS_192KHz: ucAudioSampleClock=AUDFS_48KHz;break ;
@@ -2191,7 +2191,7 @@ static void SetupAudio()
 }
 
 
-//Dongzejun:´ò¿ªÒôÆµ¹¦ÄÜ?
+//Dongzejun:æ‰“å¼€éŸ³é¢‘åŠŸèƒ½?
 static void EnableAudio()
 {
 
@@ -2271,7 +2271,7 @@ void AudioTimerHandler()
             AudioCountingTimer -- ;
             if ( AudioCountingTimer == 0 )
             {
-                ucHDMIAudioErrorCount=0 ;		//Dongzejun:Çå³ı´íÎó¼ÆÊı
+                ucHDMIAudioErrorCount=0 ;		//Dongzejun:æ¸…é™¤é”™è¯¯è®¡æ•°
     			HDMIRX_PRINTF(("Audio On, clear Audio Error Count.\n"));
             }
         }
@@ -2329,7 +2329,7 @@ void    CAT6023HBRMclkSet(BYTE cFs)
 }
 
 void getCAT6023InputAudio(AUDIO_CAPS *pAudioCaps)
-//Dongzejun:»ñÈ¡HDMIÊäÈëÒôÆµÖµ¡¡
+//Dongzejun:è·å–HDMIè¾“å…¥éŸ³é¢‘å€¼
 {
     BYTE uc ;
 
@@ -2345,7 +2345,7 @@ void getCAT6023InputAudio(AUDIO_CAPS *pAudioCaps)
     uc = HDMIRX_ReadI2C_Byte(REG_RX_AUDIO_CH_STAT) ;
     pAudioCaps->AudioFlag = uc & 0xF0 ;
 
-	//Dongzejun:ÒÔÏÂÕâĞ©³ÌĞò¶ÎÓĞÒâÒåÂğ¿
+	//Dongzejun:ä»¥ä¸‹è¿™äº›ç¨‹åºæ®µæœ‰æ„ä¹‰å—ï¿½
     pAudioCaps->AudSrcEnable=uc&M_AUDIO_CH ;
     delay1ms(1) ;
     pAudioCaps->AudSrcEnable|=HDMIRX_ReadI2C_Byte(REG_RX_AUDIO_CH_STAT)&M_AUDIO_CH ;
@@ -2354,7 +2354,7 @@ void getCAT6023InputAudio(AUDIO_CAPS *pAudioCaps)
     delay1ms(1) ;
     pAudioCaps->AudSrcEnable|=HDMIRX_ReadI2C_Byte(REG_RX_AUDIO_CH_STAT)&M_AUDIO_CH ;
 
-    if( (uc & (B_HBRAUDIO|B_DSDAUDIO)) == 0)  //Dongzejun:²»ÊÇHBRºÍDSDÒôÆµ¸ñÊ½
+    if( (uc & (B_HBRAUDIO|B_DSDAUDIO)) == 0)  //Dongzejun:ä¸æ˜¯HBRå’ŒDSDéŸ³é¢‘æ ¼å¼
     {
         uc = HDMIRX_ReadI2C_Byte(REG_RX_AUD_CHSTAT0) ;
 
@@ -2402,7 +2402,7 @@ static void MuteProcessTimerHandler()
     BYTE uc ;
     BOOL TurnOffMute = FALSE ;
 
-    if( MuteByPKG == ON )   //Dongzejun:¾²Òô
+    if( MuteByPKG == ON )   //Dongzejun:é™éŸ³
     {
 
         if( (MuteResumingTimer > 0)&&(AState == ASTATE_AudioOn))
@@ -2481,17 +2481,17 @@ ResetAudioTimerTimeout()
 #endif
 
 void SwitchVideoState(Video_State_Type state)
-//Dongzejun:Video ×´Ì¬ÉèÖÃ
+//Dongzejun:Video çŠ¶æ€è®¾ç½®
 {
 	if( VState == state )
 	{
 		return ;
 	}
 	
-	//Dongzejun:Ö®Ç°µÄ×´Ì¬ÊÇVideo On,ÏÖÔÚµÄ×´Ì¬²»ÊÇVideoOnÁË,ÔòÒª¹Ø±ÕÒôÆµ 2011/05/07
+	//Dongzejun:ä¹‹å‰çš„çŠ¶æ€æ˜¯Video On,ç°åœ¨çš„çŠ¶æ€ä¸æ˜¯VideoOnäº†,åˆ™è¦å…³é—­éŸ³é¢‘ 2011/05/07
     if( VState == VSTATE_VideoOn && state != VSTATE_VideoOn)		
     {
-		//Dongzejun:ÇĞ»»ÒôÆµ×´Ì¬ÎªAudioOff
+		//Dongzejun:åˆ‡æ¢éŸ³é¢‘çŠ¶æ€ä¸ºAudioOff
         SwitchAudioState(ASTATE_AudioOff) ;		
     }
 
@@ -2501,7 +2501,7 @@ void SwitchVideoState(Video_State_Type state)
 
     if( VState != VSTATE_SyncWait && VState != VSTATE_SyncChecking )
     {
-        SWResetTimeOut = FORCE_SWRESET_TIMEOUT;	//Dongzejun:µÈ´ıÍ¬²½SCDT¡¢VCLKÊ±¼äÒç³ö
+        SWResetTimeOut = FORCE_SWRESET_TIMEOUT;	//Dongzejun:ç­‰å¾…åŒæ­¥SCDTã€VCLKæ—¶é—´æº¢å‡º
 
     }
 
@@ -2518,7 +2518,7 @@ void SwitchVideoState(Video_State_Type state)
 	//Dongzejun:1
     case VSTATE_SyncWait:
 
-        SetIntMask1(~(B_SCDTOFF|B_VIDMODE_CHG),0) ;		//Dongzejun:Çå³ıÕâÁ½Î»ÖĞ¶ÏÆÁ±Î1Reg16[5/3]
+        SetIntMask1(~(B_SCDTOFF|B_VIDMODE_CHG),0) ;		//Dongzejun:æ¸…é™¤è¿™ä¸¤ä½ä¸­æ–­å±è”½1Reg16[5/3]
         HDMIRX_WriteI2C_Byte(REG_RX_GEN_PKT_TYPE, 0x03) ;	//Dongzejun:General Control Packet
         SetVideoMute(ON) ;
         AssignVideoTimerTimeout(VSTATE_MISS_SYNC_COUNT);
@@ -2526,7 +2526,7 @@ void SwitchVideoState(Video_State_Type state)
     case VSTATE_SyncChecking:	//Dongzejun:VSTATE_SyncWait==>VSTATE_SyncChecking
         HDMIRX_WriteI2C_Byte(REG_RX_GEN_PKT_TYPE, 0x03) ;
 
-		 //Dongzejun:R	eg0x16ÖĞ¶Ï1ÆÁ±Î¼Ä´æÆ÷¡£¿ªÆô´ËÁ½Î»ÖĞ¶Ï
+		 //Dongzejun:R	eg0x16ä¸­æ–­1å±è”½å¯„å­˜å™¨ã€‚å¼€å¯æ­¤ä¸¤ä½ä¸­æ–­
         SetIntMask1(~(B_SCDTOFF|B_VIDMODE_CHG),(B_SCDTOFF|B_VIDMODE_CHG)) ; 
         AssignVideoTimerTimeout(VSATE_CONFIRM_SCDT_COUNT);
         break ;
@@ -2535,14 +2535,14 @@ void SwitchVideoState(Video_State_Type state)
 		AssignVideoTimerTimeout(HDCP_WAITING_TIMEOUT);
 		break ;
 
-	//Dongzejun:¼ì²âµ½VIDEOÄ£Ê½£¬´ò¿ªÊÓÆµ
+	//Dongzejun:æ£€æµ‹åˆ°VIDEOæ¨¡å¼ï¼Œæ‰“å¼€è§†é¢‘
     case VSTATE_VideoOn:
         HDMIRX_WriteI2C_Byte(REG_RX_GEN_PKT_TYPE, 0x81) ;
 
         AssignVideoTimerTimeout(CDRRESET_TIMEOUT);
 
-		//Dongzejun:Ã»ÓĞAVIÖ¡Ê±£¬ÒªÖ´ĞĞµÄ´Ë²¿·Ö
-        if(!NewAVIInfoFrameF)    //ÎŞAVI
+		//Dongzejun:æ²¡æœ‰AVIå¸§æ—¶ï¼Œè¦æ‰§è¡Œçš„æ­¤éƒ¨åˆ†
+        if(!NewAVIInfoFrameF)    //æ— AVI
         {
             SetVideoInputFormatWithoutInfoFrame(F_MODE_RGB24) ;
             SetColorimetryByMode(/*&SyncInfo*/) ;
@@ -2579,7 +2579,7 @@ void SwitchVideoState(Video_State_Type state)
             SetIntMask2(~(B_NEW_AVI_PKG|B_PKT_SET_MUTE|B_PKT_CLR_MUTE),(B_NEW_AVI_PKG|B_PKT_SET_MUTE|B_PKT_CLR_MUTE)) ;
             SetIntMask1(~(B_SCDTOFF|B_PWR5VOFF),(B_SCDTOFF|B_PWR5VOFF)) ;
             SetIntMask4(0,B_M_RXCKON_DET) ;
-//======================ÒÔÏÂÊÇÒôÆµ²¿·Öµ÷Õû=================================================
+//======================ä»¥ä¸‹æ˜¯éŸ³é¢‘éƒ¨åˆ†è°ƒæ•´=================================================
             MuteByPKG =  (HDMIRX_ReadI2C_Byte(REG_RX_VID_INPUT_ST) & B_AVMUTE)?TRUE:FALSE ;
 
             SetVideoMute(MuteByPKG) ;
@@ -2609,7 +2609,7 @@ void SwitchVideoState(Video_State_Type state)
 }
 
 void SwitchAudioState(Audio_State_Type state)
-//Dongzejun:ÒôÆµ×´Ì¬ÇĞ»»
+//Dongzejun:éŸ³é¢‘çŠ¶æ€åˆ‡æ¢
 {
     AState = state ;
     HDMIRX_PRINTF(("AState -> %s\n",AStateStr[AState]));
@@ -2661,9 +2661,9 @@ DumpSyncInfo(VTiming *pVTiming)
 }
 
 static BOOL bGetSyncInfo()
-//Dongzejun:»ñµÃVIDEOĞÅºÅ¸ñÊ½
-// 1:»ñµÃÕıÈ·µÄVIDEO¡¡ID
-// 0:»ñµÃ´íÎóµÄVIDEO ID
+//Dongzejun:è·å¾—VIDEOä¿¡å·æ ¼å¼
+// 1:è·å¾—æ­£ç¡®çš„VIDEOã€€ID
+// 0:è·å¾—é”™è¯¯çš„VIDEO ID
 {
     long diff ;
 
@@ -2703,14 +2703,14 @@ static BOOL bGetSyncInfo()
     s_CurrentVM.VFrontPorch = HDMIRX_ReadI2C_Byte(REG_RX_VID_V_FT_PORCH) ;
     s_CurrentVM.VSyncWidth = 0 ;
 		
-//Dongzejun:Ö¸Ê¾ÊÇ·ñÊÇ¸ôĞĞ/gÖğĞĞ?
+//Dongzejun:æŒ‡ç¤ºæ˜¯å¦æ˜¯éš”è¡Œ/gé€è¡Œ?
     s_CurrentVM.ScanMode = (HDMIRX_ReadI2C_Byte(REG_RX_VID_MODE)&B_INTERLACE)?INTERLACE:PROG ;
 
     s_CurrentVM.xCnt = HDMIRX_ReadI2C_Byte(REG_RX_VID_XTALCNT_128PEL) ;
 
     if(  s_CurrentVM.xCnt )
     {
-        s_CurrentVM.PCLK = 128L * 27000L / s_CurrentVM.xCnt ;	//Dongzejun:ÏñËØÊ±ÖÓ
+        s_CurrentVM.PCLK = 128L * 27000L / s_CurrentVM.xCnt ;	//Dongzejun:åƒç´ æ—¶é’Ÿ
     }
     else
     {
@@ -2722,11 +2722,11 @@ static BOOL bGetSyncInfo()
             HDMIRX_PRINTF(("HDMIRX_ReadI2C_Byte(%02x) = %02X\n",i,(int)HDMIRX_ReadI2C_Byte(i)));
         }
         */
-        return FALSE ;		//Dongzejun: videoÓĞ´íÎó·µ»Ø0
+        return FALSE ;		//Dongzejun: videoæœ‰é”™è¯¯è¿”å›0
     }
 
 
-//Dongzejun:Î´¶¨Òå¸÷ÖÖVIDEO¡¡ID¡¡±í¸ñ
+//Dongzejun:æœªå®šä¹‰å„ç§VIDEOã€€IDã€€è¡¨æ ¼
 #ifndef USE_MODE_TABLE
 	if( (s_CurrentVM.VActive > 200)&&(s_CurrentVM.VTotal>s_CurrentVM.VActive )&&(s_CurrentVM.HActive > 300)&&(s_CurrentVM.HTotal>s_CurrentVM.HActive ))
 	{
@@ -2734,7 +2734,7 @@ static BOOL bGetSyncInfo()
 	}
 #else
 
-//Dongzejun:¶¨ÒåÁË¸÷ÖÖVIDEO¡¡ID¡¡
+//Dongzejun:å®šä¹‰äº†å„ç§VIDEOã€€ID
     for( i = 0 ; i < SizeofVMTable ; i++ )
     {
 
@@ -2778,7 +2778,7 @@ static BOOL bGetSyncInfo()
 
         s_CurrentVM = s_VMTable[i] ;
 
-        return TRUE ;		//Dongzejun:»ñµÃÒ»¸öÕıÈ·µÄVIDEO¡¡ID
+        return TRUE ;		//Dongzejun:è·å¾—ä¸€ä¸ªæ­£ç¡®çš„VIDEOã€€ID
     }
 
     for( i = 0 ; i < SizeofVMTable ; i++ )
@@ -2842,7 +2842,7 @@ void Video_Handler()
 
         if(!bGetSyncInfo())
         {
-        //Dongzejun:Î´»ñµÃÕıÈ·µÄĞÅÏ¢¡£
+        //Dongzejun:æœªè·å¾—æ­£ç¡®çš„ä¿¡æ¯ã€‚
             HDMIRX_PRINTF(("Current Get: ")); DumpSyncInfo(&s_CurrentVM) ;
 
             SwitchVideoState(VSTATE_SyncWait) ;
@@ -2872,7 +2872,7 @@ void Video_Handler()
         {
 
             HDMIRX_PRINTF(("Matched Result: ")); DumpSyncInfo(&s_CurrentVM) ;
-            bGetSyncFailCount = 0 ;		//Dongzejun:»ñµÃÕıÈ·µÄVIDEO ID
+            bGetSyncFailCount = 0 ;		//Dongzejun:è·å¾—æ­£ç¡®çš„VIDEO ID
         }
 
         SetDefaultRegisterValue() ;
@@ -2902,7 +2902,7 @@ void Video_Handler()
 }
 
 static void SetVideoInputFormatWithoutInfoFrame(BYTE bInMode)
-//Dongzejun:Ã»ÓĞAVI
+//Dongzejun:æ²¡æœ‰AVI
 {
     BYTE uc ;
 
@@ -2935,7 +2935,7 @@ static void SetVideoInputFormatWithoutInfoFrame(BYTE bInMode)
 
 }
 
-//Dongzejun:¸ßÇå£¬»òÕß±êÇå?
+//Dongzejun:é«˜æ¸…ï¼Œæˆ–è€…æ ‡æ¸…?
 static void SetColorimetryByMode(/*PSYNC_INFO pSyncInfo*/)
 {
 
@@ -2954,21 +2954,21 @@ static void SetColorimetryByMode(/*PSYNC_INFO pSyncInfo*/)
 }
 
 void SetVideoInputFormatWithInfoFrame()
-//Dongzejun:½ÓÊÕµ½Ò»¸öĞÂµÄAVI°ü¡£Êä³öÉ«²Ê¿Õ¼äÉèÖÃbInputVideoMode
+//Dongzejun:æ¥æ”¶åˆ°ä¸€ä¸ªæ–°çš„AVIåŒ…ã€‚è¾“å‡ºè‰²å½©ç©ºé—´è®¾ç½®bInputVideoMode
 {
     BYTE uc ;
     BOOL bAVIColorModeIndicated = FALSE ;
 
-	//Dongzejun:Á½¸ö±äÁ¿¸ñÊ½²»¶Ô£¬BOOL¡¢BYTE!!!!!!!!!!!!!!!!!!
+	//Dongzejun:ä¸¤ä¸ªå˜é‡æ ¼å¼ä¸å¯¹ï¼ŒBOOLã€BYTE!!!!!!!!!!!!!!!!!!
 	//BOOL==>BYTE
     BOOL bOldInputVideoMode = bInputVideoMode ;  
 	
     HDMIRX_PRINTF(("SetVideoInputFormatWithInfoFrame(): "));
 
-    uc = HDMIRX_ReadI2C_Byte(REG_RX_AVI_DB1) ;	//Dongzejun:Reg0xae P6 DATA BYTE1¡¡AVI×Ö½Ú1ÄÚÈİ
+    uc = HDMIRX_ReadI2C_Byte(REG_RX_AVI_DB1) ;	//Dongzejun:Reg0xae P6 DATA BYTE1ã€€AVIå­—èŠ‚1å†…å®¹
     HDMIRX_PRINTF(("REG_RX_AVI_DB1 %02X get uc %02X ",(int)REG_RX_AVI_DB1,(int)uc));
 
-    prevAVIDB1 = uc ;		//Dongzejun:ÖĞ¶ÏÒıÆğµÄ£¬½ÓÊÕÒ»¸öĞÂµÄAVI¡¡°ü
+    prevAVIDB1 = uc ;		//Dongzejun:ä¸­æ–­å¼•èµ·çš„ï¼Œæ¥æ”¶ä¸€ä¸ªæ–°çš„AVIã€€åŒ…
     bInputVideoMode &= ~F_MODE_CLRMOD_MASK ;
 
     switch((uc>>O_AVI_COLOR_MODE)&M_AVI_COLOR_MASK)
@@ -3003,7 +3003,7 @@ void SetVideoInputFormatWithInfoFrame()
 }
 
 BOOL SetColorimetryByInfoFrame()
-//Dongzejun: ÉèÖÃbInputVideoMode[4] 1:ITU709 0:ITU601
+//Dongzejun: è®¾ç½®bInputVideoMode[4] 1:ITU709 0:ITU601
 {
     BYTE uc ;
     BOOL bOldInputVideoMode = bInputVideoMode ;
@@ -3038,14 +3038,14 @@ BOOL SetColorimetryByInfoFrame()
 }
 
 void SetColorSpaceConvert()
-//Dongzejun:ÉèÖÃReg0x20ºÍReg0x1C
+//Dongzejun:è®¾ç½®Reg0x20å’ŒReg0x1C
 {
     BYTE uc, csc ;
     BYTE filter = 0 ;
 
     switch(bOutputVideoMode&F_MODE_CLRMOD_MASK)
     {
-    //Dongzejun:ÎÒÃÇµÄs-1071fËùÉèÖÃµÄCAT6023Êä³öÊÇYUV444
+    //Dongzejun:æˆ‘ä»¬çš„s-1071fæ‰€è®¾ç½®çš„CAT6023è¾“å‡ºæ˜¯YUV444
 	#ifdef OUTPUT_YUV444
     case F_MODE_YUV444:
 
@@ -3143,7 +3143,7 @@ void SetColorSpaceConvert()
     if( csc == B_CSC_RGB2YUV )	//Dongzejun:RGB=>YUV
     {
 
-        if(bInputVideoMode & F_MODE_ITU709)	//Dongzejun: ¸ßÇå
+        if(bInputVideoMode & F_MODE_ITU709)	//Dongzejun: é«˜æ¸…
         {
             HDMIRX_PRINTF(("ITU709 "));
 
@@ -3223,7 +3223,7 @@ void SetColorSpaceConvert()
     uc = (uc & ~M_CSC_SEL_MASK)|csc ;
     HDMIRX_WriteI2C_Byte(REG_RX_CSC_CTRL,uc) ;
 
-	//Dongzejun:ÉèÖÃREG0x1c  Video Ctr
+	//Dongzejun:è®¾ç½®REG0x1c  Video Ctr
     uc = HDMIRX_ReadI2C_Byte(REG_RX_VIDEO_CTRL1) ;
     uc &= ~(B_RX_DNFREE_GO|B_RX_EN_DITHER|B_RX_EN_UDFILTER) ;
     uc |= filter ;
@@ -3240,7 +3240,7 @@ SetDVIVideoOutput()
 }
 
 void SetNewInfoVideoOutput()
-//Dongzejun: Reg0xAE P6¡¡ÉèÖÃĞÂµÄVideoÊä³ö
+//Dongzejun: Reg0xAE P6ã€€è®¾ç½®æ–°çš„Videoè¾“å‡º
 {
     /*
     BYTE db1,db2,db3 ;
@@ -3256,10 +3256,10 @@ void SetNewInfoVideoOutput()
     } while ( (db1 != db2)||(db2!=db3)) ;
     */
 
-    SetVideoInputFormatWithInfoFrame() ;//Dongzejun:ÉèÖÃbInputVideoMode[1:0]½ÓÊÕµ½Ò»¸öĞÂµÄAVI°ü¡£Êä³öÉ«²Ê¿Õ¼äÉèÖÃ
-    SetColorimetryByInfoFrame() ;			//Dongzejun: ÉèÖÃbInputVideoMode[4] 1:ITU709 0:ITU601
+    SetVideoInputFormatWithInfoFrame() ;//Dongzejun:è®¾ç½®bInputVideoMode[1:0]æ¥æ”¶åˆ°ä¸€ä¸ªæ–°çš„AVIåŒ…ã€‚è¾“å‡ºè‰²å½©ç©ºé—´è®¾ç½®
+    SetColorimetryByInfoFrame() ;			//Dongzejun: è®¾ç½®bInputVideoMode[4] 1:ITU709 0:ITU601
     SetColorSpaceConvert() ;
-    DumpCat6023Reg();		//Dongzejun:CAT6023¼Ä´æÆ÷
+    DumpCat6023Reg();		//Dongzejun:CAT6023å¯„å­˜å™¨
 }
 
 void
@@ -3328,7 +3328,7 @@ void SetHWMuteCTRL(BYTE AndMask, BYTE OrMask)
 }
 
 void SetVideoMute(BOOL bMute)
-//Dongzejun:ÊÓÆµ¾²Ö¹or´ò¿ª  bMute=1¾²Òô£»£½0Õı³£
+//Dongzejun:è§†é¢‘é™æ­¢oræ‰“å¼€  bMute=1é™éŸ³ï¼›ï¼0æ­£å¸¸
 {
     BYTE uc ;
 #ifdef SUPPORT_REPEATER
@@ -3342,7 +3342,7 @@ void SetVideoMute(BOOL bMute)
     }
 
 #endif
-    if( bMute )	//Dongzejun:ÊÓÆµÊä³ö½ûÖ¹
+    if( bMute )	//Dongzejun:è§†é¢‘è¾“å‡ºç¦æ­¢
     {
 
 		uc = HDMIRX_ReadI2C_Byte(REG_RX_CSC_CTRL) ;
@@ -3355,7 +3355,7 @@ void SetVideoMute(BOOL bMute)
         HDMIRX_WriteI2C_Byte(REG_RX_TRISTATE_CTRL, uc) ;
 
     }
-    else  //Dongzejun:ÊÓÆµÍ¨µÀ´ò¿ª
+    else  //Dongzejun:è§†é¢‘é€šé“æ‰“å¼€
     {
         if( VState == VSTATE_VideoOn )
         {
@@ -3397,13 +3397,13 @@ void SetVideoMute(BOOL bMute)
 }
 
 void SetAudioMute(BOOL bMute)
-//Dongzejun:1->ÒôÆµ¾²Òôor 0->´ò¿ª
+//Dongzejun:1->éŸ³é¢‘é™éŸ³or 0->æ‰“å¼€
 {
-    if( bMute )	//Dongzejun:¾²Òô
+    if( bMute )	//Dongzejun:é™éŸ³
     {
         SetMUTE(~B_TRI_AUDIO, B_TRI_AUDIO) ;
     }
-    else		//Dongzejun:ÒôÆµ´ò¿ª¡£
+    else		//Dongzejun:éŸ³é¢‘æ‰“å¼€ã€‚
     {
 
         SetMUTE(~B_TRI_AUDIO, 0) ;

@@ -76,31 +76,33 @@ public class CaptureImage extends Activity
 		videoSize videosize = switvideo_native_getsize();//first get video size;
 		screenWidth = videosize.videoWidth;
 		screenHeight = videosize.videoHeight;
- 
-		switvideo_native_grun();//second switvideo starting
+		
+		switvideo_native_fieldset();// set field
 		
 		super.onCreate(savedInstanceState);
-		// 设置全屏
+		//设置全屏
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 			WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.main);
 		//landscape
 		// 获取窗口管理器
-		WindowManager wm = getWindowManager();
+		//WindowManager wm = getWindowManager();
 		//Display display = wm.getDefaultDisplay();
 		//DisplayMetrics metrics = new DisplayMetrics();
 		// 获取屏幕的宽和高
 		//display.getMetrics(metrics);
 		//screenWidth = metrics.widthPixels;
 		//screenHeight = metrics.heightPixels;
-		
+	
 		// 获取界面中SurfaceView组件
 		sView = (SurfaceView) findViewById(R.id.sView);
 		// 设置该Surface不需要自己维护缓冲区
 		//sView.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);//已经弃用
 		// 获得SurfaceView的SurfaceHolder
 		surfaceHolder = sView.getHolder();
+		//if jnicallback but getHolder didn't exec; screen will black
+		switvideo_native_grun();//second switvideo starting
 		// 为surfaceHolder添加一个回调监听器
 		surfaceHolder.addCallback(new Callback()
 		{
@@ -115,6 +117,7 @@ public class CaptureImage extends Activity
 			public void surfaceCreated(SurfaceHolder holder)
 			{
 				// 打开摄像头
+				//surfaceHolder = holder;
 				initCamera();
 			}
 
@@ -127,6 +130,7 @@ public class CaptureImage extends Activity
 					if (isPreview) camera.stopPreview();
 					camera.release();
 					camera = null;
+					switvideo_native_exit();//need test!?
 				}
 			}
 		});
@@ -306,7 +310,7 @@ public class CaptureImage extends Activity
 	public native static void switvideo_native_exit();
 	public native static void switvideo_native_fieldset();
 	public native static videoSize switvideo_native_getsize();
-	public native static int switvideo_native_setinterface(int videoInterface);
+	public native static int switvideo_native_setinterface(byte videoInterface);//0x01 SDI1;0x02 SDI2;0x03 HDMI;0x04 CVBS
 	
 	static {
 		System.loadLibrary("switvideo");

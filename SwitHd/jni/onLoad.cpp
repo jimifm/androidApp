@@ -1,12 +1,12 @@
 //onLoad.cpp
-#define TAG "Hdmirx_onLoad"
+#define TAG "switvideo_onLoad"
 #include <stdlib.h>
 #include <android/log.h>
 #include "jniUtils.h"
 
 extern "C" {
 
-extern int register_com_it6604_hdmirx_HdmirxActivity(JNIEnv *env);
+extern int register_switvideo_nativeMethods(JNIEnv *env);
 
 }
 
@@ -69,7 +69,7 @@ int jniRegisterNativeMethods(JNIEnv* env,
     }
     return 0;
 }
-//Dalvik虚拟机加载C库时，第一件事是调用JNI_OnLoad()函数
+
 jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     JNIEnv* env = NULL;
     jint result = JNI_ERR;
@@ -83,8 +83,8 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     __android_log_print(ANDROID_LOG_INFO, TAG, "loading . . .");
 
 
-    if(register_com_it6604_hdmirx_HdmirxActivity(env) != JNI_OK) {
-    	__android_log_print(ANDROID_LOG_ERROR, TAG, "can't load register_com_conowen_fs_FsActivity");
+    if(register_switvideo_nativeMethods(env) != JNI_OK) {
+    	__android_log_print(ANDROID_LOG_ERROR, TAG, "can't load register_switvideo_nativeMethods");
         goto end;
 	}
 

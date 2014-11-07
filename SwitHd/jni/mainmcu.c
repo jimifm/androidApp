@@ -17,7 +17,7 @@
 #include <linux/videodev2.h>
 #include "jniUtils.h"
 
-#define LOG_TAG "hdmirxStub"
+#define LOG_TAG "switvideoStub"
 #define LOGI(...) \
 	((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 #define LOGW(...) \
@@ -74,9 +74,7 @@ BYTE FPGA_ReadI2C_Byte(int busfd, BYTE RegAddr)
 	ret = ioctl(i2cbus_fd, I2C_RDWR, (unsigned long) &work_queue);
 	if (ret < 0)
 	{
-		printf("Error during I2C_RDWR ioctl with error code: %d\n", ret);
-	//goto err;
-		perror("[read] error:");
+		LOGE("Error during I2C_RD ioctl with error code: %d\n", ret);
 	}
 	else{
 	//	if(data == 0)
@@ -105,8 +103,7 @@ SYS_STATUS FPGA_WriteI2C_Byte(int busfd, BYTE RegAddr,BYTE d)
 
 	msg[0] = RegAddr;
 	msg[1] = d;
-//	ioctl(i2cbus_fd, I2C_TIMEOUT, 2);
-//	ioctl(i2cbus_fd, I2C_RETRIES, 1);
+
 
 	(work_queue.msgs[0]).len = 2;
 	(work_queue.msgs[0]).flags = 0;
@@ -116,7 +113,7 @@ SYS_STATUS FPGA_WriteI2C_Byte(int busfd, BYTE RegAddr,BYTE d)
 	ret = ioctl(i2cbus_fd, I2C_RDWR, (unsigned long) &work_queue);
 	if (ret < 0)
 	{
-		printf("Error during I2C_RDWR ioctl with error code: %d\n", ret);
+		LOGE("Error during I2C_WR ioctl with error code: %d\n", ret);
 		//goto err;
 	}
 	else
@@ -133,7 +130,11 @@ void CheckFPGA()
 	enum v4l2_field	cfield;
 	BYTE data = FPGA_ReadI2C_Byte(i2cbus_fd, 0xdd);
 	if(data == 0x00)
+	{
+		LOGI("waiting video input stability");
 		return;
+	}
+
 	BYTE tmp = (data & 0x18)>>3;
 	switch(tmp)
 	{
@@ -152,11 +153,11 @@ void CheckFPGA()
 	switch(tmp)
 	{
 	case 0x01:
-		width = 640;
+		width = 720;
 		height = 480;
 		break;
 	case 0x02:
-		width = 1024;
+		width = 720;
 		height = 576;
 		break;
 	case 0x03:
@@ -175,14 +176,21 @@ void CheckFPGA()
 		width = 1920;
 		height = 1080;
 	}
-
+#if 0
+	LOGI("CheckFPGA--videoWidth = %d",width);
+	LOGI("CheckFPGA--videoHeight = %d",height);
+	if(cfield != field)
+	{
+		LOGI("CheckFPGA--filed changed %0x",data);
+	}
+#endif
 	if(width != videoWidth || cfield != field)
 	{
 		LOGI("CheckFPGA videoWidth = %d",width);
 		LOGI("CheckFPGA videoHeight = %d",height);
 		if(cfield != field)
 		{
-			LOGI("CheckFPGA filed changed %0x",tmp);
+			LOGI("CheckFPGA filed changed %0x",data);
 		}
 		videoWidth = width;
 		videoHeight = height;
@@ -321,7 +329,8 @@ void switvideo_1native_1init
 		printf("Error on opening the device file\n");
 		return ;
 	}
-	InitCAT6023() ;
+	InitCAT6023();
+	sleep(2);
     //init_hdmirx();
 }
 /*
@@ -410,11 +419,11 @@ jobject  Java_switvideo_1native_1getsize
 	switch(tmp)
 	{
 	case 0x01:
-		videoWidth = 640;
+		videoWidth = 720;
 		videoHeight = 480;
 		break;
 	case 0x02:
-		videoWidth = 1024;
+		videoWidth = 720;
 		videoHeight = 576;
 		break;
 	case 0x03:
@@ -435,6 +444,7 @@ jobject  Java_switvideo_1native_1getsize
 	}
 	LOGI("videoWidth = %d",videoWidth);
 	LOGI("videoHeight = %d",videoHeight);
+	LOGI("get info data %0x",data);
 //#endif
 //#ifndef __DEBUG__
 
@@ -459,11 +469,17 @@ jobject  Java_switvideo_1native_1getsize
 /*
  * Class:     org_monitor_display_CaptureImage
  * Method:    switvideo_native_setinterface
- * Signature: (I)I
+ * Signature: (B)I
  */
 jint Java_switvideo_1native_1setinterface
-  (JNIEnv *env, jclass thiz, jint videoInterface)
+  (JNIEnv *env, jclass thiz, jbyte videoInterface)
 {
+	int busfd = open("/dev/i2c-0", O_RDWR);
+	if(busfd < 0)
+		return -1;
+
+	FPGA_WriteI2C_Byte(busfd, 0xdf,videoInterface);//0x01 SDI1;0x02 SDI2;0x03 HDMI;0x04 CVBS
+	close(busfd);
 	return 0;
 }
 static JNINativeMethod gMethods[] = {
@@ -472,10 +488,10 @@ static JNINativeMethod gMethods[] = {
     {"switvideo_native_exit",       "()V",           (void *)Java_switvideo_1native_1exit},
     {"switvideo_native_fieldset",       "()V",           (void *)Java_switvideo_1native_1fieldset},
     {"switvideo_native_getsize",       "()Lorg/monitor/display/videoSize;",           (void *)Java_switvideo_1native_1getsize},
-    {"switvideo_native_setinterface",       "(I)I",           (void *)Java_switvideo_1native_1setinterface},
+    {"switvideo_native_setinterface",       "(B)I",           (void *)Java_switvideo_1native_1setinterface},
 };
 
-int register_com_it6604_hdmirx_HdmirxActivity(JNIEnv *env) {
+int register_switvideo_nativeMethods(JNIEnv *env) {
 	return jniRegisterNativeMethods(env, kClassPathName, gMethods, sizeof(gMethods) / sizeof(gMethods[0]));
 
 }
